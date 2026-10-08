@@ -1,0 +1,56 @@
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=xn7gYHE41ni1AdIRsgWj89n8XfytQmsTcOfs85fVVOjvOoaD8jygkUNc0DEhx7qdUhAzIvVP1ETcpR6Up30OG9saDCxa-Zq7F0sxiEleqR9-kkpC5FGmgbyFywfCRasVNvudy197KDswpRkayeomZMkRJi62YwV_-SeBg0aJS5pcdOnHamdSy5OrTJBFZJWgm8Q6T0tJDRe4ekAGwwBIwtqoCKXP_-fcUlj7WH8Qk6dGj-auYcjFegVZmHeHVrhYqoE_8OHIu-DkOzfTwOrncVm1OzalxMDpgdCueb_NKYbQkgJ_wum3vxyO9T7G7g9rDtEB6pyWH6f1q-UDngukymKrg4IeAhRMZJXcE5CsPNXw15YXlJgNF1rWAdoi_H099rushk5IgvtHAMhSBN15s27bPosxrLcI1EpyXtsBqvsN8ZliD15sQQ3w0anGtk4GzsNECr4rsYcZRl9P39ue-q8BXKrkEm0iFbaqUiZZ4zZJe-ktYLN7qtq1PqfJ6I7Wy0cb37DEA7cONKZ0zhNt8LbqIQzzLUcK8KyekpLXOIwJ4jwmLzVUAEkCYQC2yww7AauoKjuNcD9L6I2xDKj7Hn1bBIXj9AM7whWQE07dU5rdQaMZbGaSSnvB78GMNcvi5-m6JRj-iKpGnsGZ1zOafPMM0CYjP0oI7paarunu0vNm7ltksO5PFLjdh9GVBgIw2VJeozwjXKm3zlHDeVK_u7K_7lXTnHeT_PruhxSfklEWHqbSlcF49mXzFtgfISR3jbyLCyFNK_o1Gif1yQ&skey=c397ded15edc0853&v=v20) format('woff2');
+  unicode-range: U+20-7e, U+a9-aa, U+b7, U+ba, U+c0-ff, U+106-109, U+11c-11d, U+122-125, U+128-129, U+134-137, U+139-13c, U+143-146, U+154-157, U+15a-15f, U+162-163, U+168-169, U+16e-16f, U+174-17a, U+1d7-1d8, U+1db-1dc, U+1f4-1f5, U+1f8-1ff, U+228-229, U+300-303, U+308, U+30a, U+327, U+1e08-1e09, U+1e10-1e11, U+1e26-1e29, U+1e2e-1e31, U+1e3e-1e3f, U+1e4c-1e4f, U+1e54-1e55, U+1e78-1e79, U+1e7c-1e7d, U+1e80-1e85, U+1e8c-1e8d, U+1e90-1e91, U+1e97-1e99, U+1ea4-1ea7, U+1eaa-1eab, U+1ebc-1ec1, U+1ec4-1ec5, U+1ed0-1ed3, U+1ed6-1ed7, U+1ef2-1ef3, U+1ef8-1ef9, U+2013-2014, U+2019, U+201c-201d, U+2026;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=xn7gYHE41ni1AdIRsgWj89n8XfytQmsTcOfs85fVVOjvOoaD8jygkUNc0DEhx7qdUhAzIvVP1ETcpR6Up30OG9saDCxa-Zq7F0sxiEleqR9-kkpC5FGmgbyFywfCRasVNvudy197KDswpRkayeomZMkRJi62YwV_-SeBg0aJS5pcdOnHamdSy5OrTJBFZJWgm8Q6T0tJDRe4ekAGwwBIwtqoCKXP_-fcUlj7WH8Qk6dGj-auYcjFegVZmHeHVrhYqoE_8OHIu-DkOzfTwOrncVm1OzalxMDpgdCueb_NKYbQkgJ_wum3vxyO9T7G7g9rDtEB6pyWH6f1q-UDngukymKrg4IeAhRMZJXcE5CsPNXw15YXlJgNF1rWAdoi_H099rushk5IgvtHAMhSBN15s27bPosxrLcI1EpyXtsBqvsN8ZliD15sQQ3w0anGtk4GzsNECr4rsYcZRl9P39ue-q8BXKrkEm0iFbaqUiZZ4zZJe-ktYLN7qtq1PqfJ6I7Wy0cb37DEA7cONKZ0zhNt8LbqIQzzLUcK8KyekpLXOIwJ4jwmLzVUAEkCYQC2yww7AauoKjuNcD9L6I2xDKj7Hn1bBIXj9AM7whWQE07dU5rdQaMZbGaSSnvB78GMNcvi5-m6JRj-iKpGnsGZ1zOafPMM0CYjP0oI7paarunu0vNm7ltksO5PFLjdh9GVBgIw2VJeozwjXKm3zlHDeVK_u7K_7lXTnHeT_PruhxSfklEWHqbSlcF49mXzFtgfISR3jbyLCyFNK_o1Gif1yQ&skey=c397ded15edc0853&v=v20) format('woff2');
+  unicode-range: U+20-7e, U+a9-aa, U+b7, U+ba, U+c0-ff, U+106-109, U+11c-11d, U+122-125, U+128-129, U+134-137, U+139-13c, U+143-146, U+154-157, U+15a-15f, U+162-163, U+168-169, U+16e-16f, U+174-17a, U+1d7-1d8, U+1db-1dc, U+1f4-1f5, U+1f8-1ff, U+228-229, U+300-303, U+308, U+30a, U+327, U+1e08-1e09, U+1e10-1e11, U+1e26-1e29, U+1e2e-1e31, U+1e3e-1e3f, U+1e4c-1e4f, U+1e54-1e55, U+1e78-1e79, U+1e7c-1e7d, U+1e80-1e85, U+1e8c-1e8d, U+1e90-1e91, U+1e97-1e99, U+1ea4-1ea7, U+1eaa-1eab, U+1ebc-1ec1, U+1ec4-1ec5, U+1ed0-1ed3, U+1ed6-1ed7, U+1ef2-1ef3, U+1ef8-1ef9, U+2013-2014, U+2019, U+201c-201d, U+2026;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=xn7gYHE41ni1AdIRsgWj89n8XfytQmsTcOfs85fVVOjvOoaD8jygkUNc0DEhx7qdUhAzIvVP1ETcpR6Up30OG9saDCxa-Zq7F0sxiEleqR9-kkpC5FGmgbyFywfCRasVNvudy197KDswpRkayeomZMkRJi62YwV_-SeBg0aJS5pcdOnHamdSy5OrTJBFZJWgm8Q6T0tJDRe4ekAGwwBIwtqoCKXP_-fcUlj7WH8Qk6dGj-auYcjFegVZmHeHVrhYqoE_8OHIu-DkOzfTwOrncVm1OzalxMDpgdCueb_NKYbQkgJ_wum3vxyO9T7G7g9rDtEB6pyWH6f1q-UDngukymKrg4IeAhRMZJXcE5CsPNXw15YXlJgNF1rWAdoi_H099rushk5IgvtHAMhSBN15s27bPosxrLcI1EpyXtsBqvsN8ZliD15sQQ3w0anGtk4GzsNECr4rsYcZRl9P39ue-q8BXKrkEm0iFbaqUiZZ4zZJe-ktYLN7qtq1PqfJ6I7Wy0cb37DEA7cONKZ0zhNt8LbqIQzzLUcK8KyekpLXOIwJ4jwmLzVUAEkCYQC2yww7AauoKjuNcD9L6I2xDKj7Hn1bBIXj9AM7whWQE07dU5rdQaMZbGaSSnvB78GMNcvi5-m6JRj-iKpGnsGZ1zOafPMM0CYjP0oI7paarunu0vNm7ltksO5PFLjdh9GVBgIw2VJeozwjXKm3zlHDeVK_u7K_7lXTnHeT_PruhxSfklEWHqbSlcF49mXzFtgfISR3jbyLCyFNK_o1Gif1yQ&skey=c397ded15edc0853&v=v20) format('woff2');
+  unicode-range: U+20-7e, U+a9-aa, U+b7, U+ba, U+c0-ff, U+106-109, U+11c-11d, U+122-125, U+128-129, U+134-137, U+139-13c, U+143-146, U+154-157, U+15a-15f, U+162-163, U+168-169, U+16e-16f, U+174-17a, U+1d7-1d8, U+1db-1dc, U+1f4-1f5, U+1f8-1ff, U+228-229, U+300-303, U+308, U+30a, U+327, U+1e08-1e09, U+1e10-1e11, U+1e26-1e29, U+1e2e-1e31, U+1e3e-1e3f, U+1e4c-1e4f, U+1e54-1e55, U+1e78-1e79, U+1e7c-1e7d, U+1e80-1e85, U+1e8c-1e8d, U+1e90-1e91, U+1e97-1e99, U+1ea4-1ea7, U+1eaa-1eab, U+1ebc-1ec1, U+1ec4-1ec5, U+1ed0-1ed3, U+1ed6-1ed7, U+1ef2-1ef3, U+1ef8-1ef9, U+2013-2014, U+2019, U+201c-201d, U+2026;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=xn7gYHE41ni1AdIRsgWj89n8XfytQmsTcOfs85fVVOjvOoaD8jygkUNc0DEhx7qdUhAzIvVP1ETcpR6Up30OG9saDCxa-Zq7F0sxiEleqR9-kkpC5FGmgbyFywfCRasVNvudy197KDswpRkayeomZMkRJi62YwV_-SeBg0aJS5pcdOnHamdSy5OrTJBFZJWgm8Q6T0tJDRe4ekAGwwBIwtqoCKXP_-fcUlj7WH8Qk6dGj-auYcjFegVZmHeHVrhYqoE_8OHIu-DkOzfTwOrncVm1OzalxMDpgdCueb_NKYbQkgJ_wum3vxyO9T7G7g9rDtEB6pyWH6f1q-UDngukymKrg4IeAhRMZJXcE5CsPNXw15YXlJgNF1rWAdoi_H099rushk5IgvtHAMhSBN15s27bPosxrLcI1EpyXtsBqvsN8ZliD15sQQ3w0anGtk4GzsNECr4rsYcZRl9P39ue-q8BXKrkEm0iFbaqUiZZ4zZJe-ktYLN7qtq1PqfJ6I7Wy0cb37DEA7cONKZ0zhNt8LbqIQzzLUcK8KyekpLXOIwJ4jwmLzVUAEkCYQC2yww7AauoKjuNcD9L6I2xDKj7Hn1bBIXj9AM7whWQE07dU5rdQaMZbGaSSnvB78GMNcvi5-m6JRj-iKpGnsGZ1zOafPMM0CYjP0oI7paarunu0vNm7ltksO5PFLjdh9GVBgIw2VJeozwjXKm3zlHDeVK_u7K_7lXTnHeT_PruhxSfklEWHqbSlcF49mXzFtgfISR3jbyLCyFNK_o1Gif1yQ&skey=c397ded15edc0853&v=v20) format('woff2');
+  unicode-range: U+20-7e, U+a9-aa, U+b7, U+ba, U+c0-ff, U+106-109, U+11c-11d, U+122-125, U+128-129, U+134-137, U+139-13c, U+143-146, U+154-157, U+15a-15f, U+162-163, U+168-169, U+16e-16f, U+174-17a, U+1d7-1d8, U+1db-1dc, U+1f4-1f5, U+1f8-1ff, U+228-229, U+300-303, U+308, U+30a, U+327, U+1e08-1e09, U+1e10-1e11, U+1e26-1e29, U+1e2e-1e31, U+1e3e-1e3f, U+1e4c-1e4f, U+1e54-1e55, U+1e78-1e79, U+1e7c-1e7d, U+1e80-1e85, U+1e8c-1e8d, U+1e90-1e91, U+1e97-1e99, U+1ea4-1ea7, U+1eaa-1eab, U+1ebc-1ec1, U+1ec4-1ec5, U+1ed0-1ed3, U+1ed6-1ed7, U+1ef2-1ef3, U+1ef8-1ef9, U+2013-2014, U+2019, U+201c-201d, U+2026;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=cY9kfjOCX1hbuyalUrK439vogqC9yFZCYg7oRZaLP4obnf7fTXglsMwoT-ZFBI28oXmB_gNjFcMDHJsZGO1p1oVU5bW8nPp3iH8gvzwaWzxTDaZewhHc2QhhDwlr5yQzh45e6xDdv92_KjwLV8SOvgGgto-yJ_VgbH0-520EC8Mrl7ZhJ-rkN-JwcfcdbI1LbXzKMm8cnlThDZQHw8MhfnKxwuAW7gV5lFk1zgkEoJ7QYpZbOcPM4oDnNuurMH13rUqOaiEtLunOkhxiRoOGK1flqv1St5nucRp2Dr5BImKd8aQPAiq7piZpsWc_ZHJn1bsCyKYj5Lcd9mlpZ_5QPIPmogiG-3lzKkGbaqbRzo1NUTzARKuMaEYwe6zXj3kPVaE82a5r2A3BpJtuJ3o71-hN-DW4SBst1-csIAsSIPeJp5gU58VD4IRBC4heKy6gE89htF2ijudvxKdnMEmJkDg2qAgIluviLXytqQnE_Eeo4g99SGaa0nxtiOgHA6u0LMdQa7xSPT6LAv83wfjwuIBMJ7e88YiNVzJ6uMl08TVf_yDm7XwLDUfg9cvP3z5SMuOa1ZQg6WG-hbuGDvm5fH0P4ry8crAf2xumcsJBM77gOqXYE0IxdtNgBTSg4d217Zcb4aLtsxXxYe3nXqItwqbN9s8cFRdSEH57nrglhoPLpnsNGVPtYv3liAHHkN2uB2WhxA47f7JhUfNOSzBztGMxg5nOdKgQewnTrnNhcAK8dN3VlmdQCx3upGtRWaV5Vs5aLQBIcr5AeniW0euHw5mw1jq6kRkGCykDP8revm1dKHpfczTnhgOz6po&skey=2442794b106ad64a&v=v26) format('woff2');
+  unicode-range: U+20-7e, U+a9-aa, U+b7, U+ba, U+c0-ff, U+106-109, U+11c-11d, U+122-125, U+128-129, U+134-137, U+139-13c, U+143-146, U+154-157, U+15a-15f, U+162-163, U+168-169, U+16e-16f, U+174-17a, U+1d7-1d8, U+1db-1dc, U+1f4-1f5, U+1f8-1ff, U+228-229, U+300-303, U+308, U+30a, U+327, U+1e08-1e09, U+1e10-1e11, U+1e26-1e29, U+1e2e-1e31, U+1e3e-1e3f, U+1e4c-1e4f, U+1e54-1e55, U+1e78-1e79, U+1e7c-1e7d, U+1e80-1e85, U+1e8c-1e8d, U+1e90-1e91, U+1e97-1e99, U+1ea4-1ea7, U+1eaa-1eab, U+1ebc-1ec1, U+1ec4-1ec5, U+1ed0-1ed3, U+1ed6-1ed7, U+1ef2-1ef3, U+1ef8-1ef9, U+2013-2014, U+2019, U+201c-201d, U+2026;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=cY9VfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBDbPNz0XSQ9g1VsVluvIJexrGhyWrmiS7xRyBtIcDYgID_x6x4ollsTL7YkG9w5TzktrKE1cHLVP1QDPyBdwHBh89jciiL9t2ifsjOyAGw86YPW9jw6xpZ6lNuZxc2wt9noVGNKZTwa4kShQ-lmJyA2ikzAKBzqjdRtY5xCiRtZNgophNjX-hK5To0E13wp_nEBV6M6fNdgNdJaAttO8ZLH6aS0v-hXYNHRwerWV8UYAH-LeSwiC9JsP0sWKEnEUZN8oQgr6nsJhZ0ffyk0a2xVWFRoXusxsvstWiMNujRsTFocgRPSZ1Hbzhg0PVgTmLtiascc1DkWePsr3DwRQOM2b4zRiDdFlqMgZv36h2foQSwVWr5kKiHXLCWlvq7dTcXVAWaXP-NlKp5wAuNUaW9INTHzGTKI_2ATJ1o00tf0XVzrv4lVLxHRj6YOwXiHf93idjDbXknEANRjKryMR1JNcedjNXr8gBM08S3n8RI9ysLyC9_MOQ9j0hYCgbncZzNpZwWg0iyHm7VMLDWbg9fLP3wFSMuqa1YMg6Xi-hayGDui5fV4P44G8c48f2iqmc-lBM6fgOpDYE3UxduBgBR2g4si17q4b4pntsCrxYtTnXqctwqvN9sAcFQRSEGt7nqolhpfLpm8NGWftYsnliDDHkOKuB1ahxAE7f6thUehOSylztHYxgrLOdZUQejDTr0hhcS28dMzVlnRQCwrupHhRWaJ5Vu1aLSFIcpVAeleV6u-E-L-z7RC5qj0FMA0DP_8&skey=e69ba3232be0ce27&v=v26) format('woff2');
+  unicode-range: U+20-7e, U+a9-aa, U+b7, U+ba, U+c0-ff, U+106-109, U+11c-11d, U+122-125, U+128-129, U+134-137, U+139-13c, U+143-146, U+154-157, U+15a-15f, U+162-163, U+168-169, U+16e-16f, U+174-17a, U+1d7-1d8, U+1db-1dc, U+1f4-1f5, U+1f8-1ff, U+228-229, U+300-303, U+308, U+30a, U+327, U+1e08-1e09, U+1e10-1e11, U+1e26-1e29, U+1e2e-1e31, U+1e3e-1e3f, U+1e4c-1e4f, U+1e54-1e55, U+1e78-1e79, U+1e7c-1e7d, U+1e80-1e85, U+1e8c-1e8d, U+1e90-1e91, U+1e97-1e99, U+1ea4-1ea7, U+1eaa-1eab, U+1ebc-1ec1, U+1ec4-1ec5, U+1ed0-1ed3, U+1ed6-1ed7, U+1ef2-1ef3, U+1ef8-1ef9, U+2013-2014, U+2019, U+201c-201d, U+2026;
+}
+@font-face {
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/l/font?kit=cY9VfjOCX1hbuyalUrK49dLac06G1ZGsZBtoBDbPNz0XSQ9g1VsVluvIJexrGhyWrmiS7xRyBtIcDYgID_x6x4ollsTL7YkG9w5TzktrKE1cHLVP1QDPyBdwHBh89jciiL9t2ifsjOyAGw86YPW9jw6xpZ6lNuZxc2wt9noVGNKZTwa4kShQ-lmJyA2ikzAKBzqjdRtY5xCiRtZNgophNjX-hK5To0E13wp_nEBV6M6fNdgNdJaAttO8ZLH6aS0v-hXYNHRwerWV8UYAH-LeSwiC9JsP0sWKEnEUZN8oQgr6nsJhZ0ffyk0a2xVWFRoXusxsvstWiMNujRsTFocgRPSZ1Hbzhg0PVgTmLtiascc1DkWePsr3DwRQOM2b4zRiDdFlqMgZv36h2foQSwVWr5kKiHXLCWlvq7dTcXVAWaXP-NlKp5wAuNUaW9INTHzGTKI_2ATJ1o00tf0XVzrv4lVLxHRj6YOwXiHf93idjDbXknEANRjKryMR1JNcedjNXr8gBM08S3n8RI9ysLyC9_MOQ9j0hYCgbncZzNpZwWg0iyHm7VMLDWbg9fLP3wFSMuqa1YMg6Xi-hayGDui5fV4P44G8c48f2iqmc-lBM6fgOpDYE3UxduBgBR2g4si17q4b4pntsCrxYtTnXqctwqvN9sAcFQRSEGt7nqolhpfLpm8NGWftYsnliDDHkOKuB1ahxAE7f6thUehOSylztHYxgrLOdZUQejDTr0hhcS28dMzVlnRQCwrupHhRWaJ5Vu1aLSFIcpVAeleV6u-E-L-z7RC5qj0FMA0DP_8&skey=e69ba3232be0ce27&v=v26) format('woff2');
+  unicode-range: U+20-7e, U+a9-aa, U+b7, U+ba, U+c0-ff, U+106-109, U+11c-11d, U+122-125, U+128-129, U+134-137, U+139-13c, U+143-146, U+154-157, U+15a-15f, U+162-163, U+168-169, U+16e-16f, U+174-17a, U+1d7-1d8, U+1db-1dc, U+1f4-1f5, U+1f8-1ff, U+228-229, U+300-303, U+308, U+30a, U+327, U+1e08-1e09, U+1e10-1e11, U+1e26-1e29, U+1e2e-1e31, U+1e3e-1e3f, U+1e4c-1e4f, U+1e54-1e55, U+1e78-1e79, U+1e7c-1e7d, U+1e80-1e85, U+1e8c-1e8d, U+1e90-1e91, U+1e97-1e99, U+1ea4-1ea7, U+1eaa-1eab, U+1ebc-1ec1, U+1ec4-1ec5, U+1ed0-1ed3, U+1ed6-1ed7, U+1ef2-1ef3, U+1ef8-1ef9, U+2013-2014, U+2019, U+201c-201d, U+2026;
+}

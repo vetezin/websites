@@ -1,0 +1,27 @@
+---
+import { team } from '../data/site.js';
+import Icon from './Icon.astro';
+const base = import.meta.env.BASE_URL;
+---
+<div class="team-grid">
+  {team.map((person, index) => <article class="person" data-reveal style={`--delay:${index * 80}ms`}>
+    <button class="person-photo" data-profile={person.id} aria-label={`Conhecer o perfil fictício de ${person.name}`}>
+      <img src={`${base}${person.image}`} alt={`Retrato gerado por IA de ${person.name}, pessoa fictícia`} width="640" height="800" loading="lazy" />
+      <span class="photo-action"><Icon name="plus" /><span>Conhecer perfil</span></span>
+    </button>
+    <p class="person-role">{person.role}</p>
+    <h3><button class="person-name" data-profile={person.id}>{person.name}<Icon name="external" size={20} /></button></h3>
+  </article>)}
+</div>
+{team.map(person => <dialog class="profile-dialog" id={`profile-${person.id}`} aria-labelledby={`name-${person.id}`}>
+  <div class="profile-content">
+    <img src={`${base}${person.image}`} alt={`Retrato ilustrativo de ${person.name}`} width="640" height="800" loading="lazy" />
+    <div class="profile-copy">
+      <button class="dialog-close" data-close aria-label="Fechar perfil"><Icon name="close" /></button>
+      <p class="eyebrow">Perfil demonstrativo</p><h2 id={`name-${person.id}`}>{person.name}</h2>
+      <p class="person-role">{person.role}</p><p>{person.bio}</p>
+      <h3>Focos de atuação ilustrativos</h3><ul class="plain-list">{person.focus.map(focus => <li>{focus}</li>)}</ul>
+      <p class="small-note">Pessoa, fotografia e informações fictícias para demonstração do design.</p>
+    </div>
+  </div>
+</dialog>)}

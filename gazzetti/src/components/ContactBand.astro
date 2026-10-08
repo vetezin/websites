@@ -1,0 +1,6 @@
+---
+import Icon from './Icon.astro';
+import Signature from './Signature.astro';
+const base = import.meta.env.BASE_URL;
+---
+<section class="contact-band"><div class="container contact-band-inner"><div><p class="eyebrow">Vamos conversar</p><h2>O próximo passo começa<br />com uma boa conversa.</h2></div><a class="button button-light" href={`${base}contato/`}>Entre em contato <Icon name="arrow" size={20} /></a><Signature /></div></section>

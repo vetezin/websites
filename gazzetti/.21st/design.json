@@ -1,0 +1,6 @@
+{
+  "project": "Gazzetti Advogados Associados",
+  "framework": "astro",
+  "decisions": ["Azul institucional preservado", "Composição arquitetural assimétrica", "Curva de assinatura usada com parcimônia", "Equipe fictícia identificada", "Motion em CSS e Web Animations, sem dependências"],
+  "tokens": { "navy": "#122D4C", "blue": "#244A70", "paper": "#FFFFFF", "surface": "#F2F5F7", "ink": "#263B4E" }
+}

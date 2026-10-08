@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+import Signature from '../components/Signature.astro';
+import TeamGrid from '../components/TeamGrid.astro';
+import { areas, offices, site } from '../data/site.js';
+const base = import.meta.env.BASE_URL;
+---
+<Layout active="">
+  <section class="home-hero container">
+    <div class="hero-copy"><p class="eyebrow hero-enter">Advocacia & consultoria empresarial</p>
+      <h1 class="hero-enter">Visão jurídica.<br />Estratégia para<br /><em>o seu negócio.</em></h1>
+      <p class="hero-description hero-enter">Decisões complexas pedem uma visão completa.<br class="desktop-break" /> Conectamos o Direito aos desafios da sua empresa.</p>
+      <a class="button hero-enter" href={`${base}areas/`}>Conheça nossa atuação <Icon name="arrow" size={20} /></a>
+      <div class="hero-location"><span class="location-dot"></span>Presidente Prudente <span class="location-separator">/</span> São Paulo</div>
+    </div>
+    <figure class="hero-figure"><div class="hero-image-wrap"><img src={`${base}${site.architecture.image}`} alt="Composição arquitetônica de um escritório contemporâneo, imagem ilustrativa" width="1536" height="1024" fetchpriority="high" /><div class="image-shade"></div><Signature /></div><figcaption><span>Clareza para decidir. Estrutura para avançar.</span><span>Imagem ilustrativa</span></figcaption></figure>
+    <span class="hero-vertical" aria-hidden="true">Gazzetti · Advogados Associados</span>
+  </section>
+  <section class="expertise section container" aria-labelledby="expertise-title">
+    <div class="section-heading" data-reveal><div><p class="eyebrow">Onde atuamos</p><h2 id="expertise-title">Um olhar integrado.<br />Três frentes de atuação.</h2></div><p>Da organização do negócio à condução de conflitos, o contexto da sua empresa orienta cada passo.</p></div>
+    <div class="area-rows">{areas.map(area => <a class="area-row" href={`${base}areas/#${area.id}`} data-reveal><span class="area-icon"><Icon name={area.icon} size={34} /></span><h3>{area.title}</h3><p>{area.intro}</p><span class="row-arrow"><Icon name="arrow" /></span></a>)}</div>
+  </section>
+  <section class="home-perspective"><div class="container perspective-grid"><div data-reveal><p class="eyebrow">O escritório</p><h2>Antes de qualquer<br />resposta, é preciso<br /><em>entender o negócio.</em></h2><Signature /></div><div class="perspective-copy" data-reveal><p class="lead">O Direito faz parte das decisões que constroem uma empresa. Nossa atuação parte dessa perspectiva.</p><p>Estruturação, negociação e contencioso são frentes conectadas. Compreender o cenário, avaliar caminhos e acompanhar seus desdobramentos é o que dá sentido ao trabalho jurídico.</p><div class="principle-line"><span>Análise</span><span>Estratégia</span><span>Proximidade</span></div><a class="text-link light-link" href={`${base}escritorio/`}>Conheça o escritório <Icon name="arrow" size={20} /></a></div></div></section>
+  <section class="section container"><div class="section-heading" data-reveal><div><p class="eyebrow">Pessoas à frente das decisões</p><h2>Conhecimento que se conecta.<br />Pessoas que se aproximam.</h2></div><a class="text-link" href={`${base}equipe/`}>Conheça a equipe <Icon name="arrow" size={20} /></a></div><p class="demo-note">Equipe ilustrativa — nomes, retratos e perfis fictícios para demonstração.</p><TeamGrid /></section>
+  <section class="home-offices"><div class="container"><div class="section-heading"><div><p class="eyebrow">Nossas unidades</p><h2>Próximos do seu negócio.</h2></div><a class="text-link" href={`${base}contato/`}>Entre em contato <Icon name="arrow" size={20} /></a></div><div class="office-pair">{offices.map(office => <article><Icon name="pin" size={27} /><div><h3>{office.city}<span> / {office.state}</span></h3><p>{office.address}<br />{office.complement}</p><a href={`tel:${office.tel}`}>{office.phone}</a><a class="text-link" href={office.map} target="_blank" rel="noopener noreferrer">Ver localização <Icon name="external" size={18} /></a></div></article>)}</div></div></section>
+</Layout>
