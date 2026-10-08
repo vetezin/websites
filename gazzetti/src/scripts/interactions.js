@@ -1,22 +1,19 @@
 import { createMailto, normalizeSearch } from '../data/contact.js';
 
 const menu = document.querySelector('.menu-toggle');
+const mobileNavigation = document.querySelector('.mobile-navigation');
 const navigation = document.querySelector('#navigation');
 
 function closeMenu() {
-  menu?.setAttribute('aria-expanded', 'false');
+  if (mobileNavigation instanceof HTMLDetailsElement) mobileNavigation.open = false;
   menu?.setAttribute('aria-label', 'Abrir menu');
-  navigation?.classList.remove('is-open');
 }
 
-menu?.addEventListener('click', () => {
-  const isOpen = menu.getAttribute('aria-expanded') !== 'true';
-  menu.setAttribute('aria-expanded', String(isOpen));
-  menu.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
-  navigation?.classList.toggle('is-open', isOpen);
+mobileNavigation?.addEventListener('toggle', () => {
+  menu?.setAttribute('aria-label', mobileNavigation.open ? 'Fechar menu' : 'Abrir menu');
 });
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true') {
+  if (event.key === 'Escape' && mobileNavigation?.open) {
     closeMenu();
     menu.focus();
   }

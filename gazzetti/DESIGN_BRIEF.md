@@ -34,10 +34,11 @@ Regra autoral: painéis fotográficos recebem uma pequena moldura deslocada e um
 - Áreas: índice por necessidade, três seções com escopo e dúvidas, contato contextual.
 - Equipe: profissionais fictícios claramente identificados, perfis detalhados em diálogo acessível.
 - Links úteis: curadoria de fontes oficiais com busca e filtros acessíveis.
-- Contato: canais primeiro, formulário de rascunho por e-mail, unidades e privacidade.
+- Contato: canais primeiro, formulário de simulação local com rascunho opcional, unidades e privacidade.
 - Privacidade: aviso demonstrativo e links aos documentos existentes, sem simular parecer jurídico.
 
 ## Tokens
+- Refinamento responsivo: abertura em uma coluna até 900 px, preservando a fachada inteira; equipe da home com retratos compactos em lista no celular; navegação do rodapé em duas colunas com contatos completos; títulos dos recursos em 22 px e peso 600, descrições em 18 px. Menu mobile usa details/summary nativo e funciona sem JavaScript. Compartilhamento usa a foto real.
 - Display: Newsreader, serifada; corpo e navegação: Manrope, sem serifa. Fontes locais com swap, fallback Georgia/Arial.
 - Azul profundo #122D4C; azul institucional #244A70; texto #263B4E; secundário #526272; branco #FFFFFF; superfície #F2F5F7; acento #A7BDD0.
 - Texto #263B4E sobre branco e branco sobre #122D4C excedem AA; texto secundário também é verificado no teste de contraste.
@@ -56,5 +57,5 @@ Astro + CSS próprio + JavaScript pontual, conforme proposto e aprovado pelo usu
 - Endereços, telefones e e-mails vêm do site existente; confirmar atualidade antes de publicar.
 - Não inventar OAB, clientes, prêmios, anos de atuação, resultados ou depoimentos.
 - Fachada original preservada na home e na página Escritório, com enquadramento completo da porta e placa. Retratos gerados permanecem identificados como fictícios; a arquitetura gerada inicial foi substituída por fotografia real.
-- O formulário abre um rascunho no aplicativo de e-mail e nunca anuncia envio concluído.
+- Por instrução do usuário, o formulário simula um envio local, identifica que nenhuma mensagem foi enviada e oferece rascunho opcional.
 - 21st CLI ausente; componentes próprios, sem reutilização visual de outros projetos.

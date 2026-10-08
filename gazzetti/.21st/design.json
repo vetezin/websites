@@ -1,6 +1,23 @@
 {
   "project": "Gazzetti Advogados Associados",
   "framework": "astro",
-  "decisions": ["Azul institucional preservado", "Composição arquitetural assimétrica", "Curva de assinatura usada com parcimônia", "Equipe fictícia identificada", "Motion em CSS e Web Animations, sem dependências"],
-  "tokens": { "navy": "#122D4C", "blue": "#244A70", "paper": "#FFFFFF", "surface": "#F2F5F7", "ink": "#263B4E" }
+  "decisions": [
+    "Azul institucional preservado",
+    "Composição arquitetural assimétrica",
+    "Curva de assinatura usada com parcimônia",
+    "Equipe fictícia identificada",
+    "Motion em CSS e Web Animations, sem dependências",
+    "Abertura em uma coluna no tablet até 900 px",
+    "Equipe compacta apenas na home mobile",
+    "Menu nativo funcional sem JavaScript",
+    "Contato mockado com simulação explícita e rascunho opcional",
+    "Open Graph com fachada real e títulos de cards em 22 px"
+  ],
+  "tokens": {
+    "navy": "#122D4C",
+    "blue": "#244A70",
+    "paper": "#FFFFFF",
+    "surface": "#F2F5F7",
+    "ink": "#263B4E"
+  }
 }

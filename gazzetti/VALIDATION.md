@@ -27,7 +27,7 @@ A hierarquia apresenta advocacia e consultoria empresarial, áreas de atuação 
 - Lighthouse e métricas de campo não foram medidos. As metas de desempenho do brief continuam como critérios para a publicação, sem alegação de nota ou aprovação automática.
 - Equipe e retratos são fictícios e identificados. A fachada é a fotografia real preservada do site original.
 - Textos editoriais e contatos públicos devem ser aprovados pelo escritório. Pendências detalhadas em `CONTENT_TODO.md`.
-- O formulário prepara um rascunho no aplicativo de e-mail; não há backend de envio.
+- O formulário simula envio local, sem backend ou armazenamento; rascunho no aplicativo de e-mail é opcional.
 - A prévia mantém `noindex` e robots bloqueado. SEO estrutural foi implementado, mas a indexação depende da aprovação do conteúdo e da configuração final do domínio.
 - Nenhuma publicação ou alteração de infraestrutura foi realizada.
 
@@ -39,3 +39,13 @@ A hierarquia apresenta advocacia e consultoria empresarial, áreas de atuação 
 - Fotografia original da fachada convertida para WebP, sem alterar conteúdo ou cortar a porta e a placa, na home e em Escritório.
 - Cards de recursos, divisores de áreas, campos e painel de contato receberam contornos mais definidos. O rodapé mobile usa uma coluna para acomodar os textos maiores.
 - Regras permanentes de legibilidade, preservação de fotos reais e contornos visíveis em `AGENTS.md`.
+
+## Revisão dos seis pontos da análise
+
+- Abertura em uma coluna até 900 px, eliminando a desproporção entre título e fotografia no tablet. Cards: títulos 22 px/peso 600, descrições 18 px.
+- Open Graph usa a fachada real em todas as páginas principais.
+- Menu mobile nativo (details/summary): abertura e navegação para Escritório comprovadas com JavaScript desativado. Escape e fechamento após navegação mantidos com JavaScript.
+- Equipe compacta apenas na home mobile, espaços reduzidos e navegação do rodapé em duas colunas, sem diminuir fontes. Em 390 px, altura da home passou de 6969 para 5762 px (aproximadamente 17% menor).
+- Contato permanece mockado conforme instrução do usuário: simulação dentro da página, aviso explícito de ausência de envio/armazenamento e rascunho opcional. O teste confirmou ausência de POST durante a simulação; envio real está fora do escopo atual.
+- 24 checks de interação aprovados; quatro testes unitários, lint e build aprovados. Sete páginas em sete larguras (320, 390, 720, 768, 901, 1024 e 1440 px): 49 verificações sem overflow, sem texto visível abaixo de 14 px e com Open Graph correto. Console final sem erros ou avisos.
+- Capturas de todas as páginas principais em 390 e 1440 px atualizadas, com captura adicional da home em tablet.

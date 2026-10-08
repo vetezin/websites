@@ -6,5 +6,5 @@
 - Confirmar endereços, telefones, e-mails e documentos já publicados em gazzetti.com.br.
 - Fornecer identificações profissionais, biografias e fotografias autorizadas da equipe real.
 - Aprovar aviso de privacidade para o tratamento efetivamente utilizado.
-- Formulário prepara e-mail local; integrar um serviço de envio somente quando definido e autorizado.
+- Formulário permanece mockado por decisão do usuário: simulação local, sem envio ou armazenamento; rascunho de e-mail opcional.
 - A prévia contém noindex. Remover apenas após substituir mocks e aprovar conteúdo.

@@ -10,7 +10,7 @@ export async function runBrowserChecks(page, baseUrl = 'http://localhost:4322/')
   await page.getByRole('button', { name: 'Abrir menu' }).click();
   check(await page.getByRole('navigation', { name: 'Navegação principal' }).isVisible(), 'Menu mobile abre');
   await page.keyboard.press('Escape');
-  check(await page.getByRole('button', { name: 'Abrir menu' }).getAttribute('aria-expanded') === 'false', 'Escape fecha menu');
+  check(await page.locator('.mobile-navigation').getAttribute('open') === null, 'Escape fecha menu');
   await page.getByRole('button', { name: 'Abrir menu' }).click();
   await page.getByRole('navigation', { name: 'Navegação principal' }).getByRole('link', { name: 'Equipe', exact: true }).click();
   const profileButton = page.getByRole('button', { name: 'Conhecer o perfil fictício de Helena Duarte' });
@@ -27,6 +27,7 @@ export async function runBrowserChecks(page, baseUrl = 'http://localhost:4322/')
   await page.getByRole('button', { name: 'Tribunais', exact: true }).click();
   check(await page.locator('[data-resource]:visible').count() === 4, 'Filtro de tribunais');
   await page.getByRole('button', { name: 'Todos', exact: true }).click();
+  check(await page.locator('.resource').first().evaluate(element => parseFloat(getComputedStyle(element.querySelector('h2')).fontSize) > parseFloat(getComputedStyle(element.querySelector('p')).fontSize)), 'Título do card domina a descrição');
   await page.getByLabel('Buscar portal ou serviço').fill('sao paulo');
   check(await page.locator('[data-resource]:visible').count() === 2, 'Busca sem acentos');
   await page.getByLabel('Buscar portal ou serviço').fill('xyz-inexistente');
@@ -39,19 +40,45 @@ export async function runBrowserChecks(page, baseUrl = 'http://localhost:4322/')
   check(await page.locator('#negociacao details').getAttribute('open') !== null, 'Dúvida da área expande');
   await page.locator('#negociacao').getByRole('link', { name: 'Converse com o escritório' }).click();
   check(await page.getByLabel('Assunto').inputValue() === 'Negociação empresarial', 'Área preenche o assunto');
-  await page.getByRole('button', { name: 'Preparar mensagem' }).click();
-  check(await page.locator('.form-result').isHidden(), 'Campos obrigatórios impedem rascunho inválido');
+  await page.getByRole('button', { name: 'Simular envio' }).click();
+  check(await page.locator('.form-result').isHidden(), 'Campos obrigatórios impedem simulação inválida');
   await page.getByLabel('Nome (obrigatório)').fill('João de Teste');
   await page.getByLabel('E-mail (obrigatório)').fill('joao@example.com');
   await page.getByLabel('Empresa (opcional)').fill('Empresa de Teste');
   await page.getByLabel('Mensagem (obrigatório)').fill('Gostaria de conversar sobre um contrato empresarial.');
   await page.locator('input[name=privacy]').check();
-  await page.getByRole('button', { name: 'Preparar mensagem' }).click();
-  check(await page.getByText('Seu rascunho está pronto.').isVisible(), 'Rascunho preparado sem enviar');
+  const submissions = [];
+  const recordSubmission = request => {
+    if (request.method() === 'POST') submissions.push(request.url());
+  };
+  page.on('request', recordSubmission);
+  await page.getByRole('button', { name: 'Simular envio' }).click();
+  check(await page.getByText('Simulação concluída.').isVisible(), 'Simulação concluída com aviso de ausência de envio');
+  check(submissions.length === 0, 'Simulação não transmite formulário por POST');
+  page.off('request', recordSubmission);
   const href = await page.locator('[data-mailto]').getAttribute('href');
   check(href.startsWith('mailto:contato@gazzetti.com.br?') && decodeURIComponent(href).includes('João de Teste'), 'Destinatário e dados preservados');
   await page.getByLabel('Mensagem (obrigatório)').fill('Mensagem alterada para o escritório.');
-  check(await page.locator('.form-result').isHidden(), 'Alteração invalida o rascunho anterior');
+  check(await page.locator('.form-result').isHidden(), 'Alteração invalida a simulação anterior');
+
+  await page.setViewportSize({ width: 720, height: 900 });
+  await page.goto(baseUrl);
+  check(await page.locator('.hero-figure').evaluate(element => element.getBoundingClientRect().top >= document.querySelector('.hero-copy').getBoundingClientRect().bottom), 'Tablet apresenta foto abaixo do texto');
+  check((await page.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/images/escritorio-real.webp'), 'Compartilhamento usa a fachada real');
+  await page.setViewportSize({ width: 390, height: 844 });
+  check(await page.locator('.team-grid-compact').evaluate(element => element.getBoundingClientRect().height < 600), 'Equipe compacta na home mobile');
+
+  const noScriptContext = await page.context().browser().newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+  try {
+    const noScriptPage = await noScriptContext.newPage();
+    await noScriptPage.goto(baseUrl);
+    await noScriptPage.getByRole('button', { name: 'Abrir menu' }).click();
+    check(await noScriptPage.getByRole('navigation', { name: 'Navegação principal' }).isVisible(), 'Menu abre sem JavaScript');
+    await noScriptPage.getByRole('navigation', { name: 'Navegação principal' }).getByRole('link', { name: 'Escritório', exact: true }).click();
+    check(noScriptPage.url().endsWith('/escritorio/'), 'Menu navega sem JavaScript');
+  } finally {
+    await noScriptContext.close();
+  }
 
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto(baseUrl);
