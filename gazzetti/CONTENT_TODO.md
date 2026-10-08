@@ -1,7 +1,7 @@
 # Conteúdo para substituir antes de publicar
 
 - MOCK: todos os nomes, cargos, biografias e retratos em `src/data/site.js` representam pessoas fictícias. Não associar aos profissionais reais.
-- MOCK: imagens de arquitetura geradas são ilustrativas, não retratos das sedes.
+- FOTO REAL: fachada preservada do site original, sem alterar porta ou placa. Confirmar atualidade e autorização de uso antes de publicar.
 - EDITORIAL: validar descrições de áreas, método e posicionamento com o escritório.
 - Confirmar endereços, telefones, e-mails e documentos já publicados em gazzetti.com.br.
 - Fornecer identificações profissionais, biografias e fotografias autorizadas da equipe real.

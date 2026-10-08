@@ -17,7 +17,7 @@ Para visualizar o build: `npm run preview`.
 O formulário prepara um rascunho `mailto:`; nenhuma mensagem é enviada pelo site.
 Fontes locais: Manrope e Newsreader, distribuídas sob SIL Open Font License.
 Os arquivos WOFF2 contêm caracteres latinos e pontuação usados no site; as licenças estão em `public/fonts/`.
-Logo e contatos: site público existente da Gazzetti. Fotografias: geradas por IA, fictícias e identificadas.
+Logo, contatos e foto da fachada: site público existente da Gazzetti. Retratos da equipe: gerados por IA, fictícios e identificados. Regras de legibilidade e preservação de fotos reais em `AGENTS.md`.
 
 ## Fluxos para verificar
 

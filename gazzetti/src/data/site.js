@@ -4,8 +4,7 @@ export const site = {
   dpo: 'dpo@gazzetti.com.br',
   description: 'Advocacia e consultoria empresarial. Estruturação de negócios, negociação e atuação contenciosa em Presidente Prudente e São Paulo.',
   source: 'https://www.gazzetti.com.br/',
-  // MOCK: fotografia de arquitetura ilustrativa, sem representação das sedes reais.
-  architecture: { image: 'images/architecture.webp', label: 'Arquitetura ilustrativa' },
+  officePhoto: { image: 'images/escritorio-real.webp', source: 'https://www.gazzetti.com.br/imgs/slider/predio.jpg' },
 };
 
 export const navigation = [

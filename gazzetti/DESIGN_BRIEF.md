@@ -41,7 +41,7 @@ Regra autoral: painéis fotográficos recebem uma pequena moldura deslocada e um
 - Display: Newsreader, serifada; corpo e navegação: Manrope, sem serifa. Fontes locais com swap, fallback Georgia/Arial.
 - Azul profundo #122D4C; azul institucional #244A70; texto #263B4E; secundário #526272; branco #FFFFFF; superfície #F2F5F7; acento #A7BDD0.
 - Texto #263B4E sobre branco e branco sobre #122D4C excedem AA; texto secundário também é verificado no teste de contraste.
-- Escala: 12, 14, 16, 18, 24, 32, 44, 64, 80 px, ajustada com clamp.
+- Escala: 14, 16, 18, 24, 32, 44, 64, 80 px, ajustada com clamp. Corpo de leitura em 18 px, interfaces em pelo menos 16 px e informações secundárias em pelo menos 14 px; não diminuir no mobile para acomodar layout. Entrelinha de leitura de pelo menos 1,6. Regra obrigatória registrada em `AGENTS.md`.
 - Espaço: 8, 12, 16, 24, 32, 48, 64, 96, 128 px.
 - Raio: 0 a 2 px; sombra apenas no menu e diálogo; divisores finos.
 - Motion: hover 180 ms; entradas seletivas 650 ms, deslocamento 14 px; respeita reduced-motion; conteúdo visível sem JS.
@@ -55,6 +55,6 @@ Astro + CSS próprio + JavaScript pontual, conforme proposto e aprovado pelo usu
 - Textos de posicionamento e método são propostas editoriais a validar, não fatos históricos.
 - Endereços, telefones e e-mails vêm do site existente; confirmar atualidade antes de publicar.
 - Não inventar OAB, clientes, prêmios, anos de atuação, resultados ou depoimentos.
-- Fotografias geradas são ilustrativas e não documentam instalações reais.
+- Fachada original preservada na home e na página Escritório, com enquadramento completo da porta e placa. Retratos gerados permanecem identificados como fictícios; a arquitetura gerada inicial foi substituída por fotografia real.
 - O formulário abre um rascunho no aplicativo de e-mail e nunca anuncia envio concluído.
 - 21st CLI ausente; componentes próprios, sem reutilização visual de outros projetos.

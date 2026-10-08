@@ -25,8 +25,17 @@ A hierarquia apresenta advocacia e consultoria empresarial, áreas de atuação 
 ## Limites e publicação
 
 - Lighthouse e métricas de campo não foram medidos. As metas de desempenho do brief continuam como critérios para a publicação, sem alegação de nota ou aprovação automática.
-- Equipe e retratos são fictícios; arquitetura é ilustrativa. Os avisos aparecem na interface.
+- Equipe e retratos são fictícios e identificados. A fachada é a fotografia real preservada do site original.
 - Textos editoriais e contatos públicos devem ser aprovados pelo escritório. Pendências detalhadas em `CONTENT_TODO.md`.
 - O formulário prepara um rascunho no aplicativo de e-mail; não há backend de envio.
 - A prévia mantém `noindex` e robots bloqueado. SEO estrutural foi implementado, mas a indexação depende da aprovação do conteúdo e da configuração final do domínio.
 - Nenhuma publicação ou alteração de infraestrutura foi realizada.
+
+## Revisão de legibilidade e identidade
+
+- Corpo e descrições ampliados para 18 px; navegação, campos e ações em 16 px; informações secundárias em pelo menos 14 px.
+- Sete páginas verificadas em 390, 768, 1024 e 1440 px: 28 verificações sem overflow e sem textos visíveis abaixo de 14 px. Diálogo da equipe também verificado no celular, sem corte horizontal.
+- Quatorze screenshots desktop/mobile atualizados; perfil mobile capturado adicionalmente. Os 17 checks de interação foram repetidos e aprovados; sem erros de JavaScript ou console na rodada final.
+- Fotografia original da fachada convertida para WebP, sem alterar conteúdo ou cortar a porta e a placa, na home e em Escritório.
+- Cards de recursos, divisores de áreas, campos e painel de contato receberam contornos mais definidos. O rodapé mobile usa uma coluna para acomodar os textos maiores.
+- Regras permanentes de legibilidade, preservação de fotos reais e contornos visíveis em `AGENTS.md`.
