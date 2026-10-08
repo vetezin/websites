@@ -4,7 +4,6 @@ Dois projetos independentes, com Git e publicação centralizados nesta pasta.
 
 - [Conveniência Zero18](https://vetezin.github.io/websites/conveniencia018/) — Next.js, React e TypeScript.
 - [Volpi Contabilidade](https://vetezin.github.io/websites/volpicontabilidade/) — Astro, Tailwind e JavaScript.
-- [Índice dos projetos](https://vetezin.github.io/websites/).
 
 ## Rodar localmente
 
@@ -15,7 +14,9 @@ Volpi: `cd volpicontabilidade` e `npm run dev`; abra http://localhost:4321.
 
 Na raiz Sites, `npm run lint`, `npm test` e `npm run build:pages` validam e geram
 a publicação conjunta. `npm run preview:pages` serve o resultado em
-http://localhost:4330/websites/. Os builds ficam em `.pages/`, ignorada pelo Git.
+http://localhost:4330/websites/conveniencia018/ e
+http://localhost:4330/websites/volpicontabilidade/.
+Os builds ficam em `.pages/`, ignorada pelo Git.
 
 ## Como publicar
 
@@ -31,7 +32,7 @@ Não envie `node_modules`, `.next`, `dist`, `out`, `.pages`, arquivos `.env` ou 
 
 Para adicionar outro site, configure seu caminho `/websites/nome/`, acrescente o
 build em `scripts/build-pages.mjs`, a cópia em `scripts/assemble-pages.mjs`, a
-instalação/cache no workflow e o link em `pages/index.html`.
+instalação/cache no workflow. Cada projeto recebe seu link direto, sem página de seleção.
 
 ## Histórico anterior
 
