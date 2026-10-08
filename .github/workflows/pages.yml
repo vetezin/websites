@@ -26,8 +26,10 @@ jobs:
           cache-dependency-path: |
             conveniencia018/package-lock.json
             volpicontabilidade/package-lock.json
+            gazzetti/package-lock.json
       - run: npm ci --prefix conveniencia018
       - run: npm ci --prefix volpicontabilidade
+      - run: npm ci --prefix gazzetti
       - run: npm run lint
       - run: npm test
       - uses: actions/configure-pages@v5

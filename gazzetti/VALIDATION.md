@@ -49,3 +49,11 @@ A hierarquia apresenta advocacia e consultoria empresarial, áreas de atuação 
 - Contato permanece mockado conforme instrução do usuário: simulação dentro da página, aviso explícito de ausência de envio/armazenamento e rascunho opcional. O teste confirmou ausência de POST durante a simulação; envio real está fora do escopo atual.
 - 24 checks de interação aprovados; quatro testes unitários, lint e build aprovados. Sete páginas em sete larguras (320, 390, 720, 768, 901, 1024 e 1440 px): 49 verificações sem overflow, sem texto visível abaixo de 14 px e com Open Graph correto. Console final sem erros ou avisos.
 - Capturas de todas as páginas principais em 390 e 1440 px atualizadas, com captura adicional da home em tablet.
+
+## Preparação para GitHub Pages
+
+- Site incluído no workflow conjunto em `/websites/gazzetti/`, com cache, instalação, lint, testes, build e cópia do artefato.
+- `SITE_URL=https://vetezin.github.io` e `SITE_BASE_PATH=/websites/gazzetti/` configuram canonical, Open Graph, sitemap, navegação, imagens e fontes para a prévia pública.
+- Lint da raiz, 12 testes unitários (Volpi e Gazzetti) e build conjunto dos três projetos aprovados.
+- Os 24 checks Playwright passaram também no artefato do Pages em `http://localhost:4330/websites/gazzetti/`; sete páginas principais verificadas com caminhos corretos e sem falhas de carregamento.
+- Publicação demonstrativa autorizada pelo usuário; mocks, noindex e formulário simulado preservados.

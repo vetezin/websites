@@ -30,4 +30,7 @@ Logo, contatos e foto da fachada: site público existente da Gazzetti. Retratos 
 
 `test/browser-qa.mjs` exporta `runBrowserChecks(page, baseUrl)` para execução com uma sessão Playwright. A validação inicial usa o MCP Playwright disponível no ambiente, sem instalar uma dependência extra no projeto.
 
-Não há publicação automática deste projeto. O pipeline dos outros sites permanece independente.
+Publicação demonstrativa: https://vetezin.github.io/websites/gazzetti/.
+O workflow de GitHub Pages da raiz instala, valida e compila os três sites. Para o Gazzetti, usa `SITE_BASE_PATH=/websites/gazzetti/` e `SITE_URL=https://vetezin.github.io`.
+`npm run build:pages` na raiz gera `.pages/`; `npm run preview:pages` serve a prévia em http://localhost:4330/websites/gazzetti/.
+Os avisos de conteúdo fictício, a simulação de contato e o `noindex` permanecem na publicação demonstrativa.

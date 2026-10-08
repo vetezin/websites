@@ -8,6 +8,7 @@ export async function assemblePages() {
   await mkdir(output, { recursive: true });
   await cp(new URL('../conveniencia018/out/', import.meta.url), new URL('conveniencia018/', output), { recursive: true });
   await cp(new URL('../volpicontabilidade/dist/', import.meta.url), new URL('volpicontabilidade/', output), { recursive: true });
+  await cp(new URL('../gazzetti/dist/', import.meta.url), new URL('gazzetti/', output), { recursive: true });
   await writeFile(new URL('.nojekyll', output), '');
   console.log('Publicação preparada em .pages/');
 }

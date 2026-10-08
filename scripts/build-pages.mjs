@@ -4,6 +4,7 @@ import { assemblePages } from './assemble-pages.mjs';
 const projects = [
   { folder: 'conveniencia018', cli: 'node_modules/next/dist/bin/next', args: ['build', '--webpack'], env: { GITHUB_PAGES: 'true', NEXT_PUBLIC_BASE_PATH: '/websites/conveniencia018' } },
   { folder: 'volpicontabilidade', cli: 'scripts/astro.mjs', args: ['build'], env: { SITE_BASE_PATH: '/websites/volpicontabilidade/' } },
+  { folder: 'gazzetti', cli: 'scripts/astro.mjs', args: ['build'], env: { SITE_BASE_PATH: '/websites/gazzetti/', SITE_URL: 'https://vetezin.github.io' } },
 ];
 
 for (const project of projects) {
