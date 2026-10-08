@@ -1,0 +1,19 @@
+# Publicação de dois websites
+
+Goal: organizar os projetos no repositório vetezin/websites e publicar ambos via GitHub Pages.
+Architecture: um repositório, um workflow e um artefato estático com dois subdiretórios.
+Tech Stack: Next.js, Astro, Node.js, GitHub Actions e GitHub Pages; nenhuma dependência nova.
+
+- [x] Ajustar caminhos da Volpi e validar os dois builds de produção.
+- [x] Criar workflow central, página inicial e documentação de execução/publicação.
+- [x] Preservar Git anterior em backup ignorado e inicializar Git na raiz Sites.
+- [x] Validar as páginas e navegação com Playwright, commit e push para main.
+- [ ] Habilitar Pages, conferir deployment e abrir os dois sites publicados.
+
+Ruling: usar a pasta atual e publicar em main — solicitado explicitamente pelo usuário.
+Ruling: nenhum projeto deve ser submódulo; manter fontes comuns e backup local do histórico anterior.
+
+Validação local: oito testes aprovados; lint e builds Next.js/Astro aprovados.
+Playwright: caminhos internos, todas as imagens da página inicial, fontes, menu móvel,
+contato com serviço pré-selecionado e índice dos projetos validados; console sem erros.
+Revisão independente: sem achados materiais de publicação, caminhos ou arquivos no índice.

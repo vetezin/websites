@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { company } from '../data/company.js';
+---
+<Layout title="Privacidade">
+  <PageIntro label="Privacidade" title="Clareza também no uso das suas informações." description="Veja como o contato e a navegação funcionam nesta versão do site." />
+  <section class="section"><div class="container legal-content"><h2>Formulário de contato</h2><p>O formulário prepara uma mensagem no seu navegador, com as informações que você fornecer. Ele não envia dados a um servidor da Volpi nem salva o conteúdo em cookies ou no armazenamento do navegador.</p><p>Ao abrir o WhatsApp, o texto preparado é encaminhado para o serviço externo. A mensagem só é enviada à Volpi quando você confirmar o envio no WhatsApp. Compartilhe apenas as informações necessárias ao primeiro contato e evite incluir documentos ou dados sensíveis.</p><h2>Serviços externos</h2><p>Links para WhatsApp, mapas, Facebook, o portal de condomínio, newsletter e conteúdos abrem serviços externos. Esses serviços possuem suas próprias políticas de privacidade e condições de uso.</p><h2>Cookies e medição</h2><p>Esta versão não utiliza cookies de publicidade, ferramentas de análise de audiência ou rastreadores. As imagens e fontes são carregadas a partir do próprio site. Ao publicar o site, a hospedagem poderá manter registros técnicos de acesso conforme suas configurações.</p><h2>Contato sobre privacidade</h2><p>Para dúvidas sobre informações enviadas à Volpi, entre em contato pelo e-mail <a href={`mailto:${company.email}`}>{company.email}</a> ou telefone <a href={company.phoneHref}>{company.phone}</a>.</p></div></section>
+</Layout>

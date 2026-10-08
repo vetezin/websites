@@ -1,0 +1,6 @@
+---
+import { withBase } from '../data/paths.js';
+import Layout from '../layouts/Layout.astro';
+import Icon from '../components/Icon.astro';
+---
+<Layout title="Página não encontrada"><section class="section"><div class="container narrow-content"><span class="eyebrow">Página não encontrada</span><h1>Vamos voltar<br />ao caminho certo?</h1><p>Este endereço não corresponde a uma página do site. Você pode voltar ao início ou falar com a Volpi.</p><div class="hero-actions"><a class="button button-blue" href={withBase('/')}>Voltar ao início <Icon /></a><a class="text-link" href={withBase('/contato/')}>Fale conosco <Icon /></a></div></div></section></Layout>

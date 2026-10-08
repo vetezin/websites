@@ -1,0 +1,5 @@
+---
+import Icon from './Icon.astro';
+import { resources } from '../data/company.js';
+---
+<div class="resource-grid">{resources.map(resource => <a class="resource-item group" href={resource.href} target="_blank" rel="noopener noreferrer"><div class="resource-top"><Icon name={resource.icon} size={29} /><Icon name="external" size={23} /></div><span class="resource-category">{resource.category}</span><h3>{resource.title}</h3><p>{resource.description}</p><span class="text-link">Explorar conteúdo <Icon size={18} /><span class="sr-only"> (abre em nova aba)</span></span></a>)}</div>

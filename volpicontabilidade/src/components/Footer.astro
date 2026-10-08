@@ -1,0 +1,18 @@
+---
+import { withBase } from '../data/paths.js';
+import Icon from './Icon.astro';
+import { company } from '../data/company.js';
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href={withBase('/')} aria-label="Volpi Contabilidade — início"><img src={withBase('/images/logo.png')} alt="Volpi Contabilidade" width="320" height="160" loading="lazy" /></a>
+      <p>Contabilidade com clareza.<br />Uma parceria para ir além.</p>
+      <span class="footer-since">Desde 2007, ao lado das empresas.</span>
+    </div>
+    <div><h2>Explore</h2><a href={withBase('/empresa/')}>A Volpi</a><a href={withBase('/servicos/')}>Nossas soluções</a><a href={withBase('/conteudos/')}>Conteúdos empresariais</a><a href={withBase('/contato/')}>Fale conosco</a><a href={company.portal} target="_blank" rel="noopener noreferrer">Acessar condomínio <Icon name="external" size={14} /><span class="sr-only"> (abre em nova aba)</span></a></div>
+    <div><h2>Vamos conversar</h2><a href={company.phoneHref}>{company.phone}</a><a href={company.whatsappHref} target="_blank" rel="noopener noreferrer">WhatsApp {company.whatsapp}</a><a href={`mailto:${company.email}`}>{company.email}</a><a href={company.facebook} target="_blank" rel="noopener noreferrer">Facebook <Icon name="external" size={14} /></a></div>
+    <div><h2>Onde estamos</h2><p>{company.street}<br />{company.neighborhood}<br />{company.city} / {company.state}<br />CEP {company.postalCode}</p><a class="text-link" href={company.maps} target="_blank" rel="noopener noreferrer">Ver no mapa <Icon name="external" size={16} /></a></div>
+  </div>
+  <div class="container footer-bottom"><p>© {new Date().getFullYear()} Volpi Contabilidade.</p><span>Presidente Prudente, São Paulo</span><a href={withBase('/privacidade/')}>Privacidade</a></div>
+</footer>

@@ -1,0 +1,55 @@
+---
+import { withBase } from '../data/paths.js';
+import Icon from './Icon.astro';
+import { company } from '../data/company.js';
+const path = Astro.url.pathname;
+const links = [
+  { href: '/', label: 'Início' },
+  { href: '/empresa/', label: 'A Volpi' },
+  { href: '/servicos/', label: 'Soluções' },
+  { href: '/conteudos/', label: 'Conteúdos' },
+  { href: '/contato/', label: 'Contato' },
+];
+---
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div class="utility-bar">
+  <div class="container flex items-center justify-between gap-4">
+    <span class="inline-flex items-center gap-2"><Icon name="location" size={14} /> Presidente Prudente · SP</span>
+    <a class="inline-flex items-center gap-2" href={company.phoneHref}><Icon name="phone" size={14} /><span>{company.phone}</span></a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={withBase('/')} class="brand" aria-label="Volpi Contabilidade — página inicial"><img src={withBase('/images/logo.png')} alt="Volpi Contabilidade" width="320" height="160" /></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Abrir menu"><span></span><span></span></button>
+    <nav id="navigation" class="navigation" aria-label="Navegação principal">
+      <div class="nav-links">{links.map(link => <a href={withBase(link.href)} aria-current={path === withBase(link.href) ? 'page' : undefined}>{link.label}</a>)}</div>
+      <a class="portal-link" href={company.portal} target="_blank" rel="noopener noreferrer">Acessar condomínio <Icon name="external" size={17} /><span class="sr-only"> (abre em nova aba)</span></a>
+    </nav>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const navigation = document.querySelector('#navigation');
+  if (toggle instanceof HTMLButtonElement && navigation instanceof HTMLElement) {
+    const closeMenu = () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu');
+      navigation.classList.remove('is-open');
+    };
+    toggle.addEventListener('click', () => {
+      const opened = toggle.getAttribute('aria-expanded') !== 'true';
+      toggle.setAttribute('aria-expanded', String(opened));
+      toggle.setAttribute('aria-label', opened ? 'Fechar menu' : 'Abrir menu');
+      navigation.classList.toggle('is-open', opened);
+    });
+    navigation.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+    window.matchMedia('(min-width: 1024px)').addEventListener('change', closeMenu);
+  }
+</script>

@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageIntro from '../components/PageIntro.astro';
+import Resources from '../components/Resources.astro';
+import ContactBanner from '../components/ContactBanner.astro';
+import Icon from '../components/Icon.astro';
+---
+<Layout title="Conteúdos para sua empresa">
+  <PageIntro label="Conteúdos" title="Informação para acompanhar um mundo de mudanças." description="Acesse os canais de conteúdo já disponibilizados pela Volpi e acompanhe o universo contábil e empresarial." />
+  <section class="section"><div class="container"><Resources /><div class="resource-note"><Icon name="external" size={21} /><p>Os conteúdos abrem em seus portais de origem. As publicações e atualizações são mantidas pelos respectivos canais.</p></div></div></section>
+  <section class="newsletter-section"><div class="container newsletter-inner"><span class="solution-icon"><Icon name="mail" size={32} /></span><div><span class="eyebrow">Continue bem informado</span><h2>Novidades na sua caixa de entrada.</h2><p>Conheça o cadastro de newsletter disponível no portal atual da Volpi.</p></div><a class="button button-blue" href="https://www.volpicontabilidade.com.br/newsletter/" target="_blank" rel="noopener noreferrer">Acessar cadastro <Icon name="external" size={18} /></a></div></section>
+  <ContactBanner />
+</Layout>

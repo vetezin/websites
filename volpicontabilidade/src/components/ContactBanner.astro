@@ -1,0 +1,11 @@
+---
+import { withBase } from '../data/paths.js';
+import Icon from './Icon.astro';
+import { company } from '../data/company.js';
+---
+<section class="contact-banner" aria-labelledby="conversation-title">
+  <div class="container contact-banner-inner">
+    <div><span class="eyebrow light">O próximo passo começa com uma conversa</span><h2 id="conversation-title">Vamos entender o momento<br class="desktop-break" /> da sua empresa?</h2><p>Conte com a Volpi para encontrar o caminho contábil adequado ao seu negócio.</p></div>
+    <div class="contact-banner-actions"><a class="button button-white" href={company.whatsappHref} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" size={21} /> Conversar pelo WhatsApp <Icon name="external" size={17} /></a><a class="light-link" href={withBase('/contato/')}>Conhecer nossos canais de contato <Icon size={18} /></a></div>
+  </div>
+</section>

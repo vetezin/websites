@@ -1,0 +1,11 @@
+{
+  "name": "websites",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:pages": "node scripts/build-pages.mjs",
+    "lint": "npm run lint --prefix conveniencia018",
+    "test": "npm test --prefix volpicontabilidade",
+    "preview:pages": "node scripts/preview-pages.mjs"
+  }
+}
