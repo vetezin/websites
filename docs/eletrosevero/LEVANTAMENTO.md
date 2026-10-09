@@ -21,7 +21,7 @@ Data da coleta: 09/10/2026. Escopo: informações públicas para orientar um fut
 | Rua Barão do Rio Branco, 9, Vila Fernandes | Site indexado e cadastro da matriz | Referência de outra unidade; confirmar operação atual |
 | contato@eletrosevero.com.br | Site indexado | Confirmar se ainda utilizado |
 
-Os cadastros secundários apontam matriz e filial, mas a coleta não confirma que ambas atendem atualmente. Evitar escolher um único endereço ou apresentar duas lojas ativas sem validação.
+Atualização em 09/10/2026: o usuário confirmou que as duas lojas funcionam. A identificação de cada unidade com seu endereço deve ser revisada antes da publicação.
 
 ## 3. Produtos e conteúdo observado
 
@@ -78,6 +78,6 @@ Para preservar a marca, os elementos mais evidentes são o logo com raio e a com
 
 ## 7. Cuidados de conteúdo
 
-Não foram criados dados mock. Não usar como fatos aprovados: número de produtos, avaliações, tempo de mercado, estoque, preço, entrega ou parceria com fabricantes. Horários de diretórios divergem e não foram consolidados. Contagens de seguidores são transitórias e não são necessárias para o site.
+Na coleta não foram criados dados mock. Posteriormente, o usuário autorizou informações ausentes mockadas para um protótipo de apresentação e catálogo. Esses exemplos deverão ser identificados e centralizados. Não usar como fatos aprovados: número de produtos, avaliações, tempo de mercado, estoque, preço, entrega ou parceria com fabricantes. Horários de diretórios divergem e não foram consolidados. Contagens de seguidores são transitórias e não são necessárias para o site.
 
 Próxima etapa sugerida: validar os dados essenciais e preparar o DESIGN_BRIEF.md com alternativas de direção visual e proposta de stack. Nenhuma dependência foi instalada.
