@@ -7,7 +7,7 @@ const [hero, channels, form, location] = page.sections;
 const base = import.meta.env.BASE_URL;
 ---
 <Layout title={page.title} description={page.description} active="contato/">
- <PageHero section={hero} />
+ <PageHero section={hero} variant="contact" />
  <section class="section section-lined"><div class="container contact-grid"><div class="contact-channels"><h2>{channels.headings[0].text}</h2>{channels.paragraphs.map(text => <p>{text}</p>)}{channels.headings.slice(1).map(heading => <div class="channel-pending"><h3>{heading.text}</h3><p>{ui.channels}</p></div>)}</div>
  <div class="contact-form"><h2>{form.headings[0].text}</h2><p>{form.paragraphs[0]}</p><p class="form-notice" id="form-notice">{ui.formNotice}</p>
  <form aria-describedby="form-notice" data-demo-form method="dialog"><div class="form-fields">{fields.map(field => <div class:list={['field', { 'field-wide': field.name === 'message' }]}><label for={field.name}>{field.label}</label>{field.type === 'textarea' ? <textarea id={field.name} name={field.name} placeholder={field.placeholder} required rows="5" maxlength="5000"></textarea> : <input id={field.name} name={field.name} type={field.type} placeholder={field.placeholder} autocomplete={field.autocomplete} required={field.required} maxlength={field.name === 'phone' ? 40 : 254} />}</div>)}</div>

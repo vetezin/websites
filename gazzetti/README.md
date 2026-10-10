@@ -19,3 +19,5 @@ O helper test/browser-qa.mjs aceita Page do Playwright sem instalar runtime adic
 Demonstração com noindex e rastreamento permitido para leitura da diretiva, sem sitemap público, analytics ou cookies de marketing. SITE_URL define a origem; SITE_BASE_PATH define o prefixo. Default local http://localhost:4322/. Workflow existente da raiz usa https://vetezin.github.io e /websites/gazzetti/.
 
 O Pages em https://vetezin.github.io/websites/gazzetti/ contém a versão anterior até uma nova publicação autorizada. Não houve push nesta tarefa.
+
+A composição visual foi repensada com autorização do usuário. Plano: docs/plans/2026-10-10-direcao-visual.md; capturas atuais: artifacts/direction-v2/. Copy e destinos continuam vinculados ao mesmo handoff.

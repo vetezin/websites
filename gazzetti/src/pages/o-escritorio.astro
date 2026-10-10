@@ -8,9 +8,9 @@ const page = content.office;
 const [hero, history, team, presence, closing] = page.sections;
 ---
 <Layout title={page.title} description={page.description} active="o-escritorio/">
- <PageHero section={hero} />
- <section class="section section-lined"><div class="container editorial"><Editorial section={history} /></div></section>
- <section class="section surface" id="equipe"><div class="container editorial"><Editorial section={team}><p class="pending-note">{ui.team}</p></Editorial></div></section>
- <section class="section section-lined"><div class="container editorial"><Editorial section={presence} /></div></section>
+ <PageHero section={hero} variant="office" />
+ <section class="section section-lined office-history"><div class="container editorial"><Editorial section={history} /></div></section>
+ <section class="section office-team" id="equipe"><div class="container editorial"><Editorial section={team}><p class="pending-note">{ui.team}</p></Editorial></div></section>
+ <section class="section surface office-presence"><div class="container editorial"><Editorial section={presence} /></div></section>
  <ContactBand section={closing} path="areas-de-atuacao/" />
 </Layout>
