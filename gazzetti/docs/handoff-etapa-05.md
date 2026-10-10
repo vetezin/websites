@@ -134,10 +134,10 @@ Conteúdo reproduzido da etapa 03 aprovada. Os apontamentos de pendência são e
 
 ### 5.1 Home
 
-**URL:** `/`  
-**Palavra-chave principal:** advocacia empresarial em Presidente Prudente  
-**Termos relacionados:** assessoria jurídica empresarial; advocacia empresarial; consultoria jurídica para empresas.  
-**Meta title:** Gazzetti Advogados | Advocacia Empresarial  
+**URL:** `/`
+**Palavra-chave principal:** advocacia empresarial em Presidente Prudente
+**Termos relacionados:** assessoria jurídica empresarial; advocacia empresarial; consultoria jurídica para empresas.
+**Meta title:** Gazzetti Advogados | Advocacia Empresarial
 **Meta description:** Conheça a Gazzetti Advogados Associados. Atuação em estruturação de negócios, negociações empresariais e advocacia contenciosa.
 
 #### Hero
@@ -196,10 +196,10 @@ CTA: Entre em contato
 
 ### 5.2 O Escritório
 
-**URL:** `/o-escritorio/`  
-**Palavra-chave principal:** Gazzetti Advogados Associados  
-**Termos relacionados:** escritório de advocacia empresarial; advogados em Presidente Prudente; assessoria jurídica empresarial.  
-**Meta title:** O Escritório | Gazzetti Advogados Associados  
+**URL:** `/o-escritorio/`
+**Palavra-chave principal:** Gazzetti Advogados Associados
+**Termos relacionados:** escritório de advocacia empresarial; advogados em Presidente Prudente; assessoria jurídica empresarial.
+**Meta title:** O Escritório | Gazzetti Advogados Associados
 **Meta description:** Conheça a Gazzetti Advogados Associados, sua atuação jurídica empresarial, filosofia de trabalho e equipe de profissionais.
 
 #### Hero
@@ -244,10 +244,10 @@ CTA: Explorar áreas de atuação
 
 ### 5.3 Áreas de Atuação
 
-**URL:** `/areas-de-atuacao/`  
-**Palavra-chave principal:** áreas de atuação em advocacia empresarial  
-**Termos relacionados:** estruturação de negócios; negociações bancárias empresariais; contencioso empresarial; assessoria jurídica empresarial.  
-**Meta title:** Áreas de Atuação | Gazzetti Advogados  
+**URL:** `/areas-de-atuacao/`
+**Palavra-chave principal:** áreas de atuação em advocacia empresarial
+**Termos relacionados:** estruturação de negócios; negociações bancárias empresariais; contencioso empresarial; assessoria jurídica empresarial.
+**Meta title:** Áreas de Atuação | Gazzetti Advogados
 **Meta description:** Conheça as áreas de atuação da Gazzetti: estruturação de negócios, negociações empresariais e bancárias e advocacia contenciosa.
 
 #### Hero
@@ -312,10 +312,10 @@ CTA: Entre em contato
 
 ### 5.4 Contato
 
-**URL:** `/contato/`  
-**Palavra-chave principal:** contato Gazzetti Advogados  
-**Termos relacionados:** Gazzetti Presidente Prudente; escritório Gazzetti; endereço Gazzetti Advogados.  
-**Meta title:** Contato | Gazzetti Advogados Associados  
+**URL:** `/contato/`
+**Palavra-chave principal:** contato Gazzetti Advogados
+**Termos relacionados:** Gazzetti Presidente Prudente; escritório Gazzetti; endereço Gazzetti Advogados.
+**Meta title:** Contato | Gazzetti Advogados Associados
 **Meta description:** Entre em contato com a Gazzetti Advogados Associados. Consulte os canais de atendimento e as informações institucionais do escritório.
 
 #### Hero
