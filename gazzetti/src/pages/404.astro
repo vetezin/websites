@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Icon from '../components/Icon.astro';
 const base = import.meta.env.BASE_URL;
 ---
-<Layout title="Página não encontrada" active="404"><section class="page-intro container not-found"><p class="eyebrow">Página não encontrada · 404</p><h1>Vamos encontrar<br /><em>um novo caminho.</em></h1><p>O endereço pode ter mudado. Volte ao início ou entre em contato com o escritório.</p><a class="button" href={base}>Voltar ao início <Icon name="arrow" size={20} /></a></section></Layout>
+<Layout title="Página não encontrada | Gazzetti Advogados Associados" description="O endereço solicitado não foi encontrado."><section class="container page-hero"><p>Erro 404</p><h1>Página não encontrada.</h1><p>O endereço pode ter mudado.</p><a class="button" href={base}>Voltar ao início</a></section></Layout>

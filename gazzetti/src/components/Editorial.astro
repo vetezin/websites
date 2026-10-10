@@ -1,0 +1,4 @@
+---
+const { section } = Astro.props;
+---
+<div class="editorial-heading"><h2>{section.headings[0].text}</h2></div><div class="prose">{section.paragraphs.map(text => <p>{text}</p>)}<slot /></div>

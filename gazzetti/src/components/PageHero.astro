@@ -1,0 +1,4 @@
+---
+const { section } = Astro.props;
+---
+<section class="container page-hero"><h1>{section.headings[0].text}</h1><div class="prose">{section.paragraphs.map(text => <p>{text}</p>)}</div></section>

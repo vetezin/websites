@@ -1,36 +1,21 @@
-# Gazzetti — redesign demonstrativo
+# Gazzetti — demonstração Etapa 05
 
-Astro, CSS próprio e JavaScript. Node 24; sem banco, cookies de marketing ou serviço de envio.
+Astro + CSS próprio + JavaScript mínimo. Dependências existentes; nenhuma biblioteca adicionada. Fontes locais Newsreader e Manrope, SIL OFL em public/fonts.
 
-```powershell
-cd C:\Users\Victor\Desktop\Projetos\Sites\gazzetti
-npm ci
-npm run dev
-```
+Execute npm run dev em gazzetti e abra http://localhost:4322/. Para validar: npm test, npm run lint, npm run build. npm run preview serve o build.
 
-Abra http://localhost:4322/. Para validar: `npm test`, `npm run lint`, `npm run build`.
-Para visualizar o build: `npm run preview`.
+## Conteúdo e rotas
 
-## Conteúdo
+Copy literal e metadados: src/data/content.json, extraídos do handoff preservado em docs/handoff-etapa-05.md. Microcopy funcional e campos: src/data/site.js. Regras visuais: DESIGN_BRIEF.md. Pendências: CONTENT_TODO.md. Evidências: VALIDATION.md.
 
-`src/data/site.js` centraliza equipe MOCK, textos, contatos e recursos. Veja `CONTENT_TODO.md` antes de publicar. O site inclui `noindex` e robots bloqueado intencionalmente.
-O formulário simula o envio dentro da página; nenhuma mensagem é enviada ou armazenada. O rascunho `mailto:` é uma alternativa opcional.
-Fontes locais: Manrope e Newsreader, distribuídas sob SIL Open Font License.
-Os arquivos WOFF2 contêm caracteres latinos e pontuação usados no site; as licenças estão em `public/fonts/`.
-Logo, contatos e foto da fachada: site público existente da Gazzetti. Retratos da equipe: gerados por IA, fictícios e identificados. Regras de legibilidade e preservação de fotos reais em `AGENTS.md`.
+Quatro páginas: /, /o-escritorio/, /areas-de-atuacao/, /contato/. Complemento: /politica-de-privacidade/. Equipe dentro do escritório, sem perfis fictícios. Canais e endereços detalhados aguardam validação. Formulário sem envio, armazenamento ou simulação de recebimento; botão desabilitado e method=dialog impedem submissão de rede também sem JS.
 
-## Fluxos para verificar
+Aliases estáticos: /escritorio/ → /o-escritorio/; /areas/ → /areas-de-atuacao/; /equipe/ → /o-escritorio/#equipe; /privacidade/ → /politica-de-privacidade/. Usam refresh no head, canonical atualizado e link de fallback; não são redirecionamentos HTTP 301. /uteis/ aposentada sem equivalente; retorna 404 no servidor local. O host deve configurar a resposta 404 sob subdiretório ao publicar.
 
-- Navegar pelas seis páginas em 1440 e 390 px, incluindo menu mobile e teclado.
-- Abrir perfil da equipe, fechar com botão e Escape e conferir retorno do foco.
-- Filtrar links úteis, pesquisar sem acentos, testar ausência de resultados e limpar.
-- Abrir contato a partir de uma área, conferir assunto pré-selecionado.
-- Validar campos obrigatórios, simular envio e conferir o aviso de que nenhuma mensagem foi enviada.
-- Conferir reduced-motion, console, imagens, links internos e ausência de overflow.
+## Validação e publicação
 
-`test/browser-qa.mjs` exporta `runBrowserChecks(page, baseUrl)` para execução com uma sessão Playwright. A validação inicial usa o MCP Playwright disponível no ambiente, sem instalar uma dependência extra no projeto.
+O helper test/browser-qa.mjs aceita Page do Playwright sem instalar runtime adicional. Capturas locais em artifacts/handoff, ignoradas pelo Git.
 
-Publicação demonstrativa: https://vetezin.github.io/websites/gazzetti/.
-O workflow de GitHub Pages da raiz instala, valida e compila os três sites. Para o Gazzetti, usa `SITE_BASE_PATH=/websites/gazzetti/` e `SITE_URL=https://vetezin.github.io`.
-`npm run build:pages` na raiz gera `.pages/`; `npm run preview:pages` serve a prévia em http://localhost:4330/websites/gazzetti/.
-Os avisos de conteúdo fictício, a simulação de contato e o `noindex` permanecem na publicação demonstrativa.
+Demonstração com noindex e rastreamento permitido para leitura da diretiva, sem sitemap público, analytics ou cookies de marketing. SITE_URL define a origem; SITE_BASE_PATH define o prefixo. Default local http://localhost:4322/. Workflow existente da raiz usa https://vetezin.github.io e /websites/gazzetti/.
+
+O Pages em https://vetezin.github.io/websites/gazzetti/ contém a versão anterior até uma nova publicação autorizada. Não houve push nesta tarefa.

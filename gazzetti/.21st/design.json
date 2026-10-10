@@ -1,23 +1,23 @@
 {
   "project": "Gazzetti Advogados Associados",
   "framework": "astro",
+  "source": "docs/handoff-etapa-05.md",
+  "direction": "Dark Navy Premium",
   "decisions": [
-    "Azul institucional preservado",
-    "Composição arquitetural assimétrica",
-    "Curva de assinatura usada com parcimônia",
-    "Equipe fictícia identificada",
-    "Motion em CSS e Web Animations, sem dependências",
-    "Abertura em uma coluna no tablet até 900 px",
-    "Equipe compacta apenas na home mobile",
-    "Menu nativo funcional sem JavaScript",
-    "Contato mockado com simulação explícita e rascunho opcional",
-    "Open Graph com fachada real e títulos de cards em 22 px"
+    "Quatro rotas principais",
+    "Equipe integrada sem profissionais fictícios",
+    "Copy literal da agência",
+    "Logo e fotografia originais",
+    "Formulário desabilitado, sem envio",
+    "Newsreader e Manrope locais",
+    "Movimento funcional, sem reveals que ocultem conteúdo"
   ],
   "tokens": {
-    "navy": "#122D4C",
-    "blue": "#244A70",
-    "paper": "#FFFFFF",
-    "surface": "#F2F5F7",
-    "ink": "#263B4E"
+    "navy": "#041C38",
+    "deep": "#021329",
+    "surface": "#0B2948",
+    "silver": "#DDE3ED",
+    "text": "#B8C5D5",
+    "border": "#71859C"
   }
 }

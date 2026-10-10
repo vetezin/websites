@@ -1,50 +1,39 @@
 ---
 import '../styles/global.css';
-import Icon from '../components/Icon.astro';
 import NavigationLinks from '../components/NavigationLinks.astro';
-import { navigation, offices, site } from '../data/site.js';
-const { title, description = site.description, active = '', image = site.officePhoto.image } = Astro.props;
+import { navigation, site, ui } from '../data/site.js';
+const { title = site.name, description = '', active = '', redirectPath }  = Astro.props;
 const base = import.meta.env.BASE_URL;
-const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL(`${base}${image}`, Astro.site);
+const canonical = new URL(redirectPath ? base + redirectPath : Astro.url.pathname, Astro.site);
+const ogImage = new URL(base + site.officePhoto, Astro.site);
 ---
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title ? `${title} | Gazzetti Advogados Associados` : 'Gazzetti Advogados Associados | Advocacia empresarial'}</title>
-    <meta name="description" content={description} /><meta name="robots" content="noindex, nofollow" />
-    <meta name="theme-color" content="#122D4C" /><link rel="canonical" href={canonical} />
-    <meta property="og:type" content="website" /><meta property="og:locale" content="pt_BR" /><meta property="og:site_name" content={site.name} />
-    <meta property="og:title" content={title || site.name} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} /><meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="Fachada da Gazzetti Advogados Associados" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
-    <link rel="stylesheet" href={`${base}fonts/fonts.css`} />
-    <link rel="preload" href={`${base}fonts/font-0.woff2`} as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href={`${base}fonts/font-5.woff2`} as="font" type="font/woff2" crossorigin />
-    <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'LegalService', name: site.name, url: Astro.site, email: site.email, description: site.description, address: offices.map(office => ({ '@type': 'PostalAddress', streetAddress: office.address, addressLocality: office.city, addressRegion: office.state, addressCountry: 'BR' })) })} />
-  </head>
-  <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    <header class="site-header"><div class="container header-inner">
-      <a class="brand" href={base} aria-label="Gazzetti Advogados Associados — início"><img src={`${base}images/logo.png`} alt="Gazzetti Advogados Associados" width="223" height="76" /></a>
-      <nav class="desktop-navigation" aria-label="Navegação principal"><NavigationLinks active={active} /></nav>
-      <details class="mobile-navigation">
-        <summary class="menu-toggle" role="button" aria-label="Abrir menu" aria-controls="navigation"><span></span><span></span></summary>
-        <nav id="navigation" aria-label="Navegação principal"><NavigationLinks active={active} /></nav>
-      </details>
-    </div></header>
-    <main id="conteudo"><slot /></main>
-    <footer class="site-footer"><div class="container">
-      <div class="footer-main"><div class="footer-brand"><a class="brand" href={base}><img src={`${base}images/logo.png`} alt="Gazzetti Advogados Associados — início" width="223" height="76" loading="lazy" /></a><p>Direito e estratégia.<br />Ao lado da sua empresa.</p></div>
-        <div class="footer-links"><h2>Navegue</h2><nav aria-label="Navegação do rodapé">{navigation.slice(1).map(item => <a href={`${base}${item.path}`}>{item.label}</a>)}<a href={`${base}contato/`}>Contato</a></nav></div>
-        {offices.map(office => <div class="footer-office"><h2>{office.city}</h2><p>{office.address}<br />{office.complement}</p><a href={`tel:${office.tel}`}>{office.phone}</a><a href={office.map} target="_blank" rel="noopener noreferrer">Como chegar <Icon name="external" size={15} /></a></div>)}
-      </div>
-      <div class="footer-bottom"><p>© {new Date().getFullYear()} Gazzetti Advogados Associados</p><a href={`${base}privacidade/`}>Privacidade e políticas</a><span>Prévia de redesign · conteúdo demonstrativo</span></div>
-    </div></footer>
-    <script>
-      import '../scripts/interactions.js';
-    </script>
-  </body>
+<head>
+ <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+ <title>{title}</title><meta name="description" content={description} />
+ <meta name="robots" content="noindex, follow" /><meta name="theme-color" content="#041C38" />
+ <link rel="canonical" href={canonical} />
+ {redirectPath && <meta http-equiv="refresh" content={'0;url=' + base + redirectPath} />}
+ <meta property="og:type" content="website" /><meta property="og:locale" content="pt_BR" /><meta property="og:site_name" content={site.name} />
+ <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} /><meta property="og:image" content={ogImage} /><meta property="og:image:alt" content="Porta e fachada da Gazzetti no site original" />
+ <meta name="twitter:card" content="summary_large_image" />
+ <link rel="icon" type="image/png" href={base + 'images/logo.png'} />
+ <link rel="stylesheet" href={base + 'fonts/fonts.css'} />
+ <script type="application/ld+json" set:html={JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: site.name, url: new URL(base, Astro.site).href })} />
+</head>
+<body>
+ <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+ <header class="site-header"><div class="container header-inner">
+  <a class="brand" href={base} aria-label="Gazzetti Advogados Associados — início"><img src={base + 'images/logo.png'} alt="Gazzetti Advogados Associados" width="223" height="74" /></a>
+  <nav class="desktop-navigation" aria-label="Navegação principal"><NavigationLinks active={active} /></nav>
+  <details class="mobile-navigation"><summary aria-controls="mobile-menu"><span class="menu-label">Menu</span><span class="menu-lines" aria-hidden="true"></span></summary><nav id="mobile-menu" aria-label="Navegação principal"><NavigationLinks active={active} /></nav></details>
+ </div></header>
+ <main id="conteudo" tabindex="-1"><slot /></main>
+ <footer class="site-footer"><div class="container">
+  <div class="footer-main"><a class="brand" href={base}><img src={base + 'images/logo.png'} alt="Gazzetti Advogados Associados — início" width="223" height="74" loading="lazy" /></a><nav aria-label="Navegação do rodapé"><a href={base}>Home</a>{navigation.map(item => <a href={base + item.path}>{item.label}</a>)}</nav></div>
+  <div class="footer-bottom"><p>{ui.demo}</p><a href={base + 'politica-de-privacidade/'}>Política de Privacidade</a></div>
+ </div></footer>
+ <script>import '../scripts/interactions.js';</script>
+</body>
 </html>

@@ -1,8 +1,6 @@
 ---
 import { navigation } from '../data/site.js';
-import Icon from './Icon.astro';
 const { active = '' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
-{navigation.map(item => <a href={`${base}${item.path}`} aria-current={active === item.path ? 'page' : undefined}>{item.label}</a>)}
-<a class="header-contact" href={`${base}contato/`} aria-current={active === 'contato/' ? 'page' : undefined}>Contato <Icon name="external" size={18} /></a>
+{navigation.map(item => <a class:list={{ 'header-contact': item.path === 'contato/' }} href={base + item.path} aria-current={active === item.path ? 'page' : undefined}>{item.label}</a>)}

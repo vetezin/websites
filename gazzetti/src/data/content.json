@@ -1,0 +1,338 @@
+{
+  "home": {
+    "title": "Gazzetti Advogados | Advocacia Empresarial",
+    "description": "Conheça a Gazzetti Advogados Associados. Atuação em estruturação de negócios, negociações empresariais e advocacia contenciosa.",
+    "sections": [
+      {
+        "label": "Hero",
+        "headings": [
+          {
+            "level": "h1",
+            "text": "O direito como parte da estratégia dos negócios."
+          }
+        ],
+        "paragraphs": [
+          "A Gazzetti Advogados Associados atua na estruturação de negócios, em negociações e na condução de questões jurídicas empresariais, com uma abordagem que considera as particularidades de cada situação."
+        ],
+        "activities": [],
+        "cta": "Conheça nossa atuação"
+      },
+      {
+        "label": "Apresentação",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Uma atuação jurídica conectada à realidade empresarial."
+          }
+        ],
+        "paragraphs": [
+          "Decisões empresariais envolvem responsabilidades, relações contratuais, riscos e interesses que precisam ser analisados de forma integrada.",
+          "A Gazzetti desenvolve sua atuação a partir da compreensão desses contextos, oferecendo assessoria jurídica em questões que envolvem a organização, a negociação e a defesa dos interesses empresariais."
+        ],
+        "activities": [],
+        "cta": "Conheça o escritório"
+      },
+      {
+        "label": "Áreas",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Diferentes frentes jurídicas. Uma visão integrada dos negócios."
+          },
+          {
+            "level": "h3",
+            "text": "Estruturação"
+          },
+          {
+            "level": "h3",
+            "text": "Negociação"
+          },
+          {
+            "level": "h3",
+            "text": "Advocacia contenciosa"
+          }
+        ],
+        "paragraphs": [
+          "Atuação jurídica relacionada à organização de negócios, à estruturação de operações e à gestão de questões que influenciam o desenvolvimento das atividades empresariais.",
+          "Assessoria em negociações empresariais e bancárias, considerando as particularidades das relações envolvidas e os interesses das partes.",
+          "Representação e acompanhamento de demandas jurídicas empresariais, incluindo disputas complexas e questões que exigem análise técnica e estratégica."
+        ],
+        "activities": [],
+        "cta": null
+      },
+      {
+        "label": "Filosofia",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Cada decisão jurídica exige compreensão do contexto."
+          }
+        ],
+        "paragraphs": [
+          "Nenhuma empresa enfrenta exatamente os mesmos desafios.",
+          "Por isso, a análise jurídica precisa considerar mais do que a legislação aplicável. É necessário compreender as relações envolvidas, os objetivos do negócio e as consequências de cada decisão.",
+          "Essa perspectiva orienta a atuação da Gazzetti em diferentes frentes do direito empresarial."
+        ],
+        "activities": [],
+        "cta": null
+      },
+      {
+        "label": "Encerramento",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Questões empresariais exigem diálogo e análise."
+          }
+        ],
+        "paragraphs": [
+          "Conheça os canais de contato da Gazzetti Advogados Associados."
+        ],
+        "activities": [],
+        "cta": "Entre em contato"
+      }
+    ]
+  },
+  "office": {
+    "title": "O Escritório | Gazzetti Advogados Associados",
+    "description": "Conheça a Gazzetti Advogados Associados, sua atuação jurídica empresarial, filosofia de trabalho e equipe de profissionais.",
+    "sections": [
+      {
+        "label": "Hero",
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Uma trajetória dedicada ao direito e às relações empresariais."
+          }
+        ],
+        "paragraphs": [
+          "A Gazzetti Advogados Associados desenvolve sua atuação em diferentes questões jurídicas ligadas ao ambiente empresarial, reunindo conhecimento técnico e atenção às particularidades de cada demanda."
+        ],
+        "activities": [],
+        "cta": null
+      },
+      {
+        "label": "História e posicionamento",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "O direito em diálogo com os negócios."
+          }
+        ],
+        "paragraphs": [
+          "A atividade empresarial está em constante transformação. Novas relações, operações e desafios exigem uma atuação jurídica capaz de compreender diferentes contextos e suas implicações.",
+          "A Gazzetti concentra sua atuação em áreas relacionadas à estruturação de negócios, às negociações e ao contencioso empresarial.",
+          "Seu trabalho considera os aspectos jurídicos de cada situação, buscando contribuir para a análise de decisões e para a condução responsável das questões apresentadas."
+        ],
+        "activities": [],
+        "cta": null
+      },
+      {
+        "label": "Equipe",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Profissionais e conhecimento jurídico."
+          }
+        ],
+        "paragraphs": [
+          "A atuação da Gazzetti é desenvolvida por profissionais do direito envolvidos na análise, no acompanhamento e na condução das demandas do escritório."
+        ],
+        "activities": [],
+        "cta": null
+      },
+      {
+        "label": "Presença institucional",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Presença e relacionamento."
+          }
+        ],
+        "paragraphs": [
+          "Com sede em Presidente Prudente e endereço também divulgado em São Paulo, a Gazzetti mantém canais de contato para o atendimento de questões jurídicas relacionadas à sua atuação."
+        ],
+        "activities": [],
+        "cta": null
+      },
+      {
+        "label": "Encerramento",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Conheça as áreas de atuação da Gazzetti."
+          }
+        ],
+        "paragraphs": [
+          "Saiba mais sobre as frentes jurídicas que integram o trabalho do escritório."
+        ],
+        "activities": [],
+        "cta": "Explorar áreas de atuação"
+      }
+    ]
+  },
+  "areas": {
+    "title": "Áreas de Atuação | Gazzetti Advogados",
+    "description": "Conheça as áreas de atuação da Gazzetti: estruturação de negócios, negociações empresariais e bancárias e advocacia contenciosa.",
+    "sections": [
+      {
+        "label": "Hero",
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Atuação jurídica para diferentes dimensões dos negócios."
+          }
+        ],
+        "paragraphs": [
+          "A Gazzetti Advogados Associados atua em questões que envolvem a organização de atividades empresariais, a condução de negociações e a representação em demandas jurídicas.",
+          "Conheça as principais frentes de atuação do escritório."
+        ],
+        "activities": [],
+        "cta": null
+      },
+      {
+        "label": "Estruturação | id: estruturacao",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Estruturação"
+          }
+        ],
+        "paragraphs": [
+          "A organização jurídica de uma atividade empresarial envolve decisões que podem influenciar suas operações, relações contratuais e responsabilidades.",
+          "A Gazzetti atua em questões relacionadas à estruturação de negócios e à organização de atividades empresariais, considerando os aspectos jurídicos envolvidos em cada contexto."
+        ],
+        "activities": [
+          "Estruturação de negócios.",
+          "Estruturação de departamentos jurídicos.",
+          "Organização e recuperação de atividades empresariais.",
+          "Gestão de passivos."
+        ],
+        "cta": null
+      },
+      {
+        "label": "Negociação | id: negociacao",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Negociação"
+          }
+        ],
+        "paragraphs": [
+          "As negociações empresariais envolvem interesses, obrigações e condições que exigem análise jurídica cuidadosa.",
+          "A Gazzetti atua na condução de questões negociais, incluindo relações bancárias e situações relacionadas aos interesses jurídicos de empresas."
+        ],
+        "activities": [
+          "Negociações bancárias.",
+          "Estratégias negociais.",
+          "Defesa de interesses empresariais em processos de negociação."
+        ],
+        "cta": null
+      },
+      {
+        "label": "Advocacia contenciosa | id: advocacia-contenciosa",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Advocacia contenciosa"
+          }
+        ],
+        "paragraphs": [
+          "Conflitos empresariais podem envolver diferentes áreas do direito e produzir consequências relevantes para a continuidade das operações e para as relações de uma organização.",
+          "A atuação contenciosa da Gazzetti contempla a análise e a condução de demandas jurídicas, com atenção às circunstâncias de cada caso."
+        ],
+        "activities": [
+          "Contencioso empresarial.",
+          "Gestão de riscos.",
+          "Demandas bancárias e tributárias.",
+          "Gerenciamento de causas complexas."
+        ],
+        "cta": null
+      },
+      {
+        "label": "Encerramento",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Entre em contato com a Gazzetti."
+          }
+        ],
+        "paragraphs": [
+          "Para informações sobre a atuação do escritório, utilize um de seus canais institucionais."
+        ],
+        "activities": [],
+        "cta": "Entre em contato"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contato | Gazzetti Advogados Associados",
+    "description": "Entre em contato com a Gazzetti Advogados Associados. Consulte os canais de atendimento e as informações institucionais do escritório.",
+    "sections": [
+      {
+        "label": "Hero",
+        "headings": [
+          {
+            "level": "h1",
+            "text": "Entre em contato."
+          }
+        ],
+        "paragraphs": [
+          "A Gazzetti Advogados Associados disponibiliza seus canais institucionais para informações e contato com o escritório."
+        ],
+        "activities": [],
+        "cta": null
+      },
+      {
+        "label": "Canais",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Informações de contato."
+          },
+          {
+            "level": "h3",
+            "text": "Presidente Prudente, SP"
+          },
+          {
+            "level": "h3",
+            "text": "São Paulo, SP"
+          }
+        ],
+        "paragraphs": [
+          "Consulte os endereços e canais oficiais de comunicação da Gazzetti."
+        ],
+        "activities": [],
+        "cta": null
+      },
+      {
+        "label": "Formulário",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Envie sua mensagem."
+          }
+        ],
+        "paragraphs": [
+          "Preencha os campos abaixo para entrar em contato com o escritório.",
+          "Ao enviar sua mensagem, seus dados serão tratados conforme a Política de Privacidade do escritório."
+        ],
+        "activities": [],
+        "cta": null
+      },
+      {
+        "label": "Localização",
+        "headings": [
+          {
+            "level": "h2",
+            "text": "Localização."
+          }
+        ],
+        "paragraphs": [
+          "Consulte as informações das unidades e os respectivos endereços para orientação de acesso."
+        ],
+        "activities": [],
+        "cta": null
+      }
+    ]
+  }
+}

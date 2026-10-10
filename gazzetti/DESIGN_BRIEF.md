@@ -1,61 +1,36 @@
-# Gazzetti — direção de design
+# Gazzetti — Dark Navy Premium
 
-## Negócio
-Gazzetti Advogados Associados atua em advocacia e consultoria empresarial.
-O público são empresários, gestores e responsáveis por decisões jurídicas.
-O conteúdo atual destaca estruturação de negócios, negociação e contencioso.
-A interface deve ajudar a identificar a especialidade e conhecer os profissionais.
-Confiança vem de informações claras, equipe identificada, discrição e contato acessível.
-O visitante quer entender escopo, abordagem e qual unidade procurar.
-A ação principal é entrar em contato com o escritório.
-A percepção desejada é precisão e proximidade; evitar ostentação e promessas de resultado.
+## Negócio e público
+A Gazzetti atua no direito empresarial, em estruturação, negociação e contencioso.
+O público é formado por empresários, gestores e organizações.
+O site deve explicar essas frentes e permitir conhecer a instituição.
+A diferenciação proposta é a compreensão integrada do contexto dos negócios.
+Confiança depende de clareza, sobriedade e informações profissionais confirmadas.
+O visitante precisa entender a atuação e encontrar canais institucionais.
+A ação principal é conhecer a atuação; o contato é o próximo passo.
+A percepção desejada é técnica e sóbria; evitar promessas e ostentação.
 
-## Atributos
-- Precisão: linguagem objetiva e alinhamentos consistentes.
-- Discrição: cor restrita, nenhum apelo comercial agressivo.
-- Proximidade: pessoas e canais de contato facilmente encontrados.
-- Continuidade: azul institucional e assinatura curva da marca preservados.
-- Não parecer: marketplace jurídico, startup de tecnologia ou advocacia de luxo genérica.
+## Direção e alternativas
+1. Editorial navy/prata: texto em sete colunas, arquitetura real em cinco, linhas e superfícies contidas. Direção escolhida pelo handoff fornecido, não uma escolha ainda em aberto.
+2. Institucional claro: documento e fotografia em composição simétrica, leitura compacta; descartado porque contraria a direção aprovada.
+3. Fotográfico dominante: abertura de largura total, narrativa visual expansiva; descartado por reduzir a prioridade do copy e da leitura integral.
 
-## Três direções
-1. **Arquitetura empresarial:** abertura assimétrica, fotografia em painel, serifada controlada, listas abertas de serviços. Ritmo entre branco e azul, navegação horizontal convencional e movimento curto.
-2. **Mesa de trabalho:** composição utilitária e densa, navegação lateral, tipografia inteiramente sem serifa, diagramas de escopo e imagens pequenas. Interações focadas em pesquisa e descoberta de áreas.
-3. **Retrato do escritório:** abertura fotográfica imersiva, tipografia sobreposta e percurso narrativo pela equipe. Navegação compacta, retratos dominantes e transições fotográficas suaves.
-
-Escolhida: arquitetura empresarial. Equilibra a especificidade dos serviços com uma presença humana, sem depender da disponibilidade de fotografias reais de todos os profissionais.
-
-## Visual DNA
-Composição arquitetural e assimétrica; densidade equilibrada; títulos institucionais expressivos e corpo neutro; geometria retangular; imagens de apoio; movimento funcional; ritmo variável; cor guiada pela marca.
-Regra autoral: painéis fotográficos recebem uma pequena moldura deslocada e uma curva de assinatura em pontos de transição. A curva representa a continuidade presente no logo; não é usada como decoração repetida em cada bloco.
+## Atributos e Visual DNA
+Sobriedade pela cor restrita; precisão pelo alinhamento; proximidade pela porta real do escritório. Não parecer fintech, catálogo genérico de advogados ou campanha de resultados.
+Composição editorial em grid 12/8/4; densidade equilibrada; Newsreader nos títulos e Manrope em leitura e interface; geometria contida, raios de 4 px; fotografia documental de apoio; movimento funcional; ritmo alternando composição aberta, cards e faixa profunda.
+Restrição autoral: linhas e alinhamentos verticais organizam as três dimensões da atuação; o acesso arquitetônico real é a assinatura da abertura. Nunca símbolos jurídicos decorativos.
 
 ## Arquitetura
-- Início: posicionamento → três escopos de atuação → abordagem → equipe → unidades.
-- Escritório: identidade, modo de trabalhar, presença física; evita repetir a home.
-- Áreas: índice por necessidade, três seções com escopo e dúvidas, contato contextual.
-- Equipe: profissionais fictícios claramente identificados, perfis detalhados em diálogo acessível.
-- Links úteis: curadoria de fontes oficiais com busca e filtros acessíveis.
-- Contato: canais primeiro, formulário de simulação local com rascunho opcional, unidades e privacidade.
-- Privacidade: aviso demonstrativo e links aos documentos existentes, sem simular parecer jurídico.
+Home: tese, apresentação, três frentes, filosofia, contato. O Escritório: posicionamento, equipe pendente, presença, atuação. Áreas: índice lateral e três textos integrais. Contato: canais pendentes, formulário desabilitado, localização pendente. Privacidade complementar sem política inventada. Ordem e copy da seção 5 do handoff preservados.
 
 ## Tokens
-- Refinamento responsivo: abertura em uma coluna até 900 px, preservando a fachada inteira; equipe da home com retratos compactos em lista no celular; navegação do rodapé em duas colunas com contatos completos; títulos dos recursos em 22 px e peso 600, descrições em 18 px. Menu mobile usa details/summary nativo e funciona sem JavaScript. Compartilhamento usa a foto real.
-- Display: Newsreader, serifada; corpo e navegação: Manrope, sem serifa. Fontes locais com swap, fallback Georgia/Arial.
-- Azul profundo #122D4C; azul institucional #244A70; texto #263B4E; secundário #526272; branco #FFFFFF; superfície #F2F5F7; acento #A7BDD0.
-- Texto #263B4E sobre branco e branco sobre #122D4C excedem AA; texto secundário também é verificado no teste de contraste.
-- Escala: 14, 16, 18, 24, 32, 44, 64, 80 px, ajustada com clamp. Corpo de leitura em 18 px, interfaces em pelo menos 16 px e informações secundárias em pelo menos 14 px; não diminuir no mobile para acomodar layout. Entrelinha de leitura de pelo menos 1,6. Regra obrigatória registrada em `AGENTS.md`.
-- Espaço: 8, 12, 16, 24, 32, 48, 64, 96, 128 px.
-- Raio: 0 a 2 px; sombra apenas no menu e diálogo; divisores finos.
-- Motion: hover 180 ms; entradas seletivas 650 ms, deslocamento 14 px; respeita reduced-motion; conteúdo visível sem JS.
+Navy base #041C38, deep #021329, surface #0B2948; silver #DDE3ED, primary #F4F6FA, secondary #B8C5D5, decorative #29435E, border #71859C, focus #B7D8FF, error #FFB4AB, success #B7E3CC. Contrastes medidos por teste automatizado; divisórias decorativas não são limites de controles.
+Newsreader 400–500 e Manrope 400–700 locais, já licenciadas no projeto. As fontes do handoff são sugestões; preservar as existentes evita aquisição e mantém duas famílias. H1 Home 72/42 px, interno 60/38, H2 44/32, H3 28/26, corpo 18 com entrelinha 1.65; interface 16, secundários 14. Máximo 65ch.
+Container 1240; margens desktop 48, mobile 24 e 16 em 320; seção 96 desktop/56 mobile; gaps 24–32; raio 4; divisórias 1 px; sem sombras. Hover 180 ms, sem mudança de layout; reduced-motion elimina transições e smooth scroll.
 
-## Stack e autorização
-Astro + CSS próprio + JavaScript pontual, conforme proposto e aprovado pelo usuário em 08/10/2026 (“Ok, monte ele”). Alternativa considerada: HTML/CSS/JS puros; Astro evita duplicação entre sete páginas e gera HTML estático. Nenhuma biblioteca de motion necessária.
+## Stack e execução
+Preservar Astro + CSS próprio + JS mínimo, sem instalação. Alternativa React acrescentaria runtime sem benefício para quatro páginas estáticas. Conteúdo em JSON, microcopy funcional em site.js. Navegação nativa com details e aprimoramento de Escape; âncoras nativas.
 
-## Suposições e pendências
-- Redesign demonstrativo local; sem publicação automática nem integração de envio.
-- Equipe, retratos e biografias são MOCK autorizados, com aviso visível e dados centralizados.
-- Textos de posicionamento e método são propostas editoriais a validar, não fatos históricos.
-- Endereços, telefones e e-mails vêm do site existente; confirmar atualidade antes de publicar.
-- Não inventar OAB, clientes, prêmios, anos de atuação, resultados ou depoimentos.
-- Fachada original preservada na home e na página Escritório, com enquadramento completo da porta e placa. Retratos gerados permanecem identificados como fictícios; a arquitetura gerada inicial foi substituída por fotografia real.
-- Por instrução do usuário, o formulário simula um envio local, identifica que nenhuma mensagem foi enviada e oferece rascunho opcional.
-- 21st CLI ausente; componentes próprios, sem reutilização visual de outros projetos.
+## Ativos, suposições e pendências
+IMG_6015.jpeg não acompanha o anexo; os tokens explícitos orientam a direção. Logo original PNG mantida sem reconstrução. Foto já existente do site original; porta e placa preservadas com imagem inteira dentro de moldura 4:3 também no desktop, ajustando a proporção sugerida em favor da identificação solicitada anteriormente. Equipe não renderiza retratos. A miniatura do navegador usa o ativo original completo, sem criar símbolo.
+Copy aprovado para demonstração pela agência, ainda dependente de validação institucional. Sem contatos, registros, endereço detalhado ou mapas não confirmados. Sem envio, armazenamento, analytics e sitemap público; noindex com rastreamento permitido para leitura da diretiva. Ver CONTENT_TODO.md e VALIDATION.md. Não publicar novamente sem autorização.

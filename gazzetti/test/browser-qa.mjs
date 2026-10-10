@@ -1,88 +1,50 @@
-/** Executável com qualquer Page do Playwright, sem acoplar uma dependência de testes ao site. */
-export async function runBrowserChecks(page, baseUrl = 'http://localhost:4322/') {
-  const checks = [];
-  function check(value, label) {
-    if (!value) throw new Error(label);
-    checks.push(label);
+/** Recebe uma Page do Playwright, sem instalar runtime de teste no site. */
+export async function runBrowserChecks(page, baseUrl='http://localhost:4322/') {
+ const results=[];
+ const check=(value,label)=>{if(!value)throw new Error(label);results.push(label);};
+ const routes=['','o-escritorio/','areas-de-atuacao/','contato/'];
+ const failures=[];
+ const onError=error=>failures.push(error.message);
+ page.on('pageerror',onError);
+ try {
+  for(const width of [320,390,768,1024,1440]) {
+   await page.setViewportSize({width,height:900});
+   for(const route of routes) {
+    const response=await page.goto(baseUrl+route);await page.evaluate(()=>document.fonts.ready);
+    check(response.status()===200,route+' status '+width);
+    check(await page.locator('h1').count()===1,route+' H1 '+width);
+    check(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),route+' sem overflow '+width);
+    check(await page.locator('meta[name="robots"]').getAttribute('content')==='noindex, follow',route+' noindex '+width);
+    check(await page.evaluate(()=>[...document.images].filter(i=>i.loading!=="lazy").every(i=>i.complete&&i.naturalWidth>0)),route+' imagens '+width);
+    check(await page.evaluate(()=>[...document.querySelectorAll('p,a,label,input,textarea,figcaption')].filter(e=>e.getClientRects().length).every(e=>parseFloat(getComputedStyle(e).fontSize)>=14)),route+' legibilidade '+width);
+   }
   }
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(baseUrl);
-  await page.getByRole('button', { name: 'Abrir menu' }).click();
-  check(await page.getByRole('navigation', { name: 'Navegação principal' }).isVisible(), 'Menu mobile abre');
-  await page.keyboard.press('Escape');
-  check(await page.locator('.mobile-navigation').getAttribute('open') === null, 'Escape fecha menu');
-  await page.getByRole('button', { name: 'Abrir menu' }).click();
-  await page.getByRole('navigation', { name: 'Navegação principal' }).getByRole('link', { name: 'Equipe', exact: true }).click();
-  const profileButton = page.getByRole('button', { name: 'Conhecer o perfil fictício de Helena Duarte' });
-  await profileButton.click();
-  check(await page.getByRole('dialog').isVisible(), 'Perfil abre');
-  await page.keyboard.press('Tab');
-  check(await page.evaluate(() => !!document.activeElement.closest('dialog')), 'Tab mantém foco no perfil');
-  await page.keyboard.press('Shift+Tab');
-  check(await page.evaluate(() => !!document.activeElement.closest('dialog')), 'Shift+Tab mantém foco no perfil');
-  await page.keyboard.press('Escape');
-  check(await profileButton.evaluate(element => element === document.activeElement), 'Fechar perfil devolve o foco');
-
-  await page.goto(`${baseUrl}uteis/`);
-  await page.getByRole('button', { name: 'Tribunais', exact: true }).click();
-  check(await page.locator('[data-resource]:visible').count() === 4, 'Filtro de tribunais');
-  await page.getByRole('button', { name: 'Todos', exact: true }).click();
-  check(await page.locator('.resource').first().evaluate(element => parseFloat(getComputedStyle(element.querySelector('h2')).fontSize) > parseFloat(getComputedStyle(element.querySelector('p')).fontSize)), 'Título do card domina a descrição');
-  await page.getByLabel('Buscar portal ou serviço').fill('sao paulo');
-  check(await page.locator('[data-resource]:visible').count() === 2, 'Busca sem acentos');
-  await page.getByLabel('Buscar portal ou serviço').fill('xyz-inexistente');
-  check(await page.getByText('Nenhum portal encontrado.').isVisible(), 'Estado sem resultados');
-  await page.getByRole('button', { name: 'Limpar busca' }).click();
-  check(await page.locator('[data-resource]:visible').count() === 9, 'Limpar restaura os resultados');
-
-  await page.goto(`${baseUrl}areas/`);
-  await page.locator('#negociacao summary').click();
-  check(await page.locator('#negociacao details').getAttribute('open') !== null, 'Dúvida da área expande');
-  await page.locator('#negociacao').getByRole('link', { name: 'Converse com o escritório' }).click();
-  check(await page.getByLabel('Assunto').inputValue() === 'Negociação empresarial', 'Área preenche o assunto');
-  await page.getByRole('button', { name: 'Simular envio' }).click();
-  check(await page.locator('.form-result').isHidden(), 'Campos obrigatórios impedem simulação inválida');
-  await page.getByLabel('Nome (obrigatório)').fill('João de Teste');
-  await page.getByLabel('E-mail (obrigatório)').fill('joao@example.com');
-  await page.getByLabel('Empresa (opcional)').fill('Empresa de Teste');
-  await page.getByLabel('Mensagem (obrigatório)').fill('Gostaria de conversar sobre um contrato empresarial.');
-  await page.locator('input[name=privacy]').check();
-  const submissions = [];
-  const recordSubmission = request => {
-    if (request.method() === 'POST') submissions.push(request.url());
-  };
-  page.on('request', recordSubmission);
-  await page.getByRole('button', { name: 'Simular envio' }).click();
-  check(await page.getByText('Simulação concluída.').isVisible(), 'Simulação concluída com aviso de ausência de envio');
-  check(submissions.length === 0, 'Simulação não transmite formulário por POST');
-  page.off('request', recordSubmission);
-  const href = await page.locator('[data-mailto]').getAttribute('href');
-  check(href.startsWith('mailto:contato@gazzetti.com.br?') && decodeURIComponent(href).includes('João de Teste'), 'Destinatário e dados preservados');
-  await page.getByLabel('Mensagem (obrigatório)').fill('Mensagem alterada para o escritório.');
-  check(await page.locator('.form-result').isHidden(), 'Alteração invalida a simulação anterior');
-
-  await page.setViewportSize({ width: 720, height: 900 });
-  await page.goto(baseUrl);
-  check(await page.locator('.hero-figure').evaluate(element => element.getBoundingClientRect().top >= document.querySelector('.hero-copy').getBoundingClientRect().bottom), 'Tablet apresenta foto abaixo do texto');
-  check((await page.locator('meta[property="og:image"]').getAttribute('content')).endsWith('/images/escritorio-real.webp'), 'Compartilhamento usa a fachada real');
-  await page.setViewportSize({ width: 390, height: 844 });
-  check(await page.locator('.team-grid-compact').evaluate(element => element.getBoundingClientRect().height < 600), 'Equipe compacta na home mobile');
-
-  const noScriptContext = await page.context().browser().newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
-  try {
-    const noScriptPage = await noScriptContext.newPage();
-    await noScriptPage.goto(baseUrl);
-    await noScriptPage.getByRole('button', { name: 'Abrir menu' }).click();
-    check(await noScriptPage.getByRole('navigation', { name: 'Navegação principal' }).isVisible(), 'Menu abre sem JavaScript');
-    await noScriptPage.getByRole('navigation', { name: 'Navegação principal' }).getByRole('link', { name: 'Escritório', exact: true }).click();
-    check(noScriptPage.url().endsWith('/escritorio/'), 'Menu navega sem JavaScript');
-  } finally {
-    await noScriptContext.close();
+  await page.setViewportSize({width:390,height:844});await page.goto(baseUrl);
+  const summary=page.locator('.mobile-navigation summary');await summary.focus();await page.keyboard.press('Enter');
+  check(await page.locator('.mobile-navigation').getAttribute('open')!==null,'Menu abre por teclado');
+  await page.keyboard.press('Escape');check(await summary.evaluate(e=>document.activeElement===e),'Escape devolve foco');
+  await summary.click();await page.locator('#mobile-menu').getByRole('link',{name:'O Escritório',exact:true}).click();
+  check(page.url().includes('/o-escritorio/'),'Menu navega');
+  await page.goto(baseUrl+'areas-de-atuacao/');await page.emulateMedia({reducedMotion:'reduce'});
+  for(const id of ['estruturacao','negociacao','advocacia-contenciosa']) {
+   await page.locator('.area-index a[href="#'+id+'"]').click();
+   check(page.url().endsWith('#'+id),'Âncora '+id);
+   check(await page.locator('#'+id).evaluate(e=>e.getBoundingClientRect().top>=72),'Âncora visível '+id);
   }
-
-  await page.emulateMedia({ reducedMotion: 'reduce' });
-  await page.goto(baseUrl);
-  check(await page.locator('h1').evaluate(element => getComputedStyle(element).animationName) === 'none', 'Preferência de movimento reduzido respeitada');
-  await page.emulateMedia({ reducedMotion: 'no-preference' });
-  return { passed: checks.length, checks };
+  check(await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior)==='auto','Movimento reduzido');
+  await page.goto(baseUrl+'contato/');
+  const transmitted=[];const onRequest=request=>{if(request.method()==='POST'||request.url().includes('mailto:'))transmitted.push(request.url());};
+  page.on('request',onRequest);
+  await page.getByLabel('Nome completo').fill('João');await page.getByLabel('E-mail',{exact:true}).fill('joao@example.com');await page.getByLabel('Telefone (opcional)').fill('+351 123 456 789');await page.getByLabel('Mensagem',{exact:true}).fill('Mensagem de teste.');
+  check(await page.getByRole('button',{name:'Enviar mensagem',exact:true}).isDisabled(),'Envio desabilitado');
+  await page.getByLabel('Nome completo').press('Enter');await page.locator('form').evaluate(e=>e.requestSubmit());
+  check(transmitted.length===0,'Nenhum envio de dados');
+  check(await page.evaluate(()=>localStorage.length===0&&sessionStorage.length===0),'Sem armazenamento');
+  page.off('request',onRequest);
+  for(const [old,dest] of [['escritorio/','o-escritorio/'],['areas/','areas-de-atuacao/'],['equipe/','o-escritorio/#equipe'],['privacidade/','politica-de-privacidade/']]) {await page.goto(baseUrl+old);await page.waitForURL(baseUrl+dest);check(true,'Alias '+old);}
+  await page.goto(baseUrl);await page.keyboard.press('Tab');check(await page.locator('.skip-link').evaluate(e=>document.activeElement===e),'Pular conteúdo por teclado');
+  await page.keyboard.press('Enter');check(await page.locator('main').evaluate(e=>document.activeElement===e),'Destino do foco no conteúdo');
+  check(failures.length===0,'Sem erros de JavaScript');
+  return {count:results.length,results,failures};
+ } finally { page.off('pageerror',onError); }
 }
