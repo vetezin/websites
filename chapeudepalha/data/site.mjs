@@ -53,7 +53,6 @@ export const site = {
   menu: {
     title: ['Escolha seu', 'próximo tesouro.'],
     description: 'Porções para dividir, pastéis para saborear e bebidas para acompanhar. O nosso cardápio, agora na sua tela.',
-    notice: 'Cardápio demonstrativo. Porções transcritas da foto enviada; preços e disponibilidade sujeitos a confirmação. Sabores de pastéis abaixo são exemplos.',
     portionsNote: 'Pesos e valores conforme o cardápio fotografado.',
     pastryNote: 'Sabores ilustrativos para esta apresentação. Confirme as opções e os valores com o quiosque.',
     drinkNote: 'Fotos fornecidas do quiosque. Consulte nomes, opções e valores disponíveis.',
