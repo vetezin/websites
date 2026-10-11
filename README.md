@@ -9,7 +9,7 @@ Quatro projetos independentes, com Git e publicação centralizados nesta pasta.
 
 ## Branches por site
 
-Cada site tem uma branch local `codex/site-<pasta>` para mudanças restritas à
+Cada site tem uma branch local `<pasta>` para mudanças restritas à
 sua pasta. A `main` mantém a versão integrada. Consulte
 [o mapa e o fluxo de trabalho](docs/SITE_BRANCHES.md) antes de editar.
 Para sessões simultâneas ou alterações locais pendentes, use worktrees separados.

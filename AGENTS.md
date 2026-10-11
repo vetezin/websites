@@ -4,11 +4,11 @@ Antes de editar um site, leia `docs/SITE_BRANCHES.md`, identifique a pasta alvo 
 
 | Pasta autorizada | Branch de trabalho |
 | --- | --- |
-| `chapeudepalha/` | `codex/site-chapeudepalha` |
-| `conveniencia018/` | `codex/site-conveniencia018` |
-| `eletrosevero/` | `codex/site-eletrosevero` |
-| `gazzetti/` | `codex/site-gazzetti` |
-| `volpicontabilidade/` | `codex/site-volpicontabilidade` |
+| `chapeudepalha/` | `chapeudepalha` |
+| `conveniencia018/` | `conveniencia018` |
+| `eletrosevero/` | `eletrosevero` |
+| `gazzetti/` | `gazzetti` |
+| `volpicontabilidade/` | `volpicontabilidade` |
 
 - Mudanças em um site devem ocorrer exclusivamente na branch correspondente e dentro da pasta autorizada, incluindo seus documentos e testes. Leia também o AGENTS.md local, quando existir.
 - Não implemente mudanças de site em `main` nem na branch de outro site. Em HEAD destacado, selecione a branch correspondente antes de editar.

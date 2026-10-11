@@ -5,18 +5,18 @@ uma linha de trabalho para um site; nenhuma pasta foi removida ou movida.
 
 | Site / pasta | Branch | Escopo permitido |
 | --- | --- | --- |
-| Chapéu de Palha | `codex/site-chapeudepalha` | `chapeudepalha/` |
-| Conveniência Zero18 | `codex/site-conveniencia018` | `conveniencia018/` |
-| Eletro Severo (brief e assets iniciais) | `codex/site-eletrosevero` | `eletrosevero/` |
-| Gazzetti Advogados | `codex/site-gazzetti` | `gazzetti/` |
-| Volpi Contabilidade | `codex/site-volpicontabilidade` | `volpicontabilidade/` |
+| Chapéu de Palha | `chapeudepalha` | `chapeudepalha/` |
+| Conveniência Zero18 | `conveniencia018` | `conveniencia018/` |
+| Eletro Severo (brief e assets iniciais) | `eletrosevero` | `eletrosevero/` |
+| Gazzetti Advogados | `gazzetti` | `gazzetti/` |
+| Volpi Contabilidade | `volpicontabilidade` | `volpicontabilidade/` |
 
 ## Iniciar uma mudança
 
 1. Identifique o site pelo pedido e confira `git status --short`,
    `git branch --show-current` e `git worktree list`.
 2. Com checkout limpo e sem outra sessão usando essa pasta, selecione a branch:
-   `git switch codex/site-gazzetti` (exemplo).
+   `git switch gazzetti` (exemplo).
 3. Trabalhe somente em `gazzetti/` nesse exemplo. Leia o `AGENTS.md` da raiz
    e o do site. Execute as validações pertinentes a esse site.
 4. Revise `git diff --name-only` e `git diff --cached --name-only` antes de
@@ -34,7 +34,7 @@ ou mudanças pendentes no checkout atual. Não troque a branch de uma pasta que
 outra sessão está usando. Exemplo, usando uma pasta autorizada e disponível:
 
 ```powershell
-git worktree add <pasta-autorizada-do-worktree> codex/site-gazzetti
+git worktree add <pasta-autorizada-do-worktree> gazzetti
 ```
 
 Abra a sessão de trabalho nessa pasta e confirme a branch antes de editar.
