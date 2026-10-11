@@ -11,4 +11,4 @@
 - Bebidas: as quatro linhas são categorias para consulta, não um cardápio completo com preços. Confirmar sobretudo qual é a bebida roxa antes de associar a foto a um produto específico.
 - Confirmar cardápio completo, contato, horários, endereço e programação.
 - Duas páginas implementadas localmente, sem dependências instaladas. Página inicial com diário de bordo; página de cardápio preta seguindo o impresso, conforme a revisão do usuário.
-- Prévia bloqueada para indexação (`noindex` e `robots.txt`). Antes de publicar, substituir exemplos, confirmar dados e configurar domínio/metadados; publicação não faz parte desta entrega.
+- O usuário autorizou a publicação desta demonstração no GitHub Pages com o endereço `cdpalha`. Exemplos continuam identificados e a prévia bloqueada para indexação (`noindex` e `robots.txt`). Antes do lançamento oficial do estabelecimento, substituir exemplos e confirmar os dados comerciais.

@@ -18,7 +18,7 @@ npm run build
 npm run lint
 ```
 
-O resultado está em `dist/`, ignorado pelo Git. O projeto ainda não está integrado à publicação conjunta dos outros sites. Build permite `SITE_BASE_PATH` e `SITE_URL` quando houver uma publicação autorizada. Para produção, confirmar o conteúdo e revisar explicitamente `noindex` e `robots.txt`.
+O resultado está em `dist/`, ignorado pelo Git. A publicação conjunta no GitHub Pages usa `SITE_BASE_PATH=/websites/cdpalha/` e `SITE_URL=https://vetezin.github.io`; endereço: https://vetezin.github.io/websites/cdpalha/. O workflow valida o HTML gerado antes de publicar. Esta publicação é uma demonstração autorizada pelo usuário, com exemplos identificados e `noindex`. Para o site oficial do estabelecimento, confirmar o conteúdo e revisar explicitamente `noindex` e `robots.txt`.
 
 ## Editar conteúdo
 
