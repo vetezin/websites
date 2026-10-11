@@ -1,0 +1,21 @@
+{
+  "source": "public/images/cardapio-porcoes-fonte.png",
+  "status": "Transcrito da fotografia fornecida pelo usuário; confirmar preços e disponibilidade antes de publicar.",
+  "currency": "BRL",
+  "items": [
+    { "name": "Filé de tilápia", "grams": 400, "price": 45 },
+    { "name": "Picanha com mandioca frita", "grams": 400, "price": 60 },
+    { "name": "Contra filé com mandioca frita", "grams": 400, "price": 50 },
+    { "name": "Coxinha empanada", "grams": 500, "price": 29 },
+    { "name": "Isca de frango empanada", "grams": 400, "price": 30 },
+    { "name": "Bolinho de tilápia", "grams": 300, "price": 23.99 },
+    { "name": "Polenta palito frita", "grams": 300, "price": 18 },
+    { "name": "Batata frita com cheddar e bacon", "grams": 400, "price": 30 },
+    { "name": "Batata com calabresa", "grams": 500, "price": 30 },
+    { "name": "Batata frita", "grams": 300, "price": 20 },
+    { "name": "Anéis de cebola", "grams": 350, "price": 23 },
+    { "name": "Mandioca frita", "grams": 300, "price": 15 },
+    { "name": "Calabresa com cebola e torradas", "grams": 300, "price": 24 },
+    { "name": "Fome de Pirata", "description": "Isca de frango, anéis de cebola e batata frita", "grams": 600, "price": 40 }
+  ]
+}
