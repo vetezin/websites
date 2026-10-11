@@ -1,3 +1,24 @@
+## Isolamento obrigatório de mudanças por site
+
+Antes de editar um site, leia `docs/SITE_BRANCHES.md`, identifique a pasta alvo e confira a branch com `git branch --show-current` e o estado com `git status --short`.
+
+| Pasta autorizada | Branch de trabalho |
+| --- | --- |
+| `chapeudepalha/` | `codex/site-chapeudepalha` |
+| `conveniencia018/` | `codex/site-conveniencia018` |
+| `eletrosevero/` | `codex/site-eletrosevero` |
+| `gazzetti/` | `codex/site-gazzetti` |
+| `volpicontabilidade/` | `codex/site-volpicontabilidade` |
+
+- Mudanças em um site devem ocorrer exclusivamente na branch correspondente e dentro da pasta autorizada, incluindo seus documentos e testes. Leia também o AGENTS.md local, quando existir.
+- Não implemente mudanças de site em `main` nem na branch de outro site. Em HEAD destacado, selecione a branch correspondente antes de editar.
+- Não altere outros sites nem arquivos compartilhados da raiz (`scripts/`, `.github/`, `package.json`, instruções globais etc.) como efeito colateral. Se uma mudança compartilhada for necessária, explique o impacto e obtenha autorização específica.
+- Antes de trocar de branch, confira alterações locais e worktrees existentes. Nunca descarte, guarde em stash ou commite trabalho alheio automaticamente. Com trabalho pendente ou outra sessão usando o checkout, prefira um worktree isolado; ele parte de commits e não inclui mudanças não commitadas.
+- Uma branch contém todos os sites: o nome da branch não limita os caminhos que o Git permite editar. Respeite o escopo da tabela e revise os caminhos alterados antes de cada commit.
+- Adicione somente os arquivos da tarefa ao staging. Verifique `git diff --cached --name-only` e impeça commits com caminhos fora do site, salvo autorização explícita. Preserve mudanças preexistentes.
+- Não faça merge em `main` nem push sem pedido explícito do usuário. A `main` integra a publicação conjunta dos sites.
+- Tarefas explicitamente autorizadas de manutenção do repositório podem alterar arquivos compartilhados e não precisam usar uma branch de site. Novos sites exigem atualizar este mapa antes do desenvolvimento.
+
 # WEBSITE DESIGN & DEVELOPMENT
 
 ## Core Principle

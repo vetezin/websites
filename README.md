@@ -7,6 +7,14 @@ Quatro projetos independentes, com Git e publicação centralizados nesta pasta.
 - [Gazzetti Advogados](https://vetezin.github.io/websites/gazzetti/) — Astro, CSS e JavaScript; prévia demonstrativa.
 - [Chapéu de Palha](https://vetezin.github.io/websites/cdpalha/) — HTML estático, CSS e JavaScript; prévia demonstrativa.
 
+## Branches por site
+
+Cada site tem uma branch local `codex/site-<pasta>` para mudanças restritas à
+sua pasta. A `main` mantém a versão integrada. Consulte
+[o mapa e o fluxo de trabalho](docs/SITE_BRANCHES.md) antes de editar.
+Para sessões simultâneas ou alterações locais pendentes, use worktrees separados.
+As regras para o Codex estão no `AGENTS.md` da raiz.
+
 ## Rodar localmente
 
 Requisito: Node.js 24 e npm. Na primeira execução, rode `npm ci` nos projetos com dependências. Chapéu de Palha não exige instalação.
