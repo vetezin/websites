@@ -28,7 +28,7 @@ Composição robusta, escura, baseada em placas e madeira, títulos compactos e 
 Quadros assimétricos, contornos pretos e recortes de produtos, títulos expressivos e densidade alta. Navegação e transições com energia gráfica. Mais presença visual do anime que o usuário deseja nesta primeira versão.
 
 ### Diário de aventuras — escolhida
-Fotografia ampla de chegada seguida de páginas editoriais com margens de anotações, fotos de comida em escalas diferentes e menu organizado como caderno aberto. Navegação convencional; movimento discreto. Escolhida pelo usuário porque a comida conduz o percurso e One Piece participa dos detalhes.
+Fotografia ampla de chegada seguida de páginas editoriais com margens de anotações e fotos de comida em escalas diferentes. Navegação convencional; movimento discreto. Escolhida pelo usuário porque a comida conduz o percurso e One Piece participa dos detalhes. Após revisar a primeira versão, o usuário pediu que a página de cardápio reproduzisse a linguagem do impresso preto, mantendo o diário na página inicial.
 
 ## Visual DNA
 
@@ -39,7 +39,7 @@ Fotografia ampla de chegada seguida de páginas editoriais com margens de anota�
 - Imagem: produtos dominantes; fachada atmosférica na abertura; foto real do ambiente na visita.
 - Movimento: funcional e sutil, sem esconder conteúdo ou simular virada de página.
 - Ritmo: abertura expansiva, destaque de pastel, composição compartilhada de porções, sequência vertical de bebidas, encerramento de visita.
-- Cor: guiada por fachada vermelha, chapéu dourado, tinta escura e papel do cardápio.
+- Cor: fachada vermelha, chapéu dourado e papel na página inicial; preto, branco quente e cobre no cardápio, conforme a foto do impresso.
 
 ## Regra autoral
 
@@ -56,7 +56,7 @@ Cada trecho editorial usa uma margem de diário para legenda ou indicação de a
 6. Visita: localização conhecida, rota externa e contato divulgado; horários pendentes não viram informação inventada.
 
 ### Cardápio
-Categorias Porções, Pastéis e Bebidas. As 14 porções vêm da foto com pesos e preços, acompanhadas de aviso de valores transcritos sujeitos a confirmação. Complementos demonstrativos em pastéis e bebidas podem preencher a experiência, com indicação visível de exemplos; sem preços fictícios disfarçados. A foto original pode ser aberta para referência. Texto HTML, navegação por categoria e eventual filtro simples; tudo legível sem JavaScript.
+Categorias Porções, Pastéis e Bebidas. As 14 porções vêm da foto com pesos e preços, acompanhadas de aviso de valores transcritos sujeitos a confirmação. Complementos demonstrativos em pastéis e bebidas têm identificação visível; sem preços fictícios disfarçados. A capa real do cardápio aparece na abertura; a foto das porções pode ser aberta para referência. Fundo preto com moldura fina, títulos em cobre, nomes brancos condensados em itálico, pesos em cobre e preços alinhados. Pontilhados ligam nome e preço no desktop e separam as linhas no mobile. Texto HTML, navegação por categoria e busca sem acentos; o conteúdo completo continua disponível sem JavaScript.
 
 ## Tokens propostos
 
@@ -77,9 +77,9 @@ Contraste WCAG calculado pela luminância relativa: tinta/papel 13,40:1; vermelh
 - Sombras: uma sombra discreta em fotografias sobre papel; nenhuma sombra de card repetitiva.
 - Textura: CSS leve, baixa opacidade, sem prejudicar leitura.
 
-## Stack proposta — aguardando confirmação
+## Stack escolhida
 
-Recomendação: HTML estático gerado por script Node, CSS próprio e JavaScript nativo mínimo. O Node já está instalado; não exige novas dependências. Duas páginas com cabeçalho e rodapé compartilhados no gerador; dados centralizados em JSON/JS, HTML completo entregue para SEO e funcionamento sem JavaScript. Adequado ao volume de conteúdo, hospedagem estática e manutenção simples.
+HTML estático gerado por script Node, CSS próprio e JavaScript nativo mínimo. O Node já está instalado; não exige novas dependências. Duas páginas com cabeçalho e rodapé compartilhados no gerador; dados centralizados em JSON/JS, HTML completo entregue para SEO e funcionamento sem JavaScript. Adequado ao volume de conteúdo, hospedagem estática e manutenção simples. Implementação autorizada pelo pedido de começar a criar o site após a proposta; nenhuma dependência instalada.
 
 Alternativa: Astro, já usado por outros sites nesta pasta. Facilita componentes e expansão para muitas páginas, mas requer instalação de dependências neste projeto. Para duas páginas e interações pequenas, o gerador estático é suficiente.
 
@@ -102,4 +102,8 @@ Validar build estático, links internos, imagens, integridade dos dados e JavaSc
 
 ## Revisão do plano
 
-A abertura representa o quiosque aprovado e a organização editorial é sustentada pelo cardápio pirata existente. O papel é referência contextual, não estética premium genérica. A variedade de formatos das fotos define a composição; a parte náutica fica restrita à margem do diário. Reavaliar especificidade e mobile após implementar.
+A abertura representa o quiosque aprovado. A variedade de formatos das fotos define a composição editorial da página inicial. A página interna usa a identidade do cardápio físico, com contraste maior e densidade adequada à consulta. A comida e os dados conduzem a navegação; a marca de One Piece já existente nas fotos e na capa participa da identidade. Resultados de verificação registrados em VERIFICATION.md.
+
+## Tokens do cardápio preto
+
+Fundo `#131312`, área impressa `#191917`, texto `#f8eedc`, cobre `#d8986d`, secundário `#c5bcaa`, linhas `#62533f`. Mesmas duas fontes, com Oswald em itálico nos nomes das porções. Molduras retangulares e finas, sem novos componentes ou biblioteca. Preços continuam em texto e têm números tabulares.
