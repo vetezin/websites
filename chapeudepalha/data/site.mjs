@@ -1,4 +1,4 @@
-// Copy and additional content live here. MOCK entries are visibly identified in the menu.
+// Copy and additional content live here. The illustrative hero is marked MOCK.
 export const site = {
   name: 'Quiosque Chapéu de Palha',
   shortName: 'Chapéu de Palha',
@@ -54,14 +54,8 @@ export const site = {
     title: ['Escolha seu', 'próximo tesouro.'],
     description: 'Porções para dividir, pastéis para saborear e bebidas para acompanhar. O nosso cardápio, agora na sua tela.',
     portionsNote: 'Pesos e valores conforme o cardápio fotografado.',
-    pastryNote: 'Sabores ilustrativos para esta apresentação. Confirme as opções e os valores com o quiosque.',
+    pastryNote: 'Sabores e valores conforme o cardápio do quiosque.',
     drinkNote: 'Fotos fornecidas do quiosque. Consulte nomes, opções e valores disponíveis.',
-    examplePastries: [
-      { name: 'Pastel de carne', description: 'Sugestão de sabor para a apresentação do cardápio.', MOCK: true },
-      { name: 'Pastel de queijo', description: 'Sugestão de sabor para a apresentação do cardápio.', MOCK: true },
-      { name: 'Pastel de frango com queijo', description: 'Sugestão de sabor para a apresentação do cardápio.', MOCK: true },
-      { name: 'Pastel de pizza', description: 'Sugestão de sabor para a apresentação do cardápio.', MOCK: true },
-    ],
     beverages: [
       { name: 'Água de coco', description: 'Coco verde, como na foto do quiosque.', image: 'coco.webp', status: 'photographed' },
       { name: 'Drinks', description: 'Consulte os drinks disponíveis e seus ingredientes.', image: 'drink-limao.webp', status: 'category' },
