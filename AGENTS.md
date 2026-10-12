@@ -19,951 +19,161 @@ Antes de editar um site, leia `docs/SITE_BRANCHES.md`, identifique a pasta alvo 
 - Não faça merge em `main` nem push sem pedido explícito do usuário. A `main` integra a publicação conjunta dos sites.
 - Tarefas explicitamente autorizadas de manutenção do repositório podem alterar arquivos compartilhados e não precisam usar uma branch de site. Novos sites exigem atualizar este mapa antes do desenvolvimento.
 
-# WEBSITE DESIGN & DEVELOPMENT
+# AGENTS.md — Design e desenvolvimento de websites
 
-## Core Principle
+## 0. Escopo e idioma
 
-Every website must be designed specifically for the company, brand, audience, market, and objective it represents.
+- Estas diretrizes valem para **novos sites e redesigns**.
+- Em **ajustes pontuais** (bug, formulário, texto, seção isolada): preserve o design existente, siga a stack e as convenções atuais e **pule as seções 3 e 4**.
+- Converse comigo em **português (pt-BR)**. O site e o copy usam **pt-BR por padrão**, salvo instrução contrária.
+- Comentários de código e nomes técnicos podem ficar em inglês.
 
-Never treat a new website as a variation of a previous project.
+## 1. Princípio central
 
-Do not begin with a predefined layout, visual style, component library, hero structure, section sequence, or aesthetic trend.
+Todo site nasce do contexto específico da empresa, do público, do mercado e do objetivo. Nunca é variação de um projeto anterior.
 
-The design must emerge from the specific context of the current business.
+- **Reutilize engenharia** (acessibilidade, responsividade, utilitários, formulários, performance).
+- **Não reutilize sameness visual** (hero, ritmo de seções, tipografia, cards, navegação, linguagem de animação).
+- Tendência só é aceitável se servir à marca. A pergunta nunca é "que tendência uso?", e sim "que linguagem visual representa esta empresa?".
 
-Reusable engineering is encouraged.
+Cadeia obrigatória de decisão:
 
-Reusable visual sameness is not.
+NEGÓCIO → PÚBLICO → CONTEÚDO → HIERARQUIA DE INFORMAÇÃO → DIREÇÃO DE ARTE → COMPOSIÇÃO → COMPONENTES → IMPLEMENTAÇÃO
 
----
+Nunca o contrário (componentes → template → conteúdo).
 
-## 1. Understand the Business Before Designing
+## 2. Informação ausente e integridade do conteúdo
 
-Before creating or significantly redesigning any website, first analyze the company.
+- Use todo o contexto disponível: repositório, site atual, logo, cores, fotos, produtos, serviços, referências, concorrentes e minhas instruções.
+- Se faltar algo essencial (o que a empresa faz, para quem, ação principal), **pergunte o mínimo necessário**. Se for possível seguir, **assuma e registre a suposição** no brief.
+- **Dados mock são permitidos e desejados** para demonstrar visualmente a ideia: o site deve parecer completo, com ritmo, densidade e hierarquia reais, não uma casca vazia. Quando faltar conteúdo, preencha com mock **plausível, coerente com o nicho e no tom da marca** (textos, serviços, itens de cardápio, projetos, preços de exemplo, depoimentos de exemplo, imagens de apoio).
+- **Todo mock deve ser identificável e fácil de substituir:**
+  - Centralize os dados em um único lugar (ex.: `content.ts`, `content.json`, `data/site.js`) em vez de espalhar pelo markup.
+  - Marque cada item com `MOCK` (comentário ou campo), para busca rápida (`grep MOCK`).
+  - Para fatos que parecem reais e verificáveis (depoimentos, métricas, certificações, prêmios, nomes de clientes, endereço, telefone, CNPJ, preços), use valores **obviamente fictícios** (ex.: "Nome do Cliente", `(00) 00000-0000`, "Rua Exemplo, 123") ou identifique visualmente como exemplo. Nunca apresente como verdadeiro algo que não foi fornecido.
+  - Não use fotos de pessoas reais como se fossem clientes ou equipe. Use imagens neutras, ilustrações ou placeholders coerentes com a direção de arte.
+  - Se o site for publicado, os mocks de fatos verificáveis **não podem ir ao ar** sem substituição. Avise na entrega.
+- **Na entrega, inclua uma lista do que é mock** e do que o cliente precisa fornecer (arquivo `CONTENT_TODO.md` ou seção no resumo).
+- Sem fotos, não crie um design dependente de imagens. Use tipografia, composição, ilustração ou diagramas.
+- Se já existe marca estabelecida (logo, cores, tipografia, fotografia, tom), **respeite-a** e melhore como ela se expressa no digital. Não redesenhe a empresa, a menos que isso seja a tarefa.
 
-Determine:
+## 3. Fluxo obrigatório (novos sites e redesigns)
 
-- What the company does.
-- What it sells or provides.
-- Who its primary audience is.
-- What problem it solves.
-- What differentiates it from competitors.
-- What customers value most when choosing this type of company.
-- What creates trust in this market.
-- What objections or doubts potential customers may have.
-- What action the website should primarily encourage.
-- What information is most important for conversion.
-- What perception the company wants to create.
-- What perception should be avoided.
+1. **Entender o negócio.** Responda, em 5 a 8 linhas: o que a empresa faz; quem é o público; que problema resolve; o que a diferencia; o que gera confiança nesse mercado; que dúvidas o cliente tem; qual a ação principal de conversão; que percepção criar e qual evitar.
+2. **Criar `DESIGN_BRIEF.md`** na raiz com:
+   - análise do negócio (item 1);
+   - **atributos de marca** justificados e **o que a marca NÃO deve parecer**;
+   - **3 direções estruturalmente diferentes** (composição, grid, tipografia, densidade, imagem, navegação, ritmo, movimento), 2 a 3 linhas cada. Não vale trocar só as cores;
+   - direção escolhida e por quê;
+   - **Visual DNA** (seção 4);
+   - **restrição visual marcante**: uma regra autoral que dá identidade e é aplicada em todo o site (ex.: uma proporção, um tipo de grid, uma relação de escala, um tratamento de imagem);
+   - arquitetura de informação justificada (quais seções e por quê);
+   - **tokens**: fontes, paleta com contraste verificado, escala tipográfica, espaçamento, raio, sombras;
+   - suposições feitas e conteúdo pendente.
+3. **Propor a stack** (seção 8) junto com o brief e **aguardar minha confirmação** antes de instalar qualquer dependência.
+4. **Implementar** usando os tokens do brief.
+5. **Verificar** (seção 9).
+6. **Entregar** com resumo curto: o que foi feito, suposições, placeholders pendentes, como rodar.
 
-Use all available project context:
+## 4. Visual DNA
 
-- company description
-- existing website
-- branding
-- logo
-- colors
-- photographs
-- products
-- services
-- target audience
-- user instructions
-- references
-- competitors
-- repository content
+Defina cada eixo e mantenha coerência entre eles. Não randomize para criar variedade.
 
-Never invent a visual identity before understanding the business.
+- **Composição:** simétrica, assimétrica, editorial, modular, cinematográfica, arquitetural, orientada a grid, orientada a imagem, utilitária.
+- **Densidade:** esparsa, equilibrada, densa, altamente informativa.
+- **Tipografia:** elegante, editorial, neutra, técnica, expressiva, amigável, institucional, etc. Distinga display, títulos, corpo, navegação, rótulos e CTAs. Máximo de 2 famílias. Não repita automaticamente a combinação de outro projeto.
+- **Geometria:** afiada, suave, orgânica, técnica, restrita.
+- **Imagem:** dominante, de apoio, atmosférica, documental, produto, portfólio, pessoas, mínima. Se há boas imagens, construa a composição em torno delas.
+- **Movimento:** ausente, sutil, funcional, cinematográfico, expressivo. Combine com a personalidade da marca.
+- **Ritmo de seções:** regular, editorial, narrativo, irregular, compacto, expansivo.
+- **Cor:** restrita, monocromática, guiada pela marca, expressiva, funcional, alto contraste. A cor vem da marca, do mercado, da emoção desejada e da legibilidade, não de moda. Dark mode e azul/roxo não são default.
 
----
+## 5. Arquitetura de informação e composição
 
-# 2. Define the Brand Perception
+- **Não assuma seções fixas** (hero, benefícios, serviços, depoimentos, FAQ, CTA, rodapé). Determine o que o cliente precisa saber para decidir.
+- O negócio define a estrutura. Exemplos: estúdio de arquitetura → portfólio, projetos, processo, filosofia; restaurante → atmosfera, cardápio, reserva, localização, horário; serviço profissional → especialidade, credibilidade, método, casos, equipe; construtora → obras, escala, capacidade técnica, certificações; marca de luxo → imagem, narrativa, craftsmanship; negócio local → clareza, serviços, localização, contato, avaliações; tecnologia → produto, demonstração, integrações, resultados.
+- **Hierarquia:** cada seção tem uma ideia dominante. A hierarquia deve continuar legível sem os elementos decorativos.
+- **Ritmo:** varie alinhamento, escala, densidade, espaço, tamanho de imagem e fundo de forma que sirva à narrativa. Evite sequências mecânicas texto+imagem / imagem+texto e espaçamento idêntico em tudo.
+- **Navegação:** adapte ao número de páginas, ao público e à ação principal. Usabilidade vem antes de novidade.
+- **Mercado:** conheça as convenções que geram confiança e não as quebre só para parecer único. Originalidade vem de marca, conteúdo, composição e narrativa, não de confundir o usuário.
+- **Componentes servem à interface**, não o contrário. Reutilize quando função, interação ou estrutura de conteúdo realmente se repetem. Não transforme tudo em card.
 
-Before deciding how the site should look, define how the brand should feel.
+## 6. Padrões genéricos de "site de IA"
 
-Possible attributes include, but are not limited to:
+Não são proibidos. São **proibidos como default automático**. Só use se o brief justificar:
 
-- premium
-- sophisticated
-- elegant
-- technical
-- industrial
-- approachable
-- playful
-- youthful
-- traditional
-- trustworthy
-- institutional
-- bold
-- energetic
-- artistic
-- minimalist
-- luxurious
-- innovative
-- practical
-- human
-- exclusive
-- accessible
+hero centralizado com título grande + subtítulo + dois botões; três cards de benefícios; grids de features repetitivos; Bento; cards dentro de cards; raio grande em tudo; fundos com brilho, blobs ou gradientes roxo/azul; glassmorphism; dashboards flutuantes; círculos de ícone repetidos; pills e micro-rótulos acima de todo título; estatísticas e depoimentos genéricos; seções alternadas imagem/texto; badges sem função; decoração sem significado.
 
-Select only attributes justified by the company.
+Cuidado também com o efeito colateral: fugir desses padrões não deve levar ao **novo padrão genérico** (ex.: fundo creme + serifada "elegante" em todo projeto premium). A restrição visual marcante do brief é o contrapeso.
 
-Also explicitly determine what the brand should NOT feel like.
+## 7. Conversão, movimento e responsividade
 
-Example:
+- **CTA contextual:** defina a ação natural do negócio (agendar, pedir orçamento, ver projetos, ver cardápio, reservar, falar com especialista, visitar a loja, solicitar demonstração). Clara, sem repetição excessiva. Nem toda seção precisa de botão.
+- **Mercado brasileiro:** para negócios locais e de serviço, considere **WhatsApp como canal principal** (link com mensagem pré-preenchida), telefone clicável, mapa, horário e dados de contato consistentes (NAP). Se houver cookies, analytics ou formulários, preveja **aviso de privacidade e consentimento conforme a LGPD**.
+- **Movimento com propósito:** hierarquia, feedback, continuidade, ênfase. Não anime todas as seções nem repita o mesmo reveal. Nada que atrase o acesso ao conteúdo. Sempre respeitar `prefers-reduced-motion`.
+- **Mobile é nova composição**, não desktop reduzido: reconsidere ordem da informação, hierarquia, navegação, recortes de imagem, alinhamento, espaçamento, tipografia e decoração. Preserve a intenção, não a geometria.
 
-Desired:
+## 8. Escolha de stack
 
-- trustworthy
-- sophisticated
-- human
-- calm
+Não adote a mesma stack em todo site. Escolha pelas necessidades reais.
 
-Avoid:
+1. Verifique a stack existente e preserve-a quando adequada.
+2. Considere: tipo e volume de conteúdo, interações e animações, SEO e desempenho, CMS/autenticação/integrações, hospedagem, facilidade de manutenção pela equipe.
+3. Compare brevemente a solução mais simples com **uma** alternativa relevante, com benefícios e custos.
+4. Apresente a stack e a justificativa **antes** de instalar dependências.
 
-- clinical
-- cold
-- overly technological
-- generic corporate
+Referências: site institucional simples pode usar HTML, CSS e JS; muito conteúdo pode se beneficiar de geração estática; estado e interação complexos podem justificar framework de componentes; Tailwind quando ajuda consistência e iteração; bibliotecas de animação só com função definida. Nada de dependência por popularidade.
 
-These decisions should influence the entire interface.
+**Não instale novas dependências sem a confirmação prevista nas permissões do projeto.**
 
----
+## 9. Qualidade técnica e verificação
 
-# 3. Design From the Business, Not From Trends
+**Engenharia (sempre):**
+- HTML semântico, formulários com labels, navegação por teclado, foco visível, contraste suficiente (WCAG AA), alt text significativo, nada que dependa só de hover.
+- Imagens otimizadas (formatos modernos, dimensões, `loading` adequado). Evitar JS e dependências desnecessárias.
+- Fontes: self-host ou Google Fonts com `font-display: swap`, no máximo 2 famílias.
+- **SEO técnico:** `title` e `meta description` únicos por página, Open Graph, favicon, `lang="pt-BR"`, sitemap e robots, **schema.org** adequado ao tipo de negócio (ex.: `LocalBusiness`, `Restaurant`, `Organization`), headings em ordem.
+- **Performance:** metas de LCP < 2,5 s, CLS < 0,1 e Lighthouse ≥ 90 em performance, acessibilidade e SEO. Meça quando possível.
+- Console sem erros evitáveis. Código limpo e legível.
 
-Never choose visual styles simply because they are currently popular.
+**Verificação visual (obrigatória em novos sites e redesigns):**
+1. Rodar o site localmente.
+2. Capturar screenshots em **390 px (mobile)** e **1440 px (desktop)**, de todas as páginas principais (use Playwright ou equivalente, se disponível; se precisar instalar, peça confirmação).
+3. Olhar os screenshots e criticar: hierarquia, espaçamento, recortes de imagem, quebras de texto, overflow, contraste, consistência com o brief.
+4. Corrigir e repetir até resolver os problemas relevantes.
 
-Do not automatically use:
+## 10. Revisão final de especificidade
 
-- minimalism
-- brutalism
-- glassmorphism
-- Bento layouts
-- gradients
-- dark mode
-- oversized typography
-- rounded cards
-- editorial layouts
-- animations
-- 3D elements
+Antes de concluir, responda com honestidade (resumido na entrega):
 
-First determine whether they support the brand.
+- **Negócio:** o site comunica o que a empresa faz? O público é óbvio? Gera o tipo certo de confiança? O caminho de conversão está claro?
+- **Marca:** tipografia, imagem, cor e movimento sustentam a personalidade definida no brief?
+- **Design:** há hierarquia clara? Cada seção tem propósito? Há excesso de containers ou de cards? As seções estão repetitivas? Efeitos sem motivo? O mobile preserva a experiência?
+- **Teste de originalidade:** *se eu trocasse logo, nome, cores e texto, este mesmo site serviria para uma empresa totalmente diferente?* Se **sim**, está genérico. Revise arquitetura de informação, direção de arte, composição, tipografia, imagem e ritmo antes de entregar.
 
-A trend is acceptable only when it serves the project.
+## 11. Definição de pronto
 
-The question should never be:
+- [ ] `DESIGN_BRIEF.md` criado e coerente com o resultado
+- [ ] Stack justificada e confirmada
+- [ ] Build e lint sem erros; console limpo
+- [ ] Screenshots em 390 px e 1440 px revisados
+- [ ] Acessibilidade, SEO técnico e performance verificados
+- [ ] Todo mock centralizado, marcado com `MOCK` e listado; nenhum fato verificável apresentado como real
+- [ ] Teste de originalidade (seção 10) aprovado
+- [ ] Resumo final entregue em pt-BR, com suposições e pendências
 
-"What visual trend should I use?"
+## 12. O objetivo
 
-The question should be:
+Não é tornar todo site incomum nem diferente por esporte. É tornar **cada decisão de design compreensível a partir do contexto da empresa**. Duas empresas parecidas podem gerar decisões parecidas; duas empresas muito diferentes raramente devem gerar a mesma estrutura e linguagem visual.
 
-"What visual language best represents this company?"
+Busque: **adequação ao negócio + à marca + ao público + ao conteúdo + usabilidade + coerência visual + qualidade técnica.**
 
----
+O resultado deve parecer algo que só poderia ter sido feito para aquela empresa.
+### Diferenciação visual e criatividade controlada
 
-# 4. Explore Different Directions Before Implementation
-
-For substantial new websites or redesigns, internally consider at least three genuinely different visual directions before choosing one.
-
-The alternatives must differ structurally.
-
-They should explore different combinations of:
-
-- composition
-- typography
-- grid
-- whitespace
-- density
-- imagery
-- navigation
-- geometry
-- hierarchy
-- section rhythm
-- motion
-- color behavior
-
-Do not create three versions of the same layout with different colors.
-
-Choose the direction that best represents:
-
-- the brand
-- the audience
-- the content
-- the market
-- the desired perception
-- the conversion objective
-
-Only after selecting a direction should implementation begin.
-
----
-
-# 5. Establish a Visual DNA
-
-For each website, define an implicit Visual DNA before building the interface.
-
-Determine:
-
-### Composition
-
-Possible approaches:
-
-- symmetrical
-- asymmetric
-- editorial
-- modular
-- cinematic
-- immersive
-- architectural
-- grid-driven
-- free-flowing
-- utilitarian
-- product-focused
-- image-led
-
-### Density
-
-Determine whether the interface should be:
-
-- sparse
-- balanced
-- dense
-- highly informational
-
-### Typography
-
-Determine whether typography should feel:
-
-- elegant
-- editorial
-- neutral
-- technical
-- expressive
-- friendly
-- bold
-- understated
-- luxurious
-- institutional
-
-### Geometry
-
-Determine whether shapes and containers should feel:
-
-- sharp
-- soft
-- architectural
-- organic
-- restrained
-- technical
-
-### Imagery
-
-Determine the role of imagery:
-
-- dominant
-- supporting
-- atmospheric
-- documentary
-- product-focused
-- portfolio-focused
-- people-focused
-- minimal
-
-### Motion
-
-Determine whether motion should be:
-
-- absent
-- subtle
-- functional
-- cinematic
-- expressive
-
-### Section Rhythm
-
-Determine whether page sections should feel:
-
-- regular
-- editorial
-- narrative
-- irregular
-- compact
-- expansive
-
-### Color Behavior
-
-Determine whether color should be:
-
-- restrained
-- monochromatic
-- brand-led
-- expressive
-- functional
-- high-contrast
-- atmospheric
-
-All decisions must belong to the same coherent visual language.
-
-Never randomize design decisions simply to create variety.
-
----
-
-# 6. Content Comes Before Layout
-
-Always follow this hierarchy:
-
-BUSINESS  
-→ AUDIENCE  
-→ CONTENT  
-→ INFORMATION HIERARCHY  
-→ ART DIRECTION  
-→ COMPOSITION  
-→ COMPONENTS  
-→ IMPLEMENTATION
-
-Never use:
-
-COMPONENTS  
-→ TEMPLATE  
-→ CONTENT
-
-Do not force company content into a predefined page structure.
-
-Let the content determine the layout.
-
----
-
-# 7. Build a Business-Specific Information Architecture
-
-Do not assume every website requires the same sections.
-
-Do not automatically create:
-
-- Hero
-- Benefits
-- Services
-- Testimonials
-- FAQ
-- CTA
-- Footer
-
-Determine what information the customer actually needs.
-
-Different businesses require different storytelling.
-
-For example:
-
-An architecture studio may prioritize:
-
-- portfolio
-- photography
-- projects
-- philosophy
-- process
-- architects
-
-A restaurant may prioritize:
-
-- atmosphere
-- menu
-- food
-- reservations
-- location
-- opening hours
-
-A professional service business may prioritize:
-
-- expertise
-- credibility
-- methodology
-- cases
-- team
-- trust
-
-A construction company may prioritize:
-
-- projects
-- scale
-- technical capability
-- credibility
-- numbers
-- certifications
-
-A luxury brand may prioritize:
-
-- imagery
-- storytelling
-- exclusivity
-- craftsmanship
-- product presentation
-
-A local service business may prioritize:
-
-- clarity
-- services
-- location
-- contact
-- reviews
-- immediate conversion
-
-A technology company may prioritize:
-
-- product
-- demonstration
-- functionality
-- integrations
-- results
-- adoption
-
-Let the business determine the structure.
-
----
-
-# 8. Avoid Generic AI Website Design
-
-Never automatically default to the stereotypical AI-generated landing page.
-
-Be especially careful with:
-
-- centered hero sections
-- huge headline + subtitle + two buttons
-- three benefit cards
-- repetitive feature grids
-- Bento grids
-- excessive cards
-- cards inside cards
-- excessive rounded rectangles
-- large border radius everywhere
-- glowing backgrounds
-- purple and blue gradients
-- random gradient blobs
-- glassmorphism
-- floating dashboards
-- abstract background effects
-- repeated icon circles
-- excessive pills
-- tiny labels above every heading
-- generic statistics
-- generic testimonials
-- alternating image/text sections
-- identical section spacing
-- identical container widths everywhere
-- excessive floating elements
-- unnecessary badges
-- decorative UI without meaning
-
-These elements are not prohibited.
-
-They are prohibited as automatic defaults.
-
-Use them only when appropriate for the specific project.
-
----
-
-# 9. Avoid Repeating Previous Websites
-
-Every new project must be approached with a fresh composition.
-
-Do not reuse another website's:
-
-- hero structure
-- section structure
-- page rhythm
-- typography system
-- card style
-- decorative elements
-- image positioning
-- CTA composition
-- visual hierarchy
-- navigation style
-- animation language
-
-unless there is a strong project-specific reason.
-
-It is acceptable to reuse:
-
-- accessibility solutions
-- responsive techniques
-- utility functions
-- performance patterns
-- technical components
-- form logic
-- tested interaction logic
-- infrastructure
-
-Reuse engineering.
-
-Reconsider design.
-
----
-
-# 10. Do Not Let Components Dictate the Design
-
-Components should support the interface.
-
-The interface should not exist to reuse components.
-
-Do not transform every piece of content into a reusable card.
-
-Do not create abstraction simply because two things look vaguely similar.
-
-For marketing websites, expressive composition is allowed and encouraged when appropriate.
-
-Reuse components when:
-
-- functionality repeats
-- interaction repeats
-- content structure genuinely repeats
-- consistency benefits usability
-
-Do not force visual repetition for the sake of component reuse.
-
----
-
-# 11. Typography Is Part of the Brand
-
-Typography must reflect the company.
-
-Do not automatically reuse the same font combination between projects.
-
-Typography should consider:
-
-- industry
-- brand personality
-- audience
-- content
-- readability
-- hierarchy
-- sophistication
-- tone
-
-Create clear distinction between:
-
-- display typography
-- headings
-- body copy
-- navigation
-- labels
-- metadata
-- CTAs
-
-Avoid making every heading identical.
-
-Avoid oversized typography without purpose.
-
-Avoid decorative typography that damages readability.
-
----
-
-# 12. Use Imagery Strategically
-
-Determine what kind of imagery best communicates the company.
-
-Possible priorities include:
-
-- product
-- people
-- environment
-- architecture
-- lifestyle
-- process
-- craftsmanship
-- results
-- portfolio
-- illustration
-- diagrams
-
-Images should contribute to storytelling and composition.
-
-Do not treat photographs as decorative rectangles inserted after the design is complete.
-
-When strong imagery exists, allow the composition to be built around it.
-
-When imagery is weak or unavailable, do not create an image-dependent design.
-
----
-
-# 13. Color Must Have a Reason
-
-Do not introduce colors because they look fashionable.
-
-Color choices should come from:
-
-- existing branding
-- market positioning
-- desired emotion
-- readability
-- contrast
-- hierarchy
-
-Avoid adding several accent colors without purpose.
-
-Avoid defaulting to blue or purple simply because the project is technological.
-
-Avoid dark interfaces simply because they appear premium.
-
-The brand determines the palette.
-
----
-
-# 14. Navigation Must Match the Website
-
-Do not automatically use the same navbar on every project.
-
-Navigation should depend on:
-
-- number of pages
-- amount of content
-- audience familiarity
-- primary action
-- device
-- project complexity
-
-It may be:
-
-- minimal
-- traditional
-- editorial
-- persistent
-- contextual
-- product-focused
-- conversion-focused
-
-Usability takes priority over visual novelty.
-
----
-
-# 15. Responsive Design Is a New Composition
-
-Do not treat mobile design as a scaled-down desktop website.
-
-For smaller screens, actively reconsider:
-
-- information order
-- hierarchy
-- navigation
-- image crops
-- alignment
-- spacing
-- typography
-- section composition
-- interactions
-- decorative elements
-
-When appropriate:
-
-- reorder content
-- simplify layouts
-- remove nonessential decoration
-- stack elements differently
-- change image behavior
-- simplify navigation
-- reduce density
-
-Preserve the intention of the design, not the exact desktop geometry.
-
----
-
-# 16. Motion Must Have Purpose
-
-Animations should support:
-
-- hierarchy
-- feedback
-- storytelling
-- continuity
-- interaction
-- emphasis
-
-Do not animate every section.
-
-Do not apply the same reveal animation across the entire page.
-
-Avoid animation that:
-
-- delays access to content
-- makes navigation slower
-- distracts from reading
-- exists only to demonstrate technical ability
-
-Motion should match the personality of the brand.
-
-A playful brand may use more expressive motion.
-
-A luxury brand may use restrained movement.
-
-A technical interface may use almost exclusively functional motion.
-
-Always respect reduced-motion preferences.
-
----
-
-# 17. Conversion Must Be Contextual
-
-Do not automatically use the same CTA language or placement.
-
-Determine the natural next action for the business.
-
-Examples:
-
-- Schedule consultation
-- Request quote
-- View projects
-- See menu
-- Reserve
-- Talk to specialist
-- Visit store
-- Explore collection
-- Request demonstration
-- Contact team
-
-The primary action must be visually clear without becoming excessively repetitive.
-
-Not every section needs a CTA button.
-
----
-
-# 18. Maintain Visual Hierarchy
-
-Every page should have intentional levels of emphasis.
-
-Not everything should compete for attention.
-
-Determine:
-
-- primary content
-- secondary content
-- supporting information
-- actions
-- background information
-
-Each section should have a clear dominant idea.
-
-The hierarchy should remain understandable even if decorative elements are removed.
-
----
-
-# 19. Create Rhythm, Not Repetition
-
-Sections should feel connected without becoming mechanically repetitive.
-
-Avoid sequences such as:
-
-text + image  
-image + text  
-text + image  
-image + text
-
-for the entire page.
-
-Allow variation in:
-
-- alignment
-- scale
-- density
-- whitespace
-- image size
-- typography
-- background
-- composition
-
-Variation should support the narrative.
-
-It should never feel random.
-
----
-
-# 20. Design for the Specific Market
-
-Consider expectations of the company's market.
-
-Understand which conventions create trust and which create differentiation.
-
-Do not break useful conventions simply to make the site unique.
-
-Originality should come from:
-
-- brand
-- content
-- composition
-- storytelling
-- visual language
-
-not from intentionally confusing the user.
-
----
-
-# 21. Preserve Existing Brand Assets
-
-When an established brand already exists, respect it.
-
-Analyze:
-
-- logo
-- typography
-- colors
-- photography
-- graphic elements
-- tone
-- existing communication
-
-Do not replace the brand identity with a fashionable design trend.
-
-Improve how the brand is expressed digitally.
-
-Do not redesign the company unless redesigning the brand is part of the task.
-
----
-
-# 22. Technical Quality
-
-Regardless of visual direction:
-
-- Use semantic HTML.
-- Maintain accessibility.
-- Ensure keyboard navigation.
-- Provide visible focus states.
-- Use appropriate form labels.
-- Maintain sufficient contrast.
-- Use meaningful alt text where appropriate.
-- Avoid hover-only interactions.
-- Respect reduced-motion preferences.
-- Optimize images.
-- Avoid unnecessary dependencies.
-- Avoid unnecessary JavaScript.
-- Maintain good responsive behavior.
-- Preserve performance.
-- Keep the console free from avoidable errors.
-- Maintain clean, understandable code.
-
-Visual creativity must not reduce engineering quality.
-
----
-
-# 23. Final Brand-Specificity Review
-
-Before considering the website complete, review it critically.
-
-Ask:
-
-### Business
-
-- Does the site communicate what this company actually does?
-- Is the primary audience obvious?
-- Does the content address what customers care about?
-- Does the site create the correct type of trust?
-- Is the primary conversion path clear?
-
-### Brand
-
-- Does the interface reflect the intended brand personality?
-- Does typography support that personality?
-- Does imagery support it?
-- Does color support it?
-- Does motion support it?
-- Does the overall composition feel appropriate for this business?
-
-### Design
-
-- Is there a clear hierarchy?
-- Does each section have a purpose?
-- Is the composition intentional?
-- Is whitespace intentional?
-- Are there too many containers?
-- Are cards being overused?
-- Are sections becoming repetitive?
-- Are visual effects being used without reason?
-- Does mobile preserve the intended experience?
-
-### Originality
-
-Ask:
-
-"If I replaced the logo, company name, colors and text, could this exact website easily belong to a completely unrelated business?"
-
-If the answer is YES, the design is too generic.
-
-Revisit:
-
-- information architecture
-- art direction
-- composition
-- typography
-- imagery
-- section rhythm
-
-before finishing.
-
----
-
-# 24. The Goal
-
-The goal is NOT to make every website visually unusual.
-
-The goal is NOT to intentionally make every website different.
-
-The goal is to make every design decision understandable from the context of the company.
-
-Two similar companies may legitimately produce similar design decisions.
-
-Two very different companies should rarely result in the same website structure and visual language.
-
-Do not pursue randomness.
-
-Do not pursue trends.
-
-Do not pursue novelty for its own sake.
-
-Pursue:
-
-BUSINESS FIT  
-+ BRAND FIT  
-+ AUDIENCE FIT  
-+ CONTENT FIT  
-+ USABILITY  
-+ VISUAL COHERENCE  
-+ TECHNICAL QUALITY
-
-The final website should feel like it could only have been designed for the company it represents.
-
----
-
-# 25. ESCOLHA DE TECNOLOGIAS POR PROJETO
-
-Não adote automaticamente a mesma stack em todos os sites.
-Escolha as tecnologias a partir das necessidades reais do projeto.
-
-Antes de implementar:
-
-1. Verifique a stack existente e preserve-a quando for adequada.
-2. Considere:
-   - tipo e volume de conteúdo;
-   - interações e animações necessárias;
-   - SEO e desempenho;
-   - necessidade de CMS, autenticação ou integrações;
-   - hospedagem disponível;
-   - facilidade de manutenção pela equipe.
-3. Compare brevemente a solução mais simples com uma alternativa
-   relevante, explicando benefícios e custos.
-4. Apresente a stack escolhida e sua justificativa antes de instalar
-   dependências.
-
-Frameworks e bibliotecas são bem-vindos quando oferecem benefícios
-concretos. Não os adicione apenas por popularidade ou para tornar
-a stack diferente de outro projeto.
-
-Exemplos de critérios:
-- Sites institucionais simples podem usar HTML, CSS e JavaScript.
-- Sites com bastante conteúdo podem se beneficiar de geração estática.
-- Interfaces com estado e interações complexas podem justificar
-  um framework de componentes.
-- Tailwind pode ajudar na consistência e na iteração visual.
-- Bibliotecas de animação só devem ser usadas quando o movimento
-  tiver uma função definida.
-
-A originalidade deve vir da composição, tipografia, conteúdo,
-imagens e comportamento da interface.
-
-Reutilize boas soluções técnicas sem repetir automaticamente
-a identidade visual de outros sites.
-
-Não instale novas dependências sem a confirmação prevista
-nas permissões do projeto.
+- O objetivo não é maximizar originalidade, mas encontrar a linguagem visual mais adequada à empresa.
+- Antes de implementar, identifique três decisões visuais específicas deste negócio e justifique por que elas não seriam escolhas automáticas para outro segmento.
+- Diferencie projetos por estrutura, hierarquia, tipografia, composição, imagem e ritmo — nunca apenas por paleta e elementos decorativos.
+- Preserve padrões familiares de navegação e interação. Não sacrifique clareza, confiança ou conversão por originalidade.
+- Após analisar os screenshots, rejeite soluções visualmente intercambiáveis ou excessivamente experimentais. Corrija a direção de arte, não apenas os detalhes de CSS.
+- Se duas empresas justificarem soluções semelhantes, não force diferenças artificiais.
