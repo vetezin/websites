@@ -99,3 +99,7 @@ Disponibilidade é um campo nos dados, com dois itens indisponíveis de exemplo.
 ## Revisão solicitada: catálogo e fotografia
 
 Catálogo aproveita a largura da tela até 1800 px; departamentos permanecem à esquerda no desktop. Produtos têm fotos maiores, títulos de 23–24 px e descrição de 16 px. No celular, uma coluna prioriza leitura e fotografia, mantendo departamentos acessíveis em faixa rolável. Modal amplo com descrição, aplicações, seis campos técnicos de exemplo e consulta contextual pelo WhatsApp. Fotos de referência dos fabricantes substituem desenhos SVG; uma publicação fornece a imagem da janela por enquadramento em CSS. Avisos de protótipo e horários/estados de estoque fictícios foram retirados da interface. Stack existente preservada, sem instalação de dependências.
+
+### Composição revisada conforme feedback
+
+A apresentação institucional antecede o catálogo e introduz os departamentos. Eliminada a faixa curta de slogans redundante. Cabeçalho com logo à esquerda, navegação centralizada e Instagram/Maps à direita; contato textual com seta, sem ícone de WhatsApp.

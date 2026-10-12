@@ -27,3 +27,9 @@ Links de fonte e avisos de fotos de referência removidos do catálogo e do moda
 - Instagram aponta ao perfil da empresa. Maps usa a mesma consulta da unidade do Centro (Rua Fernando Costa, 168), definida em data/content.js. Nomes acessíveis e foco visível nos links.
 - Conferidos 1440, 1280, 1100, 768 e 390 px: sem overflow e sem sobreposição; atalhos e visita às lojas continuam visíveis. Menu recolhido até 1100 px, fechamento ao retornar ao desktop.
 - 14 cenários Playwright aprovados, console sem erros e screenshots do cabeçalho desktop/mobile revisados.
+
+## Ordem das seções e ajuste do cabeçalho
+
+- Apresentação A Eletro Severo movida para antes do catálogo. Faixa curta de slogans removida para não duplicar a transição. Capturas desktop e mobile revisadas.
+- Ícone do WhatsApp retirado do cabeçalho; texto e seta preservados. Logo alinhada à esquerda, com margem de 24 px no desktop e 20 px no celular. Navegação centralizada e atalhos à direita mantidos.
+- 14 cenários Playwright aprovados novamente, incluindo posição da logo, alinhamento e responsividade; console sem erros.

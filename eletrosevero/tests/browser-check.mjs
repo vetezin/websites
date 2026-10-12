@@ -96,19 +96,21 @@ try{
     assert.equal(await link.isVisible(),true);assert.equal(await link.getAttribute('href'),'#lojas');
     await link.click();assert.equal(new URL(page.url()).hash,'#lojas');
   });
-  await check('cabeçalho centralizado, WhatsApp, Instagram e Maps da loja do Centro',async()=>{
+  await check('navegação centralizada, logo à esquerda, Instagram e Maps da loja do Centro',async()=>{
     const header=page.locator('.site-header');
-    assert.equal(await header.locator('.header-contact svg').count(),1);
+    assert.equal(await header.locator('.header-contact svg').count(),0);
     assert.match(await header.locator('.header-contact').innerText(),/Fale com a gente\s*↗/);
     assert.match(await header.getByRole('link',{name:'Instagram da Eletro Severo'}).getAttribute('href'),/instagram.com\/eletrosevero/);
     assert.match(decodeURIComponent(await header.getByRole('link',{name:'Como chegar à loja do Centro'}).getAttribute('href')),/Fernando Costa 168/);
     const alignment=await page.evaluate(()=>{
       const main=document.querySelector('.header-main').getBoundingClientRect();
       const socials=document.querySelector('.header-social').getBoundingClientRect();
-      return {center:(main.left+main.right)/2,width:innerWidth,right:main.right,socialLeft:socials.left};
+      const logo=document.querySelector('.site-header .logo').getBoundingClientRect();
+      return {center:(main.left+main.right)/2,width:innerWidth,right:main.right,socialLeft:socials.left,logoLeft:logo.left,logoRight:logo.right,mainLeft:main.left};
     });
     assert.ok(Math.abs(alignment.center-alignment.width/2)<2);
     assert.ok(alignment.right<alignment.socialLeft);
+    assert.ok(alignment.logoLeft<=24);assert.ok(alignment.logoRight<alignment.mainLeft);
     for(const width of [1280,1100,768,390]) {
       await page.setViewportSize({width,height:900});
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
@@ -150,6 +152,8 @@ try{
   await page.screenshot({path:shotDir+'inicio-desktop-1440.png'});
   await page.locator('.site-header').screenshot({path:shotDir+'header-desktop-1440.png'});
   await page.screenshot({path:shotDir+'desktop-1440.png',fullPage:true});
+  await page.locator('#sobre').evaluate(el=>scrollTo({top:el.offsetTop,behavior:'instant'}));
+  await page.screenshot({path:shotDir+'apresentacao-catalogo-desktop-1440.png'});
   await page.locator('#produtos').evaluate(el=>scrollTo({top:el.offsetTop,behavior:'instant'}));
   await page.screenshot({path:shotDir+'catalogo-desktop-1440.png'});
   await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
@@ -179,6 +183,8 @@ try{
   await page.emulateMedia({reducedMotion:'reduce'});
   await page.locator('.site-header').screenshot({path:shotDir+'header-mobile-390.png'});
   await page.screenshot({path:shotDir+'mobile-390.png',fullPage:true});
+  await page.locator('#sobre').evaluate(el=>scrollTo({top:el.offsetTop,behavior:'instant'}));
+  await page.screenshot({path:shotDir+'apresentacao-catalogo-mobile-390.png'});
   await check('movimento reduzido e console sem erros',async()=>{
     assert.equal(await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior),'auto');
     assert.deepEqual(errors,[]);
