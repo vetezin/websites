@@ -67,12 +67,11 @@ function openProduct(product, trigger) {
   document.querySelector('#dialog-category').textContent = categoryName(product.category);
   const image = document.querySelector('#dialog-image');
   image.src = product.image;
-  image.alt = `Foto de referência: ${product.name}`;
+  image.alt = product.name;
   const status = document.querySelector('#dialog-status');
   status.textContent = 'Consulte preço e disponibilidade';
   document.querySelector('#dialog-application').textContent = product.application;
   document.querySelector('#dialog-guidance').textContent = product.guidance;
-  document.querySelector('#dialog-source').href = product.source;
   document.querySelector('.dialog-image').className = 'dialog-image ' + product.imageClass;
   dialog.querySelector('[data-whatsapp]').href = 'https://wa.me/5518998013291?text=' + encodeURIComponent('Olá! Gostaria de saber mais sobre ' + product.name + '. Podem me informar modelos, preço e disponibilidade?');
   const specs = document.querySelector('#dialog-specs');
@@ -93,7 +92,7 @@ function productCard(product) {
   if (product.imageClass) visual.classList.add(product.imageClass);
   const img = node('img');
   img.src = product.image;
-  img.alt = `Foto de referência: ${product.name}`;
+  img.alt = product.name;
   img.width = 320;
   img.height = 300;
   img.loading = 'lazy';

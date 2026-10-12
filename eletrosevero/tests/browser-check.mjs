@@ -96,12 +96,13 @@ try{
     assert.equal(await link.isVisible(),true);assert.equal(await link.getAttribute('href'),'#lojas');
     await link.click();assert.equal(new URL(page.url()).hash,'#lojas');
   });
-  await check('detalhes descritivos, referência e consulta por produto',async()=>{
+  await check('detalhes descritivos e consulta por produto',async()=>{
     await page.getByRole('button',{name:'Ver detalhes de Chuveiro elétrico',exact:true}).click();
     assert.match(await page.locator('#dialog-status').innerText(),/Consulte preço e disponibilidade/);
     assert.ok((await page.locator('#dialog-application').innerText()).length>40);
     assert.ok((await page.locator('#dialog-guidance').innerText()).length>40);
-    assert.match(await page.locator('#dialog-source').getAttribute('href'),/lorenzetti/);
+    assert.equal(await page.locator('#dialog-source').count(),0);
+    assert.doesNotMatch(await page.getByRole('dialog').innerText(),/imagem de refer[eê]ncia/i);
     assert.equal(new URL(await page.locator('#product-dialog [data-whatsapp]').getAttribute('href')).searchParams.get('text').includes('Chuveiro'),true);
     await page.getByRole('button',{name:'Fechar detalhes'}).click();
   });
@@ -114,7 +115,7 @@ try{
       body:document.body.innerText
     }));
     assert.ok(metrics.catalog>=1400);assert.ok(metrics.sidebar.right<=metrics.grid.left);
-    assert.ok(metrics.title>=22);assert.doesNotMatch(metrics.body,/protótipo|horários de exemplo|indisponível/i);
+    assert.ok(metrics.title>=22);assert.doesNotMatch(metrics.body,/protótipo|horários de exemplo|indisponível|fotos de referência|imagem de referência/i);
   });
   await check('rotas por unidade, WhatsApp e telefone',async()=>{
     const routes=await page.locator('.store-actions a[target="_blank"]').evaluateAll(links=>links.map(l=>l.href));

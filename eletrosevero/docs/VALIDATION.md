@@ -16,3 +16,7 @@
 - Abertura reinicia a posição de rolagem; fechamento, Escape e retorno de foco permanecem funcionais.
 - Visite nossas lojas destacado no cabeçalho, apontando para as duas unidades. Visível no celular com menu fechado.
 - Revisados screenshots de modal e início; sem erros de console ou overflow. CSS anterior do modal consolidado para evitar regras conflitantes.
+
+## Limpeza de referências na interface
+
+Links de fonte e avisos de fotos de referência removidos do catálogo e do modal. Texto alternativo descreve somente o produto. Origem das imagens preservada na documentação interna. Consulta de preço/modelos e identificação das fichas fictícias permanecem. Os 13 cenários de navegador passaram novamente; captura do modal revisada.
