@@ -1,0 +1,91 @@
+{
+  "checks": [
+    "12 produtos, 2 lojas e imagens carregadas",
+    "busca sem acentos e limpar",
+    "categoria, busca combinada e estado vazio",
+    "diálogo, teclado, Escape e retorno de foco",
+    "indisponível preserva consulta e sinaliza exemplo",
+    "rotas por unidade, WhatsApp e telefone",
+    "menu mobile abre e fecha",
+    "mobile sem overflow e detalhe acessível",
+    "movimento reduzido e console sem erros"
+  ],
+  "errors": [],
+  "initialVitals": {
+    "lcp": null,
+    "cls": 0
+  },
+  "metrics": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "images": 17,
+    "navigation": {
+      "name": "http://127.0.0.1:4175/",
+      "entryType": "navigation",
+      "startTime": 0,
+      "duration": 146.39999999850988,
+      "navigationId": 7719,
+      "initiatorType": "navigation",
+      "deliveryType": "",
+      "nextHopProtocol": "http/1.1",
+      "renderBlockingStatus": "non-blocking",
+      "contentType": "text/html",
+      "contentEncoding": "",
+      "workerStart": 0,
+      "workerRouterEvaluationStart": 0,
+      "workerCacheLookupStart": 0,
+      "workerMatchedSourceType": "",
+      "workerFinalSourceType": "",
+      "redirectStart": 0,
+      "redirectEnd": 0,
+      "fetchStart": 0.5,
+      "domainLookupStart": 0.5,
+      "domainLookupEnd": 0.5,
+      "connectStart": 0.5,
+      "secureConnectionStart": 0,
+      "connectEnd": 0.5,
+      "requestStart": 1.5,
+      "responseStart": 2.7999999970197678,
+      "firstInterimResponseStart": 0,
+      "finalResponseHeadersStart": 2.7999999970197678,
+      "responseEnd": 3.100000001490116,
+      "transferSize": 8688,
+      "encodedBodySize": 8388,
+      "decodedBodySize": 8388,
+      "responseStatus": 200,
+      "serverTiming": [],
+      "unloadEventStart": 0,
+      "unloadEventEnd": 0,
+      "domInteractive": 12.199999995529652,
+      "domContentLoadedEventStart": 34.100000001490116,
+      "domContentLoadedEventEnd": 34.100000001490116,
+      "domComplete": 146.29999999701977,
+      "loadEventStart": 146.39999999850988,
+      "loadEventEnd": 146.39999999850988,
+      "type": "navigate",
+      "redirectCount": 0,
+      "activationStart": 0,
+      "criticalCHRestart": 0,
+      "notRestoredReasons": null,
+      "confidence": {
+        "randomizedTriggerRate": 0.4994798,
+        "value": "low"
+      }
+    },
+    "paint": [
+      {
+        "name": "first-paint",
+        "startTime": 764
+      },
+      {
+        "name": "first-contentful-paint",
+        "startTime": 764
+      }
+    ]
+  },
+  "mobile": {
+    "width": 390,
+    "overflow": false
+  },
+  "note": "Mesures locales, pas un audit Lighthouse ni une mesure de performance en production."
+}
