@@ -428,6 +428,8 @@ address{font-style:normal;font-size:19px;line-height:1.5;margin:14px 0 25px;max-
 .menu-page .menu-category-heading .category-example{position:absolute;right:0;bottom:10px}
 .menu-page .category-note{max-width:none;text-align:center;font-size:13px;line-height:1.6;margin:14px 0 27px}
 .menu-page .menu-list{border:0}
+.menu-page #pasteis .menu-item{grid-template-columns:fit-content(75%) minmax(16px,1fr) 108px}
+.menu-page #pasteis .item-weight{display:none}
 .menu-page .menu-item{display:grid;grid-template-columns:fit-content(65%) minmax(16px,1fr) 58px 108px;gap:12px;align-items:start;padding:11px 0;border:0}
 .menu-page .item-copy h3{font:500 italic 21px/1.4 var(--display);text-transform:uppercase;letter-spacing:.15px}
 .menu-page .item-copy p{font-size:13px;color:var(--muted);line-height:1.6;margin-top:5px}
@@ -482,7 +484,7 @@ address{font-style:normal;font-size:19px;line-height:1.5;margin:14px 0 25px;max-
   .menu-page .menu-category-heading .section-kicker{font-size:8px;letter-spacing:1.5px}
   .menu-page .menu-category-heading .compass{width:31px;bottom:5px}
   .menu-page .menu-category-heading .category-example{position:static;font-size:9px}
-  .menu-page #pasteis .menu-category-heading{flex-direction:column;gap:12px}
+  .menu-page #pasteis .menu-category-heading h2{font-size:38px}
   .menu-page .category-note{font-size:12px;margin:12px 0 20px}
   .menu-page .menu-item{grid-template-columns:minmax(0,1fr) 40px 77px;gap:10px;border-bottom:1px dotted #62533f;padding:13px 0;align-items:baseline}
   .menu-page .item-leader{display:none}

@@ -17,5 +17,26 @@
     { "name": "Mandioca frita", "grams": 300, "price": 15 },
     { "name": "Calabresa com cebola e torradas", "grams": 300, "price": 24 },
     { "name": "Fome de Pirata", "description": "Isca de frango, anéis de cebola e batata frita", "grams": 600, "price": 40 }
+  ],
+  "pastrySource": "Fotografia do cardápio de pastéis salgados fornecida pelo usuário em 11/10/2026.",
+  "pastries": [
+    { "name": "Carne", "price": 12 },
+    { "name": "Carne + 1 acréscimo", "description": "Escolha: queijo, cheddar ou catupiry.", "price": 16 },
+    { "name": "Carne, queijo e palmito", "price": 18 },
+    { "name": "Carne, queijo, milho e azeitona", "price": 20 },
+    { "name": "Frango", "price": 12 },
+    { "name": "Frango + 1 acréscimo", "description": "Escolha: queijo, cheddar ou catupiry.", "price": 16 },
+    { "name": "Frango, queijo, milho e azeitona", "price": 20 },
+    { "name": "Calabresa", "price": 12 },
+    { "name": "Calabresa + 1 acréscimo", "description": "Escolha: queijo, cheddar ou catupiry.", "price": 16 },
+    { "name": "Mexicano", "description": "Calabresa, queijo, pimenta e alho frito.", "price": 20 },
+    { "name": "Queijo", "description": "Orégano opcional.", "price": 12 },
+    { "name": "Pizza", "price": 17 },
+    { "name": "Queijo, catupiry, palmito e bacon", "price": 23 },
+    { "name": "Queijo, bacon e alho frito", "price": 18 },
+    { "name": "3 queijos", "description": "Mussarela, catupiry e cheddar.", "price": 20 },
+    { "name": "Camarão, queijo e catupiry", "price": 25 },
+    { "name": "Brócolis, queijo, catupiry e bacon", "price": 22 },
+    { "name": "Misto", "description": "Carne, frango, presunto e queijo.", "price": 20 }
   ]
 }

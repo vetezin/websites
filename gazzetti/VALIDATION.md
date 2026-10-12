@@ -1,35 +1,36 @@
-# Validação — nova composição visual
+# Validação — reformulação Etapa 05
 
-Revisão de 10/10/2026 após o usuário autorizar repensar a composição. Plano: docs/plans/2026-10-10-direcao-visual.md. Conteúdo de referência: docs/handoff-etapa-05.md. Substitui o relatório da composição anterior, preservado no histórico Git.
+Executada em 10/10/2026 sobre o handoff docs/handoff-etapa-05.md. Substitui as evidências do protótipo anterior.
 
-## Evidências atuais
+## Resultados
 
-- npm run lint: passou. Verifica sintaxe JavaScript e condições básicas de templates, não é lint semântico completo de Astro.
-- npm test: 2 testes passaram, comparando copy/metadados integralmente com o handoff e medindo contraste dos tokens efetivos.
-- Build local passou; build final com SITE_URL=https://vetezin.github.io e SITE_BASE_PATH=/websites/gazzetti/ passou: 10 páginas estáticas incluindo aliases, privacidade e 404. Sem publicação.
-- test/browser-qa.mjs: 140 verificações passaram em desenvolvimento e build estático prefixado: quatro rotas em 320,390,768,1024,1440; imagens, H1, fonte mínima, noindex, overflow, teclado/menu/Escape, âncoras, reduced-motion, ausência de transmissão/armazenamento e aliases.
-- test/handoff-browser-qa.mjs: 97 verificações passaram em desenvolvimento e no build final: copy e metadados renderizados, ordem, atividades, destinos, ampliação CSS 200%, menu e formulário sem JavaScript.
-- 404 e privacidade adicionalmente verificadas em 320/1440, sem overflow e com composição de leitura isolada por utility-hero.
-- 20 capturas do build: artifacts/direction-v2/*.png, quatro páginas nas cinco larguras. Revisadas todas as principais em 390/1440 e amostras 320/768/1024. Porta e placa completas; sem moldura, fundo de foto ou texto sobreposto. Ordem texto/CTA/foto no mobile preservada.
+- npm run lint: passou (sintaxe JS e verificações básicas de templates; não é lint semântico completo de Astro).
+- npm test: 2 testes passaram. Contrato de copy integral e metadados comparado ao handoff; contraste dos tokens efetivamente utilizados.
+- npm run build: passou; 10 páginas estáticas incluindo quatro aliases, privacidade e 404. Rotas antigas equivalentes têm refresh no head, canonical e link; não são HTTP 301.
+- Build com SITE_URL=https://vetezin.github.io e SITE_BASE_PATH=/websites/gazzetti/: passou, servido localmente na porta 4333. Sem push ou implantação.
+- Playwright test/browser-qa.mjs: 140 verificações passaram em desenvolvimento e no build sob prefixo Pages: quatro rotas em cinco larguras, H1, imagens principais, legibilidade mínima, noindex, overflow, menu por teclado, Escape e foco, navegação, âncoras, movimento reduzido, formulário desabilitado, ausência de transmissão/armazenamento, aliases e pular conteúdo.
+- Playwright test/handoff-browser-qa.mjs: 97 verificações passaram em desenvolvimento e no build Pages: copy renderizado, ordem de títulos/parágrafos, atividades, metadados, destinos, ampliação CSS 200%, menu e formulário sem JavaScript.
+- A ampliação CSS não equivale à medição de todas as modalidades de zoom de navegador/tecnologia assistiva. Reflow adicional validado em 320 px.
+- 20 capturas finais: quatro páginas em 320, 390, 768, 1024 e 1440 px, artifacts/handoff/*.png. Revisão visual: hierarquia, texto integral, contornos, quebra de títulos, ordem mobile, preservação da porta e placa. A moldura foi ajustada de 4:5 para 4:3 no desktop para reduzir faixas vazias sem cortar a foto. Grid corrigido após extravasamento em ampliação de 200%.
 - Console final do build: 0 erros e 0 avisos.
-- Revisão independente requesting-code-review: sem achados importantes concretos; não substitui as verificações de navegador feitas pelo agente principal.
+- Revisão independente pela skill requesting-code-review: sem bloqueadores de funcionalidade/segurança. Pendência documental apontada foi corrigida nesta revisão.
 
-## Acessibilidade e movimento
+## Lighthouse e desempenho
 
-Corpo 18 px; interface/labels 16 px; avisos/legendas mínimo 14 px. Contraste calculado: texto primário/secundário/prata >=4,5:1 sobre navy-base/deep/surface; borda e foco >=3:1. Link ativo sublinhado; foco visível de 3px; alvos de links >=44px. Listas de atividades com role=list para preservar semântica quando list-style:none.
+Lighthouse mobile na Home do build local: acessibilidade 100, boas práticas 100, SEO 66, agentic browsing 100. Única auditoria reprovada: is-crawlable, devido ao noindex exigido para a demonstração. Relatório local em artifacts/handoff/lighthouse-home-mobile.json. Essas notas não foram medidas nas demais páginas.
 
-Ampliação CSS 200% não equivale a todas as modalidades de zoom de navegador/tecnologias assistivas. Reflow também testado em 320 px. Leitor de tela não testado manualmente.
+Trace Chrome DevTools na Home estática, CPU 1x e sem limitação de rede: LCP 86 ms e CLS 0,00. Medição laboratorial local, não desempenho em produção, p75 real ou garantia de metas. INP não medido; não há dados CrUX. O Lighthouse disponível nesta sessão não audita performance; não há nota de performance Lighthouse ≥90 comprovada. Cache/compressão e latência dependem do host de produção.
 
-Motion restrito a feedback de cores, bordas e setas, 180 ms, sem deslocar layout. Nenhum conteúdo depende de animação ou JS. Prefers-reduced-motion remove transições e smooth scroll. Navegação nativa e conteúdo permanecem disponíveis sem JS.
+## Contraste calculado
 
-## Desempenho e limites
+Texto primário, secundário e prata: ao menos 4,5:1 sobre navy-base/deep/surface. Contorno de controle e foco: ao menos 3:1 nessas superfícies. Botão prata/navy-deep: ao menos 4,5:1. Linhas decorativas não delimitam controles e não são consideradas texto ou foco.
 
-PerformanceObserver na Home do build local, viewport390x844, sem limitação artificial de CPU/rede: LCP observado 44ms e CLS 0,0426 até a captura após carregamento/fontes. Medição local, não p75 real ou garantia de desempenho em produção. INP não medido; não há dados CrUX. Nenhuma nova dependência, fonte, requisição externa de conteúdo ou integração foi adicionada.
+## Especificidade e limites
 
-A nova auditoria Lighthouse não pôde ser concluída: o MCP encerrou/perdeu a sessão do navegador. As notas 100/100/66 da composição anterior não são apresentadas como resultado desta revisão. Não há nota Lighthouse de performance >=90 comprovada. A demonstração permanece noindex por requisito; indexabilidade não é objetivo desta etapa.
+O site explica as três frentes aprovadas, com navegação para sua leitura integral. A foto real, marca original e copy empresarial sustentam o contexto Gazzetti; não há estatísticas, promessas, símbolos jurídicos ou profissionais fictícios. A composição atende ao handoff e ao mobile. O contato permanece uma demonstração porque os canais e a integração aguardam validação.
 
-## Resultado e pendências
+Fontes Newsreader/Manrope mantidas como escolha técnica dentro das sugestões do handoff. IMG_6015.jpeg não acompanhou o anexo; tokens fornecidos usados como referência provisória. Conteúdo institucional ainda depende de confirmação do escritório. Privacidade complementar pendente; nenhuma política jurídica foi inventada. Consulte CONTENT_TODO.md.
 
-Home com título amplo, fotografia integral maior, apresentação em níveis de leitura e filosofia própria. Escritório com introdução deslocada e equipe aberta; Áreas com capítulos/listas separadas por linhas; Contato com formulário em superfície distinta. Tipografia, navy/prata e marca original sustentam a direção aprovada. A identidade depende da fotografia real e do conteúdo empresarial, sem adicionar símbolos jurídicos, métricas ou alegações fictícias.
+/uteis/ foi aposentada e não está na navegação. O servidor de validação retorna 404 para caminhos inexistentes. GitHub Pages utiliza o 404 do domínio/repositório; uma experiência 404 específica sob subdiretório depende da configuração da publicação, fora desta tarefa.
 
-Copy, sequência, destinos e campos foram preservados. Equipe/canais continuam pendentes; formulário demonstrativo desabilitado, sem envio/armazenamento/sucesso fictício. Política definitiva pendente. Não há analytics ou publicação nesta revisão. Veja CONTENT_TODO.md.
+Sem analytics, serviço externo, envio ou armazenamento no formulário. Arquivos de imagem fictícios antigos permanecem sem referência na interface, recuperáveis no histórico do protótipo; nenhum retrato é apresentado como profissional real.

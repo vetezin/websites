@@ -56,7 +56,7 @@ Cada trecho editorial usa uma margem de diário para legenda ou indicação de a
 6. Visita: localização conhecida, rota externa e contato divulgado; horários pendentes não viram informação inventada.
 
 ### Cardápio
-Categorias Porções, Pastéis e Bebidas. As 14 porções vêm da foto com pesos e preços, acompanhadas de aviso de valores transcritos sujeitos a confirmação. Complementos demonstrativos em pastéis e bebidas têm identificação visível; sem preços fictícios disfarçados. A capa real do cardápio aparece na abertura; a foto das porções pode ser aberta para referência. Fundo preto com moldura fina, títulos em cobre, nomes brancos condensados em itálico, pesos em cobre e preços alinhados. Pontilhados ligam nome e preço no desktop e separam as linhas no mobile. Texto HTML, navegação por categoria e busca sem acentos; o conteúdo completo continua disponível sem JavaScript.
+Categorias Porções, Pastéis e Bebidas. As 14 porções vêm da foto com pesos e preços, acompanhadas de aviso de valores transcritos sujeitos a confirmação. Os 18 pastéis salgados seguem os sabores, ingredientes e preços da fotografia do impresso. Bebidas permanecem como categorias para consulta, sem preços inventados. A capa real do cardápio aparece na abertura; as fotografias fornecidas orientam a transcrição do conteúdo. Fundo preto com moldura fina, títulos em cobre, nomes brancos condensados em itálico, pesos em cobre e preços alinhados. Pontilhados ligam nome e preço no desktop e separam as linhas no mobile. Texto HTML, navegação por categoria e busca sem acentos; o conteúdo completo continua disponível sem JavaScript.
 
 ## Tokens propostos
 
@@ -90,7 +90,7 @@ Primeira entrega local. Integração de publicação e deploy não fazem parte d
 - As nove imagens fornecidas foram aceitas pelo usuário como material visual.
 - MOCK: fachada de abertura gerada com IA, aprovada visualmente; reconstrução ilustrativa, não documento do ambiente real. Registro em IMAGE_PROMPT.md.
 - Preços e pesos das porções são transcrições; confirmar atualização, nomes e disponibilidade.
-- Sabores e valores de pastéis, nomes e ingredientes de bebidas não fornecidos. Complementos demonstrativos serão centralizados e marcados MOCK, com identificação na interface.
+- Os sabores e valores de 18 pastéis salgados foram fornecidos em fotografia e estão centralizados em `data/menu.json`. Nomes, ingredientes, volumes e preços de bebidas ainda precisam de confirmação.
 - Confirmar contato oficial, horários e dados de localização antes de publicação; não inventar vínculo de reserva ou delivery.
 - Sem depoimentos, certificações, métricas, programação ou promoções fictícias.
 - Sem formulário, cookies de analytics ou sistema de pedidos nesta primeira versão.

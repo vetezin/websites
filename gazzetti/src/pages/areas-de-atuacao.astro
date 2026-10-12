@@ -4,9 +4,10 @@ import PageHero from '../components/PageHero.astro';
 import ContactBand from '../components/ContactBand.astro';
 import { content, areaIds } from '../data/site.js';
 const page = content.areas;
+const base = import.meta.env.BASE_URL;
 ---
 <Layout title={page.title} description={page.description} active="areas-de-atuacao/">
- <PageHero section={page.sections[0]} variant="areas" />
- <div class="container areas-detail section-lined"><nav class="area-index" aria-label="Índice de áreas de atuação">{areaIds.map((id,i) => <a href={'#' + id}>{page.sections[i + 1].headings[0].text}</a>)}</nav><div>{areaIds.map((id,i) => { const section = page.sections[i + 1]; return <section class="area-detail" id={id}><span class="area-number" aria-hidden="true">{'0' + (i + 1)}</span><div><h2>{section.headings[0].text}</h2><div class="prose">{section.paragraphs.map(text => <p>{text}</p>)}</div><p class="activities-label">Atividades mencionadas no site atual:</p><ul class="activity-list" role="list">{section.activities.map(text => <li>{text}</li>)}</ul></div></section>; })}</div></div>
+ <PageHero section={page.sections[0]} />
+ <div class="container areas-detail section-lined"><nav class="area-index" aria-label="Índice de áreas de atuação">{areaIds.map((id,i) => <a href={'#' + id}>{page.sections[i + 1].headings[0].text}</a>)}</nav><div>{areaIds.map((id,i) => { const section = page.sections[i + 1]; return <section class="area-detail" id={id}><span class="area-number" aria-hidden="true">{'0' + (i + 1)}</span><div><h2>{section.headings[0].text}</h2><div class="prose">{section.paragraphs.map(text => <p>{text}</p>)}</div><p class="activities-label">Atividades mencionadas no site atual:</p><ul class="activity-list">{section.activities.map(text => <li>{text}</li>)}</ul></div></section>; })}</div></div>
  <ContactBand section={page.sections[4]} />
 </Layout>
