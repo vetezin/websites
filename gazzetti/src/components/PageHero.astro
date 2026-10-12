@@ -1,4 +1,4 @@
 ---
-const { section, variant = 'default' } = Astro.props;
+const { section } = Astro.props;
 ---
-<section class:list={['container', 'page-hero', 'page-hero-' + variant]}><h1>{section.headings[0].text}</h1><div class="prose">{section.paragraphs.map(text => <p>{text}</p>)}</div></section>
+<section class="container page-hero"><h1>{section.headings[0].text}</h1><div class="prose">{section.paragraphs.map(text => <p>{text}</p>)}</div></section>
