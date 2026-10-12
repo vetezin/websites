@@ -24,9 +24,10 @@
       <a class="logo" href="#inicio" aria-label="Eletro Severo — início"><img src="./assets/logo-original.png" width="150" height="150" alt="Eletro Severo"></a>
       <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu <span aria-hidden="true">☰</span></button>
       <nav id="main-nav" aria-label="Navegação principal">
-        <a href="#produtos">Produtos</a><a href="#sobre">A Eletro Severo</a><a href="#lojas">Nossas lojas</a>
+        <a href="#produtos">Produtos</a><a href="#sobre">A Eletro Severo</a>
         <a class="button button-dark header-contact" data-whatsapp href="https://wa.me/5518998013291">Fale com a gente <span aria-hidden="true">↗</span></a>
       </nav>
+      <a class="button header-stores" href="#lojas">Visite nossas lojas <span aria-hidden="true">↗</span></a>
     </div>
   </header>
   <main>
@@ -69,6 +70,28 @@
     <section class="contact-section"><div class="container contact-inner"><div><p>Precisa de uma mão para escolher?</p><h2>Vamos conversar.</h2></div><a class="button button-dark" data-whatsapp href="https://wa.me/5518998013291">Chamar no WhatsApp <span aria-hidden="true">↗</span></a></div></section>
   </main>
   <footer><div class="container footer-inner"><div><strong>Eletro Severo</strong><p>Materiais elétricos, hidráulicos e acabamentos.</p></div><div class="footer-links"><a href="tel:+5518998013291">(18) 99801-3291</a><a href="https://www.instagram.com/eletrosevero/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="#lojas">Como chegar</a></div></div><div class="container footer-bottom"><span>Álvares Machado, SP</span><span>Da instalação ao acabamento.</span></div></footer>
-  <dialog id="product-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description"><button class="dialog-close" aria-label="Fechar detalhes">×</button><div class="dialog-layout"><div class="dialog-image"><img id="dialog-image" src="./assets/products/faucet.svg" width="320" height="300" alt=""></div><div class="dialog-copy"><p class="section-label" id="dialog-category"></p><h2 id="dialog-title"></h2><p class="availability" id="dialog-status"></p><p id="dialog-description"></p><h3>Onde usar</h3><p id="dialog-application"></p><h3>Ficha técnica <span class="spec-note">Dados de exemplo</span></h3><ul id="dialog-specs"></ul><div class="product-guidance"><h3>Antes de escolher</h3><p id="dialog-guidance"></p></div><a id="dialog-source" class="source-link" target="_blank" rel="noopener noreferrer">Ver imagem de referência ↗</a><a class="button button-dark" data-whatsapp href="https://wa.me/5518998013291">Falar com a loja <span aria-hidden="true">↗</span></a></div></div></dialog>
+  <dialog id="product-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+    <button class="dialog-close" aria-label="Fechar detalhes">×</button>
+    <div class="dialog-layout">
+      <div class="dialog-image"><img id="dialog-image" src="./assets/photos/faucet.png" width="320" height="300" alt=""></div>
+      <div class="dialog-copy">
+        <p class="section-label" id="dialog-category"></p>
+        <h2 id="dialog-title"></h2>
+        <p class="availability" id="dialog-status"></p>
+        <p id="dialog-description"></p>
+        <div class="dialog-details">
+          <div class="dialog-context">
+            <h3>Onde usar</h3><p id="dialog-application"></p>
+            <div class="product-guidance"><h3>Antes de escolher</h3><p id="dialog-guidance"></p></div>
+          </div>
+          <div class="dialog-technical"><h3>Ficha técnica <span class="spec-note">Dados de exemplo</span></h3><ul id="dialog-specs"></ul></div>
+        </div>
+        <div class="dialog-actions">
+          <a id="dialog-source" class="source-link" target="_blank" rel="noopener noreferrer">Ver imagem de referência ↗</a>
+          <a class="button button-dark" data-whatsapp href="https://wa.me/5518998013291">Falar com a loja <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>

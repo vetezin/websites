@@ -81,6 +81,7 @@ function openProduct(product, trigger) {
     row.append(node('span','',spec.slice(0,separator)),node('strong','',spec.slice(separator+1).trim())); return row;
   }));
   dialog.showModal();
+  dialog.scrollTop = 0;
   dialog.querySelector('.dialog-close').focus();
 }
 function productCard(product) {

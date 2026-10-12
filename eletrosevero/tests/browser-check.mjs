@@ -65,6 +65,37 @@ try{
     assert.equal(await page.getByRole('dialog').isVisible(),false);
     assert.equal(await opener.evaluate(el=>el===document.activeElement),true);
   });
+  await check('modal horizontal, sem rolagem a 1440 × 900 e ação visível',async()=>{
+    await page.setViewportSize({width:1440,height:900});
+    for(const opener of await page.locator('.product-open').all()) {
+      await opener.click();
+      const layout=await page.getByRole('dialog').evaluate(el=>({width:el.clientWidth,height:el.clientHeight,scroll:el.scrollHeight,horizontal:el.scrollWidth}));
+      assert.ok(layout.width>=1250);assert.ok(layout.scroll<=layout.height+1,JSON.stringify(layout));
+      assert.ok(layout.horizontal<=layout.width);
+      const action=await page.locator('.dialog-actions .button').boundingBox();
+      assert.ok(action.y+action.height<=900);
+      await page.getByRole('button',{name:'Fechar detalhes'}).click();
+    }
+    await page.getByRole('button',{name:'Ver detalhes de Torneira de bancada',exact:true}).click();
+    await page.screenshot({path:shotDir+'produto-desktop-1440.png'});
+    await page.getByRole('button',{name:'Fechar detalhes'}).click();
+    await page.setViewportSize({width:1440,height:1000});
+  });
+  await check('modal sem rolagem em notebook 1366 × 768',async()=>{
+    await page.setViewportSize({width:1366,height:768});
+    for(const opener of await page.locator('.product-open').all()) {
+      await opener.click();
+      const fit=await page.getByRole('dialog').evaluate(el=>el.scrollHeight<=el.clientHeight+1 && el.scrollWidth<=el.clientWidth);
+      assert.equal(fit,true,await page.locator('#dialog-title').innerText());
+      await page.getByRole('button',{name:'Fechar detalhes'}).click();
+    }
+    await page.setViewportSize({width:1440,height:1000});
+  });
+  await check('visite nossas lojas em destaque no cabeçalho',async()=>{
+    const link=page.locator('.site-header').getByRole('link',{name:'Visite nossas lojas'});
+    assert.equal(await link.isVisible(),true);assert.equal(await link.getAttribute('href'),'#lojas');
+    await link.click();assert.equal(new URL(page.url()).hash,'#lojas');
+  });
   await check('detalhes descritivos, referência e consulta por produto',async()=>{
     await page.getByRole('button',{name:'Ver detalhes de Chuveiro elétrico',exact:true}).click();
     assert.match(await page.locator('#dialog-status').innerText(),/Consulte preço e disponibilidade/);
@@ -94,6 +125,7 @@ try{
     assert.equal(await page.locator('a[href="tel:+5518998013291"]').count(),3);
   });
   await page.evaluate(()=>scrollTo(0,0));
+  await page.screenshot({path:shotDir+'inicio-desktop-1440.png'});
   await page.screenshot({path:shotDir+'desktop-1440.png',fullPage:true});
   await page.locator('#produtos').evaluate(el=>scrollTo({top:el.offsetTop,behavior:'instant'}));
   await page.screenshot({path:shotDir+'catalogo-desktop-1440.png'});
@@ -105,11 +137,14 @@ try{
   await check('menu mobile abre e fecha',async()=>{
     const menu=page.getByRole('button',{name:/Menu/});
     await menu.click();assert.equal(await menu.getAttribute('aria-expanded'),'true');
-    await page.getByRole('navigation').getByRole('link',{name:'Nossas lojas',exact:true}).click();
+    await page.getByRole('navigation').getByRole('link',{name:'Produtos',exact:true}).click();
     assert.equal(await menu.getAttribute('aria-expanded'),'false');
     assert.equal(await page.getByRole('navigation').isVisible(),false);
   });
   await check('mobile sem overflow e detalhe acessível',async()=>{
+    assert.equal(await page.locator('.header-stores').isVisible(),true);
+    await page.locator('.header-stores').click();
+    assert.equal(new URL(page.url()).hash,'#lojas');
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
     await page.getByRole('button',{name:'Ver detalhes de Torneira de bancada',exact:true}).click();
     assert.equal(await page.getByRole('dialog').isVisible(),true);
