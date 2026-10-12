@@ -29,19 +29,19 @@ await mkdir(shotDir,{recursive:true});
 try{
   await page.goto('http://127.0.0.1:4175',{waitUntil:'networkidle'});
   const initialVitals=await page.evaluate(()=>window.__localVitals);
-  await check('12 produtos, 2 lojas e imagens carregadas',async()=>{
-    assert.equal(await page.locator('.product-card').count(),12);
+  await check('9 produtos, 2 lojas e imagens carregadas',async()=>{
+    assert.equal(await page.locator('.product-card').count(),9);
     assert.equal(await page.locator('.store-card').count(),2);
     for (const image of await page.locator('main img').all()) { await image.scrollIntoViewIfNeeded(); await image.evaluate(el=>el.decode()); }
     assert.equal(await page.locator('main img').evaluateAll(imgs=>imgs.every(i=>i.complete&&i.naturalWidth>0)),true);
     await page.evaluate(()=>scrollTo(0,0));
   });
   await check('busca sem acentos e limpar',async()=>{
-    await page.getByRole('searchbox').fill('lampada');
+    await page.getByRole('searchbox').fill('iris');
     assert.equal(await page.locator('.product-card').count(),1);
-    assert.match(await page.locator('.product-card').innerText(),/Lâmpada/);
+    assert.match(await page.locator('.product-card').innerText(),/Íris/);
     await page.getByRole('button',{name:'Limpar busca',exact:true}).click();
-    assert.equal(await page.locator('.product-card').count(),12);
+    assert.equal(await page.locator('.product-card').count(),9);
   });
   await check('categoria, busca combinada e estado vazio',async()=>{
     await page.getByRole('button',{name:/^Hidráulica/}).click();
@@ -51,7 +51,7 @@ try{
     await page.getByRole('searchbox').fill('zzzzzz');
     assert.equal(await page.locator('#empty-state').isVisible(),true);
     await page.getByRole('button',{name:'Ver todos os produtos',exact:true}).click();
-    assert.equal(await page.locator('.product-card').count(),12);
+    assert.equal(await page.locator('.product-card').count(),9);
     assert.equal(await page.getByRole('searchbox').inputValue(),'');
   });
   await check('diálogo, teclado, Escape e retorno de foco',async()=>{
@@ -59,17 +59,31 @@ try{
     await opener.focus();await page.keyboard.press('Enter');
     assert.equal(await page.getByRole('dialog').isVisible(),true);
     assert.match(await page.locator('#dialog-title').innerText(),/Torneira/);
-    assert.equal(await page.locator('#dialog-specs li').count(),3);
+    assert.equal(await page.locator('#dialog-specs li').count(),6);
     await page.screenshot({path:shotDir+'produto-desktop-1440.png'});
     await page.keyboard.press('Escape');
     assert.equal(await page.getByRole('dialog').isVisible(),false);
     assert.equal(await opener.evaluate(el=>el===document.activeElement),true);
   });
-  await check('indisponível preserva consulta e sinaliza exemplo',async()=>{
-    await page.getByRole('button',{name:'Ver detalhes de Chuveiro elétrico, indisponível — exemplo',exact:true}).click();
-    assert.match(await page.locator('#dialog-status').innerText(),/Indisponível.*exemplo/);
-    assert.equal(new URL(await page.locator('#product-dialog [data-whatsapp]').getAttribute('href')).searchParams.get('text').includes('Chuveiro'),false);
+  await check('detalhes descritivos, referência e consulta por produto',async()=>{
+    await page.getByRole('button',{name:'Ver detalhes de Chuveiro elétrico',exact:true}).click();
+    assert.match(await page.locator('#dialog-status').innerText(),/Consulte preço e disponibilidade/);
+    assert.ok((await page.locator('#dialog-application').innerText()).length>40);
+    assert.ok((await page.locator('#dialog-guidance').innerText()).length>40);
+    assert.match(await page.locator('#dialog-source').getAttribute('href'),/lorenzetti/);
+    assert.equal(new URL(await page.locator('#product-dialog [data-whatsapp]').getAttribute('href')).searchParams.get('text').includes('Chuveiro'),true);
     await page.getByRole('button',{name:'Fechar detalhes'}).click();
+  });
+  await check('layout amplo, fontes legíveis e avisos removidos',async()=>{
+    const metrics=await page.evaluate(()=>({
+      catalog:document.querySelector('.catalog-section').getBoundingClientRect().width,
+      sidebar:document.querySelector('.catalog-sidebar').getBoundingClientRect(),
+      grid:document.querySelector('.catalog-content').getBoundingClientRect(),
+      title:parseFloat(getComputedStyle(document.querySelector('.product-card h3')).fontSize),
+      body:document.body.innerText
+    }));
+    assert.ok(metrics.catalog>=1400);assert.ok(metrics.sidebar.right<=metrics.grid.left);
+    assert.ok(metrics.title>=22);assert.doesNotMatch(metrics.body,/protótipo|horários de exemplo|indisponível/i);
   });
   await check('rotas por unidade, WhatsApp e telefone',async()=>{
     const routes=await page.locator('.store-actions a[target="_blank"]').evaluateAll(links=>links.map(l=>l.href));
@@ -81,6 +95,9 @@ try{
   });
   await page.evaluate(()=>scrollTo(0,0));
   await page.screenshot({path:shotDir+'desktop-1440.png',fullPage:true});
+  await page.locator('#produtos').evaluate(el=>scrollTo({top:el.offsetTop,behavior:'instant'}));
+  await page.screenshot({path:shotDir+'catalogo-desktop-1440.png'});
+  await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));
   const metrics=await page.evaluate(()=>({width:innerWidth,scrollWidth:document.documentElement.scrollWidth,images:[...document.images].length,navigation:performance.getEntriesByType('navigation')[0]?.toJSON(),paint:performance.getEntriesByType('paint').map(p=>({name:p.name,startTime:p.startTime}))}));
   assert.ok(metrics.scrollWidth<=1440);
   await page.setViewportSize({width:390,height:844});

@@ -17,9 +17,9 @@ Abra http://127.0.0.1:4175. Encerre com Ctrl+C. Para outra porta, defina PORT.
 
 ## Conteúdo e manutenção
 - data/content.js centraliza a empresa, lojas, categorias e produtos.
-- Cada produto possui id, MOCK e available. available=false mantém o item visível com “Indisponível · exemplo”.
+- Cada produto possui id e MOCK; estoque não confirmado (available=null). A interface orienta consultar preço e disponibilidade.
 - catalog.js combina busca sem acentos com categoria. app.js renderiza os dados usando textContent e gerencia o diálogo nativo.
-- assets/products contém ilustrações locais de exemplo; nenhuma imagem externa é carregada.
+- assets/photos contém fotos locais de referência e SOURCES.md documenta as origens. Os SVGs antigos em assets/products não são exibidos. Nenhuma imagem é carregada de terceiros durante a visita.
 - Sem backend, login, banco, analytics, cookies ou checkout. O painel de gestão é uma etapa futura.
 - Veja CONTENT_TODO.md e DESIGN_BRIEF.md antes de publicar. Protótipo bloqueado para indexação.
 

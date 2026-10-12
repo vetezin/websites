@@ -95,3 +95,7 @@ Verificar busca, combinação de filtros, limpeza de busca, estado vazio, detalh
 3. Duas unidades com endereço, horários e rota individual: atende ao comércio físico local e à visita presencial, em vez de priorizar checkout ou logística não confirmada.
 
 Disponibilidade é um campo nos dados, com dois itens indisponíveis de exemplo. A futura gestão poderá consumir esse contrato, mas não há backend nesta entrega.
+
+## Revisão solicitada: catálogo e fotografia
+
+Catálogo aproveita a largura da tela até 1800 px; departamentos permanecem à esquerda no desktop. Produtos têm fotos maiores, títulos de 23–24 px e descrição de 16 px. No celular, uma coluna prioriza leitura e fotografia, mantendo departamentos acessíveis em faixa rolável. Modal amplo com descrição, aplicações, seis campos técnicos de exemplo e consulta contextual pelo WhatsApp. Fotos de referência dos fabricantes substituem desenhos SVG; uma publicação fornece a imagem da janela por enquadramento em CSS. Avisos de protótipo e horários/estados de estoque fictícios foram retirados da interface. Stack existente preservada, sem instalação de dependências.

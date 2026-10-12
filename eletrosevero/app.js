@@ -66,13 +66,20 @@ function openProduct(product, trigger) {
   document.querySelector('#dialog-description').textContent = product.description;
   document.querySelector('#dialog-category').textContent = categoryName(product.category);
   const image = document.querySelector('#dialog-image');
-  image.src = `./assets/products/${product.image}.svg`;
-  image.alt = `Ilustração de exemplo: ${product.name}`;
+  image.src = product.image;
+  image.alt = `Foto de referência: ${product.name}`;
   const status = document.querySelector('#dialog-status');
-  status.textContent = product.available ? 'Preço e disponibilidade: consulte a loja' : 'Indisponível · estado de exemplo';
-  status.classList.toggle('is-unavailable', !product.available);
+  status.textContent = 'Consulte preço e disponibilidade';
+  document.querySelector('#dialog-application').textContent = product.application;
+  document.querySelector('#dialog-guidance').textContent = product.guidance;
+  document.querySelector('#dialog-source').href = product.source;
+  document.querySelector('.dialog-image').className = 'dialog-image ' + product.imageClass;
+  dialog.querySelector('[data-whatsapp]').href = 'https://wa.me/5518998013291?text=' + encodeURIComponent('Olá! Gostaria de saber mais sobre ' + product.name + '. Podem me informar modelos, preço e disponibilidade?');
   const specs = document.querySelector('#dialog-specs');
-  specs.replaceChildren(...product.specs.map(spec => node('li','',spec)));
+  specs.replaceChildren(...product.specs.map(spec => {
+    const row = node('li'); const separator = spec.indexOf(':');
+    row.append(node('span','',spec.slice(0,separator)),node('strong','',spec.slice(separator+1).trim())); return row;
+  }));
   dialog.showModal();
   dialog.querySelector('.dialog-close').focus();
 }
@@ -80,20 +87,20 @@ function productCard(product) {
   const article = node('article','product-card');
   const button = node('button','product-open');
   button.type = 'button';
-  button.setAttribute('aria-label',`Ver detalhes de ${product.name}${product.available ? '' : ', indisponível — exemplo'}`);
+  button.setAttribute('aria-label',`Ver detalhes de ${product.name}`);
   const visual = node('div','product-visual');
-  if (!product.available) visual.append(node('span','unavailable-tag','Indisponível · exemplo'));
+  if (product.imageClass) visual.classList.add(product.imageClass);
   const img = node('img');
-  img.src = `./assets/products/${product.image}.svg`;
-  img.alt = `Ilustração de exemplo: ${product.name}`;
+  img.src = product.image;
+  img.alt = `Foto de referência: ${product.name}`;
   img.width = 320;
   img.height = 300;
   img.loading = 'lazy';
   visual.append(img);
   const meta = node('div','product-meta');
-  meta.append(node('span','product-category',categoryName(product.category)),node('h3','',product.name),node('p','product-spec',product.specs[0]));
+  meta.append(node('span','product-category',categoryName(product.category)),node('h3','',product.name),node('p','product-spec',product.application));
   const bottom = node('div','product-bottom');
-  bottom.append(node('span','',product.available ? 'Consultar preço' : 'Ver detalhes'),node('span','','↗'));
+  bottom.append(node('span','','Conhecer produto'),node('span','','↗'));
   meta.append(bottom);
   // The article owns the heading and block content; its empty, labelled button covers the card.
   button.addEventListener('click',() => openProduct(product,button));
@@ -126,7 +133,7 @@ for (const store of stores) {
   top.setAttribute('aria-hidden','true');
   const pin = node('span','map-pin');
   pin.innerHTML = icon('pin');
-  top.append(node('div','store-map-grid'),pin,node('span','map-label','Ilustração de localização · não representa o mapa real'));
+  top.append(node('div','store-map-grid'),pin);
   const info = node('div','store-info');
   info.append(node('h3','',store.name));
   const address = node('address','store-address',store.address);
@@ -134,9 +141,7 @@ for (const store of stores) {
   info.append(address);
   const hours = node('div','store-hours');
   hours.append(node('h4','','Horário de atendimento'));
-  const list = node('dl');
-  store.hours.forEach(([day,time]) => { const row=node('div'); row.append(node('dt','',day),node('dd','',time)); list.append(row); });
-  hours.append(list,node('span','hours-note','Horários de exemplo · confirme antes de visitar'));
+  hours.append(node('p','','Consulte os horários de atendimento pelo WhatsApp antes de visitar.'));
   info.append(hours);
   const actions = node('div','store-actions');
   const map = node('a','button button-outline','Como chegar ↗');

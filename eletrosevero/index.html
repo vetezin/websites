@@ -6,9 +6,9 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#ffec01">
   <title>Eletro Severo | Materiais para sua obra e seu lar</title>
-  <meta name="description" content="Conheça a Eletro Severo em Álvares Machado: materiais elétricos, hidráulicos e acabamentos. Explore o catálogo demonstrativo e encontre nossas duas lojas.">
+  <meta name="description" content="Conheça a Eletro Severo em Álvares Machado: materiais elétricos, hidráulicos e acabamentos. Explore o catálogo de produtos e encontre nossas duas lojas.">
   <meta property="og:title" content="Eletro Severo | Sua obra começa aqui">
-  <meta property="og:description" content="Materiais elétricos, hidráulicos e acabamentos em Álvares Machado. Protótipo de catálogo.">
+  <meta property="og:description" content="Materiais elétricos, hidráulicos e acabamentos em Álvares Machado. Conheça os produtos e nossas duas lojas.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:image" content="./assets/logo-original.png">
@@ -19,7 +19,6 @@
 </head>
 <body>
   <a class="skip-link" href="#produtos">Pular para o catálogo</a>
-  <div class="demo-bar">Protótipo demonstrativo <span aria-hidden="true">·</span> Produtos e horários de exemplo</div>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#inicio" aria-label="Eletro Severo — início"><img src="./assets/logo-original.png" width="150" height="150" alt="Eletro Severo"></a>
@@ -40,13 +39,13 @@
           <a class="button button-dark hero-button" href="#produtos">Explore os produtos <span aria-hidden="true">↓</span></a>
           <p class="hero-footnote">Elétrica <span> / </span> Hidráulica <span> / </span> Acabamentos</p>
         </div>
-        <div class="hero-display" aria-label="Ilustrações de produtos de exemplo">
+        <div class="hero-display" aria-label="Seleção de produtos">
           <div class="display-grid" aria-hidden="true"></div>
           <div class="display-caption"><span>Da instalação</span><strong>ao acabamento.</strong></div>
-          <img class="hero-faucet" src="./assets/products/faucet.svg" width="320" height="300" alt="Ilustração de torneira cromada">
-          <img class="hero-bulb" src="./assets/products/bulb.svg" width="320" height="300" alt="Ilustração de lâmpada LED">
-          <img class="hero-cable" src="./assets/products/cable.svg" width="320" height="300" alt="Ilustração de cabo elétrico">
-          <span class="display-note">Imagens ilustrativas</span>
+          <img class="hero-faucet" src="./assets/photos/faucet.png" width="320" height="300" alt="Torneira cromada de bancada">
+          <img class="hero-bulb" src="./assets/photos/shower.png" width="320" height="300" alt="Chuveiro elétrico branco">
+          <img class="hero-cable" src="./assets/photos/breaker.jpg" width="320" height="300" alt="Disjuntor bipolar">
+
         </div>
       </div>
     </section>
@@ -57,19 +56,19 @@
         <aside class="catalog-sidebar" aria-label="Filtrar produtos"><h3>Departamentos</h3><div class="category-list" id="categories"></div><div class="help-box"><span class="help-mark" aria-hidden="true">↗</span><h3>Não encontrou<br>o que procura?</h3><p>Fale com a gente e consulte outras opções.</p><a data-whatsapp href="https://wa.me/5518998013291">Conversar no WhatsApp <span aria-hidden="true">↗</span></a></div></aside>
         <div class="catalog-content">
           <form class="search-form" role="search"><label for="search">Buscar no catálogo</label><div class="search-control"><span id="search-icon" aria-hidden="true"></span><input id="search" type="search" placeholder="O que você está procurando?" autocomplete="off" maxlength="150"><button type="button" id="clear-search" aria-label="Limpar busca" hidden>×</button></div></form>
-          <div class="results-heading"><p id="results-count" role="status" aria-live="polite" aria-atomic="true"></p><span>Produtos de exemplo</span></div>
+          <div class="results-heading"><p id="results-count" role="status" aria-live="polite" aria-atomic="true"></p><span>Conheça os detalhes de cada item</span></div>
           <div class="product-grid" id="product-grid"></div>
           <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">⌕</span><h3>Nenhum produto encontrado</h3><p>Tente outro nome ou escolha um departamento diferente.</p><button class="button button-dark" id="reset-filters">Ver todos os produtos</button></div>
-          <p class="catalog-disclaimer">Catálogo demonstrativo. Modelos, características e disponibilidade são exemplos. Confirme as opções com a equipe da loja.</p>
+          <p class="catalog-disclaimer">Fotos de referência. Consulte a equipe para confirmar modelos, preços e disponibilidade.</p>
           <noscript>Ative o JavaScript para explorar o catálogo. Para informações sobre produtos, ligue para (18) 99801-3291.</noscript>
         </div>
       </div>
     </section>
-    <section class="about-section" id="sobre" aria-labelledby="about-title"><div class="container about-inner"><div><p class="section-label">A Eletro Severo</p><h2 id="about-title"></h2><span class="copy-note">Apresentação sugerida para o protótipo</span></div><div class="about-copy" id="about-copy"></div></div></section>
+    <section class="about-section" id="sobre" aria-labelledby="about-title"><div class="container about-inner"><div><p class="section-label">A Eletro Severo</p><h2 id="about-title"></h2></div><div class="about-copy" id="about-copy"></div></div></section>
     <section class="stores-section container" id="lojas" aria-labelledby="stores-title"><div class="section-heading"><div><p class="section-label">Perto de você</p><h2 id="stores-title">Passe em uma<br>das nossas lojas<span class="title-dot">.</span></h2></div><p class="heading-note">Duas lojas em Álvares Machado.<br>Escolha a melhor rota para sua visita.</p></div><div id="stores" class="stores-grid"></div></section>
     <section class="contact-section"><div class="container contact-inner"><div><p>Precisa de uma mão para escolher?</p><h2>Vamos conversar.</h2></div><a class="button button-dark" data-whatsapp href="https://wa.me/5518998013291">Chamar no WhatsApp <span aria-hidden="true">↗</span></a></div></section>
   </main>
-  <footer><div class="container footer-inner"><div><strong>Eletro Severo</strong><p>Materiais elétricos, hidráulicos e acabamentos.</p></div><div class="footer-links"><a href="tel:+5518998013291">(18) 99801-3291</a><a href="https://www.instagram.com/eletrosevero/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="#lojas">Como chegar</a></div></div><div class="container footer-bottom"><span>Álvares Machado, SP</span><span>Protótipo · Conteúdo de exemplo</span></div></footer>
-  <dialog id="product-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description"><button class="dialog-close" aria-label="Fechar detalhes">×</button><div class="dialog-layout"><div class="dialog-image"><img id="dialog-image" src="./assets/products/faucet.svg" width="320" height="300" alt=""></div><div class="dialog-copy"><p class="section-label" id="dialog-category"></p><h2 id="dialog-title"></h2><p class="availability" id="dialog-status"></p><p id="dialog-description"></p><h3>Sobre este produto</h3><ul id="dialog-specs"></ul><div class="example-warning"><strong>Produto de exemplo</strong><p>Imagem, características e disponibilidade ilustrativas. Consulte a loja para conhecer os produtos reais.</p></div><a class="button button-dark" data-whatsapp href="https://wa.me/5518998013291">Falar com a loja <span aria-hidden="true">↗</span></a></div></div></dialog>
+  <footer><div class="container footer-inner"><div><strong>Eletro Severo</strong><p>Materiais elétricos, hidráulicos e acabamentos.</p></div><div class="footer-links"><a href="tel:+5518998013291">(18) 99801-3291</a><a href="https://www.instagram.com/eletrosevero/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="#lojas">Como chegar</a></div></div><div class="container footer-bottom"><span>Álvares Machado, SP</span><span>Da instalação ao acabamento.</span></div></footer>
+  <dialog id="product-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description"><button class="dialog-close" aria-label="Fechar detalhes">×</button><div class="dialog-layout"><div class="dialog-image"><img id="dialog-image" src="./assets/products/faucet.svg" width="320" height="300" alt=""></div><div class="dialog-copy"><p class="section-label" id="dialog-category"></p><h2 id="dialog-title"></h2><p class="availability" id="dialog-status"></p><p id="dialog-description"></p><h3>Onde usar</h3><p id="dialog-application"></p><h3>Ficha técnica <span class="spec-note">Dados de exemplo</span></h3><ul id="dialog-specs"></ul><div class="product-guidance"><h3>Antes de escolher</h3><p id="dialog-guidance"></p></div><a id="dialog-source" class="source-link" target="_blank" rel="noopener noreferrer">Ver imagem de referência ↗</a><a class="button button-dark" data-whatsapp href="https://wa.me/5518998013291">Falar com a loja <span aria-hidden="true">↗</span></a></div></div></dialog>
 </body>
 </html>

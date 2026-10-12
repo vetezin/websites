@@ -67,9 +67,9 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   outline-offset:4px
 }
 .container{
-  max-width:1280px;
+  max-width:1800px;
   margin-inline:auto;
-  padding-inline:40px
+  padding-inline:clamp(24px,3vw,64px)
 }
 [hidden]{
   display:none!important
@@ -90,7 +90,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   background:var(--ink);
   color:#e5e5de;
   text-align:center;
-  font-size:11px;
+  font-size:15px;
   letter-spacing:.025em
 }
 .demo-bar span{
@@ -125,7 +125,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   display:flex;
   align-items:center;
   gap:32px;
-  font-size:13px;
+  font-size:17px;
   font-weight:700
 }
 .site-header nav>a:not(.button){
@@ -143,7 +143,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   border:1px solid transparent;
   padding:14px 20px;
   border-radius:var(--radius);
-  font-size:13px;
+  font-size:17px;
   font-weight:700;
   line-height:1.4;
   transition:background .15s,color .15s
@@ -175,7 +175,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   padding-block:56px 64px
 }
 .location-line{
-  font-size:12px;
+  font-size:16px;
   letter-spacing:.015em;
   font-weight:700;
   display:flex;
@@ -195,7 +195,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   max-width:640px
 }
 .hero-description{
-  font-size:15px;
+  font-size:19px;
   line-height:1.75;
   max-width:390px;
   margin-top:24px
@@ -205,7 +205,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   min-width:205px
 }
 .hero-footnote{
-  font-size:11px;
+  font-size:15px;
   font-weight:700;
   margin-top:32px
 }
@@ -230,7 +230,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   position:absolute;
   right:6px;
   top:12px;
-  font-size:12px;
+  font-size:16px;
   line-height:1.5
 }
 .display-caption span,.display-caption strong{
@@ -268,7 +268,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   position:absolute;
   bottom:-15px;
   right:10px;
-  font-size:10px;
+  font-size:14px;
   color:#353523
 }
 .department-strip{
@@ -281,7 +281,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   align-items:center;
   gap:20px;
   min-height:68px;
-  font-size:14px;
+  font-size:18px;
   font-weight:700
 }
 .department-strip span:nth-child(2){
@@ -305,7 +305,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   margin-bottom:36px
 }
 .section-label{
-  font-size:11px;
+  font-size:15px;
   font-weight:700;
   letter-spacing:.075em;
   text-transform:uppercase;
@@ -316,21 +316,21 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   color:var(--red)
 }
 .heading-note{
-  font-size:13px;
+  font-size:17px;
   line-height:1.7;
   color:var(--muted);
   max-width:300px
 }
 .catalog-layout{
   display:grid;
-  grid-template-columns:210px minmax(0,1fr);
+  grid-template-columns:260px minmax(0,1fr);
   gap:36px
 }
 .catalog-sidebar{
   padding-top:6px
 }
 .catalog-sidebar>h3{
-  font-size:12px;
+  font-size:16px;
   text-transform:uppercase;
   letter-spacing:.06em;
   margin-bottom:20px
@@ -349,7 +349,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   align-items:center;
   gap:12px;
   min-height:48px;
-  font-size:13px;
+  font-size:17px;
   font-weight:600;
   border-radius:4px;
   color:#494943
@@ -361,7 +361,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
 }
 .category-button .category-count{
   margin-left:auto;
-  font-size:10px;
+  font-size:14px;
   color:var(--muted);
   font-weight:400
 }
@@ -389,13 +389,13 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   margin-top:12px
 }
 .help-box p{
-  font-size:12px;
+  font-size:16px;
   color:var(--muted);
   margin-top:12px
 }
 .help-box a{
   display:block;
-  font-size:11px;
+  font-size:15px;
   font-weight:700;
   text-decoration:underline;
   text-underline-offset:5px;
@@ -434,7 +434,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   background:none;
   height:50px;
   padding:0;
-  font-size:13px;
+  font-size:17px;
   color:var(--ink);
   outline-offset:0
 }
@@ -460,12 +460,12 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  font-size:11px;
+  font-size:15px;
   color:var(--muted);
   padding-block:20px 16px
 }
 .results-heading span{
-  font-size:10px
+  font-size:14px
 }
 .product-grid{
   display:grid;
@@ -516,7 +516,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   background:white;
   border:1px solid #deded9;
   padding:4px 7px;
-  font-size:10px;
+  font-size:14px;
   color:#595959;
   border-radius:2px
 }
@@ -524,14 +524,14 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   padding-top:16px
 }
 .product-category{
-  font-size:9px;
+  font-size:13px;
   letter-spacing:.08em;
   text-transform:uppercase;
   color:var(--muted);
   display:block
 }
 .product-card h3{
-  font-size:15px;
+  font-size:19px;
   line-height:1.35;
   letter-spacing:-.025em;
   margin-top:5px;
@@ -539,7 +539,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   min-height:40px
 }
 .product-spec{
-  font-size:11px;
+  font-size:15px;
   color:var(--muted);
   line-height:1.5;
   margin-top:6px;
@@ -550,7 +550,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   align-items:center;
   justify-content:space-between;
   gap:8px;
-  font-size:11px;
+  font-size:15px;
   font-weight:700;
   margin-top:14px;
   border-top:1px solid var(--line);
@@ -561,7 +561,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   color:var(--red)
 }
 .catalog-disclaimer{
-  font-size:11px;
+  font-size:15px;
   line-height:1.6;
   color:var(--muted);
   border-top:1px solid var(--line);
@@ -583,7 +583,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   margin-block:10px
 }
 .empty-state p{
-  font-size:13px;
+  font-size:17px;
   color:var(--muted);
   margin-bottom:24px
 }
@@ -608,12 +608,12 @@ button:focus-visible,a:focus-visible,input:focus-visible{
 }
 .copy-note{
   display:block;
-  font-size:10px;
+  font-size:14px;
   color:#aaa;
   margin-top:22px
 }
 .about-copy{
-  font-size:14px;
+  font-size:18px;
   line-height:1.9;
   color:#cdcdc6
 }
@@ -623,7 +623,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
 .about-copy a{
   display:inline-block;
   color:var(--yellow);
-  font-size:12px;
+  font-size:16px;
   font-weight:700;
   margin-top:24px
 }
@@ -687,7 +687,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   bottom:10px;
   left:14px;
   color:#595959;
-  font-size:9px;
+  font-size:13px;
   background:#fff;
   padding:2px 6px
 }
@@ -701,13 +701,13 @@ button:focus-visible,a:focus-visible,input:focus-visible{
 }
 .store-address{
   margin-top:12px;
-  font-size:14px;
+  font-size:18px;
   font-style:normal
 }
 .store-address span{
   display:block;
   color:var(--muted);
-  font-size:12px;
+  font-size:16px;
   margin-top:3px
 }
 .store-hours{
@@ -716,12 +716,12 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   padding-top:18px
 }
 .store-hours h4{
-  font-size:12px;
+  font-size:16px;
   margin:0 0 12px
 }
 .store-hours dl{
   margin:0;
-  font-size:12px
+  font-size:16px
 }
 .store-hours dl>div{
   display:flex;
@@ -739,7 +739,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
 .hours-note{
   display:block;
   margin-top:10px;
-  font-size:10px;
+  font-size:14px;
   color:var(--red)
 }
 .store-actions{
@@ -751,14 +751,14 @@ button:focus-visible,a:focus-visible,input:focus-visible{
 .button-outline{
   border:1px solid var(--ink);
   padding:12px 16px;
-  font-size:12px
+  font-size:16px
 }
 .button-outline:hover{
   background:var(--ink);
   color:white
 }
 .store-phone{
-  font-size:11px;
+  font-size:15px;
   text-decoration:underline;
   text-underline-offset:4px
 }
@@ -782,7 +782,7 @@ button:focus-visible,a:focus-visible,input:focus-visible{
   gap:30px
 }
 .contact-inner p{
-  font-size:12px;
+  font-size:16px;
   font-weight:700;
   margin-bottom:7px
 }
@@ -804,14 +804,14 @@ footer{
   letter-spacing:-.06em
 }
 .footer-inner p{
-  font-size:11px;
+  font-size:15px;
   color:var(--muted);
   margin-top:6px
 }
 .footer-links{
   display:flex;
   gap:24px;
-  font-size:12px
+  font-size:16px
 }
 .footer-links a:hover{
   text-decoration:underline
@@ -820,7 +820,7 @@ footer{
   display:flex;
   justify-content:space-between;
   gap:20px;
-  font-size:10px;
+  font-size:14px;
   color:var(--muted);
   padding-top:24px;
   margin-top:28px;
@@ -838,7 +838,7 @@ dialog{
   border:0;
   padding:0;
   border-radius:8px;
-  width:min(850px,calc(100% - 40px));
+  width:min(1180px,calc(100% - 40px));
   max-height:calc(100dvh - 48px);
   overflow-y:auto;
   color:var(--ink);
@@ -853,7 +853,7 @@ body:has(dialog[open]){
 }
 .dialog-layout{
   display:grid;
-  grid-template-columns:.9fr 1fr
+  grid-template-columns:1fr 1.15fr
 }
 .dialog-image{
   display:grid;
@@ -875,17 +875,17 @@ body:has(dialog[open]){
   letter-spacing:-.05em
 }
 .dialog-copy>p:not(.section-label){
-  font-size:13px;
+  font-size:17px;
   color:var(--muted);
   margin-top:18px;
   line-height:1.8
 }
 .dialog-copy h3{
-  font-size:13px;
+  font-size:17px;
   margin-top:24px
 }
 .dialog-copy ul{
-  font-size:12px;
+  font-size:16px;
   color:var(--muted);
   padding-left:17px;
   margin-bottom:0
@@ -907,7 +907,7 @@ body:has(dialog[open]){
   z-index:2
 }
 .availability{
-  font-size:11px!important;
+  font-size:15px!important;
   border-left:3px solid var(--yellow);
   padding-left:10px
 }
@@ -919,7 +919,7 @@ body:has(dialog[open]){
   background:#fffbd4;
   border-radius:4px;
   margin-block:24px;
-  font-size:11px;
+  font-size:15px;
   line-height:1.6
 }
 .example-warning p{
@@ -982,7 +982,7 @@ body:has(dialog[open]){
     padding-inline:20px
   }
   .demo-bar{
-    font-size:9px;
+    font-size:13px;
     padding-block:7px
   }
   .demo-bar span{
@@ -1009,7 +1009,7 @@ body:has(dialog[open]){
     border-radius:4px;
     min-height:42px;
     padding:8px 12px;
-    font-size:12px;
+    font-size:16px;
     font-weight:700
   }
   .site-header nav{
@@ -1043,7 +1043,7 @@ body:has(dialog[open]){
     min-height:0
   }
   .location-line{
-    font-size:10px;
+    font-size:14px;
     margin-bottom:20px
   }
   .hero h1{
@@ -1052,7 +1052,7 @@ body:has(dialog[open]){
     letter-spacing:-.06em
   }
   .hero-description{
-    font-size:13px;
+    font-size:17px;
     line-height:1.7;
     max-width:340px;
     margin-top:20px
@@ -1060,11 +1060,11 @@ body:has(dialog[open]){
   .hero-button{
     margin-top:22px;
     padding:13px 18px;
-    font-size:12px
+    font-size:16px
   }
   .hero-footnote{
     margin-top:22px;
-    font-size:10px
+    font-size:14px
   }
   .hero-footnote span{
     padding-inline:7px
@@ -1093,13 +1093,13 @@ body:has(dialog[open]){
   .display-caption{
     top:0;
     right:6px;
-    font-size:10px
+    font-size:14px
   }
   .display-caption strong{
-    font-size:13px
+    font-size:17px
   }
   .display-note{
-    font-size:8px;
+    font-size:13px;
     bottom:-5px
   }
   .display-grid{
@@ -1107,7 +1107,7 @@ body:has(dialog[open]){
   }
   .department-strip .container{
     min-height:52px;
-    font-size:10px;
+    font-size:14px;
     gap:12px
   }
   .department-strip span:nth-child(2){
@@ -1124,14 +1124,14 @@ body:has(dialog[open]){
     margin-bottom:24px
   }
   .section-label{
-    font-size:9px;
+    font-size:13px;
     margin-bottom:10px
   }
   h2{
     font-size:32px
   }
   .heading-note{
-    font-size:12px;
+    font-size:16px;
     margin-top:16px;
     max-width:none
   }
@@ -1159,7 +1159,7 @@ body:has(dialog[open]){
   }
   .category-button{
     flex:none;
-    font-size:11px;
+    font-size:15px;
     padding:10px 12px;
     min-height:42px;
     border:1px solid var(--line)
@@ -1180,14 +1180,14 @@ body:has(dialog[open]){
   }
   .search-control input{
     height:46px;
-    font-size:12px
+    font-size:16px
   }
   .results-heading{
-    font-size:10px;
+    font-size:14px;
     padding-block:18px 14px
   }
   .results-heading span{
-    font-size:9px
+    font-size:13px
   }
   .product-grid{
     gap:26px 12px
@@ -1202,31 +1202,31 @@ body:has(dialog[open]){
     padding-top:12px
   }
   .product-category{
-    font-size:8px;
+    font-size:13px;
     letter-spacing:.06em
   }
   .product-card h3{
-    font-size:13px;
+    font-size:17px;
     min-height:36px;
     margin-top:4px
   }
   .product-spec{
-    font-size:10px;
+    font-size:14px;
     min-height:30px
   }
   .product-bottom{
-    font-size:10px;
+    font-size:14px;
     padding-top:10px;
     margin-top:10px
   }
   .unavailable-tag{
-    font-size:8px;
+    font-size:13px;
     left:7px;
     top:7px;
     padding:3px 5px
   }
   .catalog-disclaimer{
-    font-size:10px;
+    font-size:14px;
     line-height:1.7
   }
   .about-section{
@@ -1241,11 +1241,11 @@ body:has(dialog[open]){
     max-width:320px
   }
   .about-copy{
-    font-size:13px;
+    font-size:17px;
     line-height:1.8
   }
   .copy-note{
-    font-size:9px;
+    font-size:13px;
     margin-top:16px
   }
   .stores-section{
@@ -1268,7 +1268,7 @@ body:has(dialog[open]){
     font-size:20px
   }
   .store-address{
-    font-size:13px
+    font-size:17px
   }
   .store-actions{
     gap:16px
@@ -1295,11 +1295,11 @@ body:has(dialog[open]){
   }
   .footer-links{
     flex-wrap:wrap;
-    font-size:11px;
+    font-size:15px;
     gap:14px 24px
   }
   .footer-bottom{
-    font-size:9px;
+    font-size:13px;
     gap:12px
   }
   .footer-bottom::before{
@@ -1352,3 +1352,75 @@ body:has(dialog[open]){
   height: 100%;
   z-index: 1;
 }
+
+/* Catalogue revision: generous product photography and a persistent department rail. */
+.catalog-sidebar { align-self:start; position:sticky; top:32px; }
+.catalog-content { min-width:0; }
+.product-grid { gap:40px 28px; }
+.product-visual { background:#fff; border:1px solid var(--line); aspect-ratio:1.12; }
+.product-visual img { width:88%; height:88%; object-fit:contain; }
+.product-card:hover .product-visual { background:#fff; border-color:#999; }
+.product-card h3 { font-size:23px; min-height:62px; }
+.product-spec { font-size:16px; min-height:72px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.product-bottom { font-size:16px; }
+.category-button { min-height:54px; font-size:17px; }
+.catalog-sidebar>h3 { font-size:20px; }
+.hero-description { font-size:20px; max-width:540px; }
+.hero h1 { font-size:clamp(48px,4.5vw,76px); }
+.hero-display img { object-fit:contain; }
+.hero-bulb { width:42%; }
+.hero-cable { width:31%; max-height:220px; mix-blend-mode:multiply; }
+.dialog-image { min-height:560px; position:relative; overflow:hidden; background:#fff; padding:32px; }
+.dialog-image img { width:100%; height:520px; object-fit:contain; }
+.dialog-copy { padding:44px 40px; }
+.dialog-copy h2 { font-size:38px; }
+.dialog-copy>p:not(.section-label) { font-size:17px; line-height:1.7; margin-top:18px; }
+.dialog-copy h3 { font-size:18px; margin-top:28px; }
+.dialog-copy ul { padding:0; list-style:none; font-size:16px; margin-top:14px; }
+.dialog-copy li { display:grid; grid-template-columns:1fr 1.2fr; gap:16px; padding:10px 0; margin:0; border-bottom:1px solid var(--line); }
+.dialog-copy li strong { color:var(--ink); font-weight:600; }
+.spec-note { display:block; font:400 13px var(--body); color:var(--muted); margin-top:6px; }
+.product-guidance { margin-block:24px; padding-left:18px; border-left:4px solid var(--yellow); }
+.product-guidance h3 { margin:0 0 8px; }
+.product-guidance p { font-size:16px; line-height:1.7; color:var(--muted); }
+.source-link { display:block; margin:22px 0; font-size:14px; text-decoration:underline; text-underline-offset:4px; }
+.availability { font-size:16px!important; }
+/* The Instagram original is intact: this viewport displays only the window, without the advertisement. */
+.photo-window { --photo-width:152.84%; --photo-left:-10.45%; --photo-top:-128.34%; }
+.product-visual.photo-window { aspect-ratio:335/187; align-self:center; margin-block:calc((100% / 1.12 - 100% * 187 / 335) / 2); border:0; border-radius:0; }
+.product-visual.photo-window img { position:absolute; max-width:none; width:var(--photo-width); height:auto; left:var(--photo-left); top:var(--photo-top); object-fit:initial; }
+.product-card:hover .photo-window img { transform:none; }
+.dialog-image.photo-window { min-height:0; height:0; padding:0 0 55.82%; align-self:center; }
+.dialog-image.photo-window img { position:absolute; max-width:none; width:var(--photo-width); height:auto; left:var(--photo-left); top:var(--photo-top); object-fit:initial; }
+@media (min-width:1800px) { .product-grid { grid-template-columns:repeat(4,minmax(0,1fr)); } }
+@media (max-width:1100px) and (min-width:701px) {
+  .catalog-layout { grid-template-columns:220px minmax(0,1fr); gap:28px; }
+  .product-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .dialog-copy { padding:40px 28px; }
+}
+@media (max-width:700px) {
+  .container { padding-inline:20px; }
+  .hero h1 { font-size:44px; }
+  .hero-description { font-size:17px; }
+  .hero-cable { max-height:140px; }
+  .catalog-sidebar { position:static; width:100%; }
+  .category-button { font-size:15px; min-height:48px; }
+  .product-grid { grid-template-columns:1fr; gap:36px; }
+  .product-visual { aspect-ratio:1.15; }
+  .product-card h3 { min-height:0; font-size:24px; }
+  .product-spec { min-height:0; font-size:16px; }
+  .product-bottom { font-size:16px; }
+  .results-heading { align-items:flex-start; flex-direction:column; font-size:15px; gap:4px; }
+  .results-heading span { font-size:13px; }
+  .dialog-layout { grid-template-columns:1fr; }
+  .dialog-image { min-height:0; height:290px; padding:24px; }
+  .dialog-image img { height:240px; width:100%; }
+  .dialog-copy { padding:28px 22px; }
+  .dialog-copy h2 { font-size:30px; }
+  .dialog-copy li { grid-template-columns:1fr 1fr; font-size:15px; gap:10px; }
+  .product-visual.photo-window { margin-block:calc((100% / 1.15 - 100% * 187 / 335) / 2); }
+  .hero-footnote { font-size:13px; }
+}
+
+.hero-cable { transform:none; }
+.dialog-close { position:sticky; float:right; margin:10px 10px -50px 0; top:10px; }
