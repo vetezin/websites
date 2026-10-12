@@ -44,6 +44,9 @@ document.querySelectorAll('[data-whatsapp]').forEach(link => {
   link.rel = 'noopener noreferrer';
 });
 
+const centralStore = stores.find(store => store.id === 'loja2');
+document.querySelector('[data-center-map]').href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(centralStore.mapQuery);
+
 const categoryButtons = categories.map(category => {
   const button = node('button','category-button');
   button.type = 'button';
@@ -162,5 +165,5 @@ function closeMenu(){ menuButton.setAttribute('aria-expanded','false'); nav.clas
 menuButton.addEventListener('click',() => { const open=menuButton.getAttribute('aria-expanded')==='true'; menuButton.setAttribute('aria-expanded',String(!open)); nav.classList.toggle('is-open',!open); });
 nav.querySelectorAll('a').forEach(link => link.addEventListener('click',closeMenu));
 document.addEventListener('keydown',event => { if(event.key==='Escape' && menuButton.getAttribute('aria-expanded')==='true'){ closeMenu(); menuButton.focus(); } });
-matchMedia('(min-width: 701px)').addEventListener('change',event => { if(event.matches) closeMenu(); });
+matchMedia('(min-width: 1101px)').addEventListener('change',event => { if(event.matches) closeMenu(); });
 renderProducts();
