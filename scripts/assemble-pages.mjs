@@ -10,6 +10,16 @@ export async function assemblePages() {
   await cp(new URL('../volpicontabilidade/dist/', import.meta.url), new URL('volpicontabilidade/', output), { recursive: true });
   await cp(new URL('../gazzetti/dist/', import.meta.url), new URL('gazzetti/', output), { recursive: true });
   await cp(new URL('../chapeudepalha/dist/', import.meta.url), new URL('cdpalha/', output), { recursive: true });
+  const eletroseveroFiles = [
+    'index.html', 'styles.css', 'app.js', 'catalog.js', 'data/content.js',
+    'assets/logo-original.png', 'assets/photos/',
+  ];
+  for (const file of eletroseveroFiles) {
+    await cp(new URL(`../eletrosevero/${file}`, import.meta.url), new URL(`eletrosevero/${file}`, output), {
+      recursive: true,
+      filter: source => !source.endsWith('.md'),
+    });
+  }
   await writeFile(new URL('.nojekyll', output), '');
   console.log('Publicação preparada em .pages/');
 }
