@@ -11,6 +11,7 @@ uma linha de trabalho para um site; nenhuma pasta foi removida ou movida.
 | Gazzetti Advogados | `gazzetti` | `gazzetti/` |
 | Volpi Contabilidade | `volpicontabilidade` | `volpicontabilidade/` |
 | Espetinho do Léo | `codex/espetinhodoleo` | `espetinhodoleo/` |
+| Ragassi Auto Mecânica | `ragassi` | `ragassi/` |
 
 ## Iniciar uma mudança
 
