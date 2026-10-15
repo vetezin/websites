@@ -23,4 +23,4 @@ Conteúdo em content.mjs; template em index.template.html; visual em assets/styl
 
 DESIGN_BRIEF.md registra a direção aprovada. CONTENT_TODO.md lista aprovações e materiais pendentes. dist/ e qa/ são ignorados pelo Git.
 
-Branch ragassi. Não houve integração, push ou publicação. Os scripts e workflows compartilhados permanecem intactos.
+Branch ragassi. Publicação de demonstração autorizada em conversa pelo usuário: o build compartilhado gera o site em /websites/ragassi/ e inclui dist/ no artefato do GitHub Pages. O workflow existente é acionado por push em main. A demonstração mantém noindex/nofollow e não substitui a validação final de conteúdo com o cliente.

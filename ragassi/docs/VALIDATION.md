@@ -43,3 +43,7 @@ Mudanças compartilhadas restritas às linhas de cadastro nos dois mapas autoriz
 - Trace da revisão 2, cache desconsiderado, CPU 1x e sem limitação de rede: LCP 78ms e CLS 0,00. Resultado de laboratório local; nota Lighthouse de performance não medida.
 - Revisão independente da segunda iteração sem achados relevantes: contratos WhatsApp, escape, assets em subdiretório, ícones e preservação do menu conferidos. A correção posterior de nome acessível foi validada por regressão no navegador e auditoria.
 - Prévia atualizada no navegador integrado. Nenhuma mensagem externa enviada, publicação, push ou merge realizados. Pendências de conteúdo em CONTENT_TODO.md permanecem para publicação.
+
+## Integração ao GitHub Pages — autorizada em conversa
+
+Inclusão pontual da Ragassi em scripts/build-pages.mjs e scripts/assemble-pages.mjs, com base /websites/ragassi/ e URL da demonstração. Nenhuma dependência ou workflow novo. Suite 6/6, lint da Ragassi, build com base de publicação e sintaxe dos dois scripts compartilhados passaram. Montagem exercitada em diretório isolado com os cinco sites existentes representados por fixtures e o dist real da Ragassi: os seis index.html, logo e caminhos de assets conferidos. O build completo dos outros sites será executado pelo workflow existente no GitHub; nenhuma instalação local foi feita. Demonstração permanece identificada e com indexação bloqueada.

@@ -9,7 +9,7 @@ export const siteContent = {
   // Fonte: cartão enviado pelo usuário. Confirmar atualidade antes de publicar.
   payment: 'Aceitamos cartões de crédito e débito.',
   profileUrl: 'https://www.google.com/maps/place/RAGASSI+AUTO+MEC%C3%82NICA/data=!4m2!3m1!1s0x0:0xc927e521cf07d8ee',
-  // URL prevista no repositório; esta entrega não publica ou modifica o pipeline.
+  // URL da demonstração no GitHub Pages, com publicação autorizada pelo usuário.
   previewUrl: 'https://vetezin.github.io/websites/ragassi/',
   preview: true,
   title: 'Ragassi Auto Mecânica em Presidente Prudente',

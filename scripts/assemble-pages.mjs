@@ -10,6 +10,7 @@ export async function assemblePages() {
   await cp(new URL('../volpicontabilidade/dist/', import.meta.url), new URL('volpicontabilidade/', output), { recursive: true });
   await cp(new URL('../gazzetti/dist/', import.meta.url), new URL('gazzetti/', output), { recursive: true });
   await cp(new URL('../chapeudepalha/dist/', import.meta.url), new URL('cdpalha/', output), { recursive: true });
+  await cp(new URL('../ragassi/dist/', import.meta.url), new URL('ragassi/', output), { recursive: true });
   const eletroseveroFiles = [
     'index.html', 'styles.css', 'app.js', 'catalog.js', 'data/content.js',
     'assets/logo-original.png', 'assets/photos/',
