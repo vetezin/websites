@@ -44,3 +44,7 @@ HTML/CSS/JS, sem dependências, como previsto no planejamento e retomado pelo us
 ## Suposições e pendências
 
 Detalhadas em `CONTENT_TODO.md`. Nenhum preço inventado. Quantidades das barcas extraídas das peças e sujeitas à validação. Uma foto de barca adaptada é MOCK de imagem identificado. Não publicar sem revisar essas pendências. Pesquisa original preservada; as visualizações foram retiradas.
+
+
+## Refinamento de legibilidade e informação
+A pedido do usuário, textos corridos passam a 17–20 px, links/botões a 16–17 px e informações secundárias a 13–16 px. Informações de visita/pedido/horário ganham leitura rápida, a composição dos itens aparece em listas e dúvidas práticas ficam em detalhes expansíveis. A regra anterior de chama apenas no logo é substituída por textura fotográfica estática nas laterais, com fade, menor opacidade no celular, sem sobrepor a área de leitura. Não foram inventados preços, horários ou capacidades do estabelecimento.

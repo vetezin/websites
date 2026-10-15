@@ -15,11 +15,11 @@
   "home": {
     "eyebrow": "Espetinho no Parque do Povo",
     "title": "Na brasa. No capricho.",
-    "description": "Espetinhos, barcas e aquele encontro no quiosque do Léo. Escolha o seu e vem pro Parque do Povo.",
+    "description": "Espetinhos de carne, frango e queijo, barcas com acompanhamentos e mesa ao ar livre no Parque do Povo. Venha ao quiosque G ou confira as opções no iFood.",
     "menuTitle": "Do seu jeito, do tamanho da sua fome.",
-    "menuDescription": "Do espeto à barca com acompanhamentos: conheça as opções da casa.",
+    "menuDescription": "Escolha entre espetinhos e barcas em dois tamanhos. Mandioca, pão e vinagrete completam as barcas da casa.",
     "placeTitle": "Seu ponto de encontro no parque.",
-    "placeDescription": "Depois do passeio ou pra encontrar a turma, puxe uma cadeira no quiosque G. A gente se encontra na Avenida 11 de Maio.",
+    "placeDescription": "Estamos nos quiosques da Avenida 11 de Maio, em frente ao Cardio Vida. Procure o quiosque G, no Parque do Povo, e venha comer seu espetinho por aqui.",
     "image": "espetinhos-ia.webp",
     "imageAlt": "Espetinhos em travessa, imagem ilustrativa recriada com IA a partir do acervo do Léo",
     "imageCaption": "Imagem ilustrativa",
@@ -50,59 +50,114 @@
       "name": "Barca grande",
       "category": "barcas",
       "detail": "8 espetos",
-      "description": "Espetinhos com mandioca, pão e vinagrete. Uma barca pra dividir a fome.",
+      "description": "A versão maior da casa reúne 8 espetos e acompanhamentos na mesma barca. Consulte os sabores disponíveis para montar seu pedido.",
       "image": "barca.webp",
       "alt": "Barca com espetos, mandioca, pão e vinagrete",
       "imageAdapted": true,
       "MOCK": "Imagem adaptada para demonstração",
       "price": null,
       "priceLabel": "Consulte o valor",
-      "pending": "Confirmar composição e quantidade atuais com o estabelecimento."
+      "pending": "Confirmar composição e quantidade atuais com o estabelecimento.",
+      "includes": [
+        "8 espetos",
+        "Mandioca",
+        "Pão",
+        "Vinagrete"
+      ]
     },
     {
       "id": "barca-pequena",
       "name": "Barca pequena",
       "category": "barcas",
       "detail": "4 espetos",
-      "description": "Espetinhos, mandioca, pão e vinagrete numa versão menor.",
+      "description": "Uma barca com 4 espetos e os acompanhamentos da casa. A opção menor para quem quer espetinho e acompanhamento juntos.",
       "image": null,
       "alt": null,
       "price": null,
       "priceLabel": "Consulte o valor",
-      "pending": "Confirmar composição e quantidade atuais com o estabelecimento."
+      "pending": "Confirmar composição e quantidade atuais com o estabelecimento.",
+      "includes": [
+        "4 espetos",
+        "Mandioca",
+        "Pão",
+        "Vinagrete"
+      ]
     },
     {
       "id": "espetinhos",
       "name": "Espetinhos",
       "category": "espetos",
       "detail": "Carne, frango e queijo",
-      "description": "Escolha seus sabores. Consulte a casa para saber as opções disponíveis no dia.",
+      "description": "Carne, frango e queijo aparecem entre as opções divulgadas pela casa. Consulte os sabores disponíveis no dia e escolha os seus.",
       "image": "espetinhos-ia.webp",
       "alt": "Espetinhos de carne e frango em travessa",
       "price": null,
       "priceLabel": "Consulte os sabores e valores",
       "pending": "Lista completa de sabores e valores pendente.",
       "imageAdapted": true,
-      "MOCK": "Fotografia recriada com IA a partir do acervo"
+      "MOCK": "Fotografia recriada com IA a partir do acervo",
+      "includes": [
+        "Carne",
+        "Frango",
+        "Queijo"
+      ]
     },
     {
       "id": "acompanhamentos",
       "name": "Acompanhamentos",
       "category": "acompanhamentos",
       "detail": "Pra completar",
-      "description": "Mandioca, pão e vinagrete acompanham as barcas. Consulte a disponibilidade de porções avulsas.",
+      "description": "Mandioca, pão e vinagrete completam as barcas. Para acrescentar ao pedido ou escolher porções avulsas, confira a disponibilidade com a casa.",
       "image": "acompanhamentos-ia.webp",
       "alt": "Vinagrete e mandioca em recipientes pretos",
       "price": null,
       "priceLabel": "Consulte as porções e valores",
       "pending": "Venda avulsa e preços não confirmados.",
       "imageAdapted": true,
-      "MOCK": "Fotografia recriada com IA a partir do acervo"
+      "MOCK": "Fotografia recriada com IA a partir do acervo",
+      "includes": [
+        "Mandioca",
+        "Pão",
+        "Vinagrete"
+      ]
     }
   ],
   "contentStatus": {
     "MOCK": true,
     "note": "Conteúdo baseado nas publicações coletadas em 13/10/2026. Valores e disponibilidade devem ser consultados com a casa. Quantidades das barcas extraídas das artes; validar antes da publicação.",
     "adaptedImage": "barca.webp é um recorte adaptado com IA; espetinhos-ia.webp e acompanhamentos-ia.webp são recriações com IA das fotos originais. Imagens ilustrativas identificadas; validar fidelidade de porções e ingredientes com o cliente antes da publicação."
-  }
+  },
+  "visitInfo": [
+    {
+      "title": "Para comer por aqui",
+      "description": "Mesas ao ar livre no quiosque G, na Avenida 11 de Maio."
+    },
+    {
+      "title": "Para pedir de casa",
+      "description": "Acesse o iFood para conferir valores, disponibilidade e entrega."
+    },
+    {
+      "title": "Antes de sair",
+      "description": "Confirme o atendimento de hoje pelo telefone ou Instagram."
+    }
+  ],
+  "questions": [
+    {
+      "question": "Onde fica o Espetinho do Léo?",
+      "answer": "No quiosque G da Avenida 11 de Maio, no Parque do Povo, em Presidente Prudente. O ponto de referência é o conjunto de quiosques em frente ao Cardio Vida, na Vila Formosa."
+    },
+    {
+      "question": "Como faço para pedir?",
+      "answer": "Use o botão “Pedir no iFood” para consultar os itens disponíveis, os preços e as condições de entrega informados na plataforma. Se preferir tirar uma dúvida, fale pelo telefone ou Instagram."
+    },
+    {
+      "question": "Qual é o horário de funcionamento?",
+      "answer": "Confirme o horário de hoje pelo telefone (18) 98134-0924 ou pelo Instagram @espetinhodoleo018 antes da visita."
+    },
+    {
+      "question": "O que vem nas barcas?",
+      "answer": "As publicações da casa apresentam barca pequena com 4 espetos e grande com 8, acompanhadas de mandioca, pão e vinagrete. Consulte a casa sobre os sabores e a composição disponíveis no dia."
+    }
+  ],
+  "menuIntro": "Confira a composição das barcas, conheça os espetinhos e escolha seus acompanhamentos. Para preços, sabores do dia e entrega, consulte o iFood ou fale com a casa."
 }

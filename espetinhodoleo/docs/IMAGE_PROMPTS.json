@@ -17,5 +17,10 @@
       "role": "Cardápio — acompanhamentos",
       "MOCK": true
     }
-  ]
+  ],
+  "decoration": {
+    "file": "public/assets/fire-edge.webp",
+    "tool": "image_gen built-in",
+    "prompt": "Create a photorealistic subtle vertical charcoal-grill flame texture for the outer side margin of a black Brazilian skewer restaurant website. This is decorative background, not a hero image. Portrait 1:3 composition: narrow irregular wisps of deep red and warm orange real fire concentrated at the far LEFT edge and bottom left corner, occupying only the left 35 percent of the frame, with large fully transparent negative space toward the center/right. Flames thin, organic and restrained, darkest red embers underneath, occasional amber tips; physically plausible, no neon, no fantasy swirls, no big explosion, no thick smoke, no barbecue, no objects, no food, no people, no logos, no text. Soft natural feathered falloff into transparent background in all directions so it disappears smoothly over near-black. Keep lots of negative space and no hard rectangular boundary. True alpha transparency. It will be mirrored by CSS for the opposite edge; produce only one left-edge asset."
+  }
 }

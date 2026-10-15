@@ -31,3 +31,14 @@ Comida, barcas e quiosque G comunicam o negócio e orientam visita/pedido. Logo 
 - Build, check de links/conteúdo/metadados e sintaxe do script de build aprovados após a troca.
 - Início revisto em desktop; viewport de 1440 px sem overflow, foto principal carregada a 1200 px. Em 390 px, imagem ocupa 335 px sem overflow. Cardápio filtrado por Acompanhamentos conferido no celular, recriação visível com aviso e sem sobreposição. Filtro retorna uma opção.
 - A foto documental do quiosque não foi recriada. A semelhança comercial de porções/ingredientes precisa ser validada pelo responsável antes da publicação.
+
+
+## Legibilidade, conteúdo e fogo lateral — 15/10/2026
+
+- Textos principais de 18–20 px; navegação, botões e textos de apoio ampliados. Composição dos produtos centralizada em `src/content.json`, informações de visita/pedido e quatro dúvidas práticas acrescentadas.
+- Textura de fogo gerada pelo image_gen integrado, convertida para WebP com transparência e registrada em `IMAGE_PROMPTS.json`. Decoração estática com fade, `aria-hidden` e `pointer-events: none`; opacidade reduzida no celular.
+- Início e Cardápio revisados em 390 e 1440 px. Conferências adicionais em 320 px e Início em 768 px. Corrigida expansão dos atalhos do cardápio na tela de 320 px; sem overflow horizontal após a correção.
+- Filtro Barcas conferido no celular: duas opções e composição legível. Dúvida sobre as barcas abre pelo teclado (Enter), exibindo a resposta.
+- Screenshots finais em `artifacts/refinamento-390-final.jpg` e `artifacts/refinamento-1440-final.jpg`; capturas do cardápio também preservadas em artifacts. Pasta ignorada pelo Git.
+- Build e check de conteúdo/links/metadados aprovados. Revisão direta do diff: conteúdo escapado nos templates, decoração fora da árvore acessível, nenhum arquivo de outro site alterado. Console sem erros na consulta efetuada.
+- Pendências comerciais anteriores continuam em `CONTENT_TODO.md`; não foram criados horários ou valores fictícios. Nenhuma dependência instalada ou publicação realizada.
