@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b30">
+  <title>{{TITLE}}</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="robots" content="{{ROBOTS}}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:image" content="{{SOCIAL_IMAGE}}">
+  <meta property="og:image:alt" content="{{FACADE_ALT}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="{{BASE}}assets/favicon.svg">
+  <link rel="stylesheet" href="{{BASE}}assets/styles.css">
+  <script src="{{BASE}}assets/main.js" defer></script>
+  <script type="application/ld+json">{{SCHEMA}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">{{SKIP}}</a>
+  <header class="site-header" id="inicio">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="{{NAME}} — início">
+        <span class="brand-crop"><img src="{{BASE}}assets/cartao-original.png" width="248" height="130" alt="{{NAME}}"></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" hidden>{{MENU_LABEL}} <span aria-hidden="true">☰</span></button>
+      <nav class="main-nav" id="menu-principal" aria-label="Navegação principal">
+        <a href="#servicos">{{NAV_SERVICES}}</a>
+        <a href="#oficina">{{NAV_WORKSHOP}}</a>
+        <a href="#contato">{{NAV_CONTACT}}</a>
+      </nav>
+      <a class="header-phone" href="tel:+{{PHONE}}"><span>Fale com a oficina</span>{{PHONE_DISPLAY}}</a>
+    </div>
+  </header>
+  <main id="conteudo">
+    <section class="hero" aria-labelledby="titulo-principal">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="locality">{{CITY}} · {{STATE}}</p>
+          <h1 id="titulo-principal">{{HERO_TITLE}}</h1>
+          <p class="hero-description">{{HERO_BODY}}</p>
+          <div class="actions">
+            <a class="button" href="{{WHATSAPP}}" target="_blank" rel="noopener noreferrer">{{WHATSAPP_LABEL}} <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="#oficina">{{DIRECTIONS_LABEL}}</a>
+          </div>
+        </div>
+        <figure class="hero-photo">
+          <img src="{{BASE}}assets/oficina.webp" width="680" height="510" alt="{{HERO_ALT}}" fetchpriority="high">
+          <figcaption>{{HERO_CAPTION}}</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="services" id="servicos" aria-labelledby="titulo-servicos">
+      <div class="container">
+        <div class="section-intro"><h2 id="titulo-servicos">{{SERVICES_TITLE}}</h2><p>{{SERVICES_INTRO}}</p></div>
+        <ul class="service-list">{{SERVICES}}</ul>
+        <p class="payment">{{PAYMENT}}</p>
+      </div>
+    </section>
+    <section class="workshop" id="oficina" aria-labelledby="titulo-oficina">
+      <div class="container workshop-inner">
+        <figure class="facade-photo"><img src="{{BASE}}assets/fachada.webp" width="680" height="510" alt="{{FACADE_ALT}}" loading="lazy" decoding="async"><figcaption>{{FACADE_CAPTION}}</figcaption></figure>
+        <div class="workshop-copy">
+          <h2 id="titulo-oficina">{{WORKSHOP_TITLE}}</h2>
+          <p>{{WORKSHOP_BODY}}</p>
+          <div class="visit-details">
+            <h3>{{LOCATION_LABEL}}</h3>
+            <address>{{DISTRICT}} · {{CITY}} — {{STATE}}</address>
+            <p class="location-note">{{LOCATION_NOTE}}</p>
+            <a class="text-link" href="{{MAP_URL}}" target="_blank" rel="noopener noreferrer">{{DIRECTIONS_LABEL}} <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contato" aria-labelledby="titulo-contato">
+      <div class="container contact-inner">
+        <div><h2 id="titulo-contato">{{CONTACT_TITLE}}</h2><p>{{CONTACT_BODY}}</p><p class="hours">{{HOURS}}</p></div>
+        <div class="contact-actions"><a class="contact-number" href="tel:+{{PHONE}}">{{PHONE_DISPLAY}}</a><a class="button" href="{{WHATSAPP}}" target="_blank" rel="noopener noreferrer">{{WHATSAPP_LABEL}} <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><p>{{NAME}} · {{CITY}}</p><p>{{PREVIEW_LABEL}}</p><a href="#inicio">{{TOP_LABEL}} ↑</a></div></footer>
+</body>
+</html>

@@ -10,6 +10,7 @@ uma linha de trabalho para um site; nenhuma pasta foi removida ou movida.
 | Eletro Severo (brief e assets iniciais) | `eletrosevero` | `eletrosevero/` |
 | Gazzetti Advogados | `gazzetti` | `gazzetti/` |
 | Volpi Contabilidade | `volpicontabilidade` | `volpicontabilidade/` |
+| Ragassi Auto Mecânica | `ragassi` | `ragassi/` |
 
 ## Iniciar uma mudança
 
