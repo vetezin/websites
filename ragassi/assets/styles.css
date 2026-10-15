@@ -23,15 +23,23 @@ img{max-width:100%;height:auto;display:block}
 .icon{display:inline-block;flex-shrink:0;width:22px;height:22px;vertical-align:middle}
 .main-nav{display:flex;align-items:center;gap:32px;font-size:14px}
 .main-nav a{padding-block:12px}
+.main-nav a,.site-footer a,.contact-number,.text-link{transition:color 160ms ease}
+.main-nav a:focus-visible,.site-footer a:focus-visible,.contact-number:focus-visible,.text-link:focus-visible{color:var(--blue-light)}
 .main-nav a:hover,.site-footer a:hover{color:var(--blue-light)}
 .header-contact{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:14px;color:var(--text);padding:9px 14px;border:1px solid var(--line);border-radius:var(--radius)}
+.header-contact,.menu-toggle{transition:background-color 160ms ease,border-color 160ms ease,color 160ms ease,transform 120ms ease}
+.header-contact:focus-visible,.menu-toggle:focus-visible{border-color:var(--blue-light);color:var(--blue-light)}
 .header-contact:hover{border-color:var(--blue-light);color:var(--blue-light)}
 .menu-toggle{display:none;border:1px solid var(--line);background:transparent;color:var(--text);border-radius:var(--radius);padding:10px 15px;min-height:44px}
 .hero-inner{text-align:center;padding-block:42px 38px}
 .hero-copy{max-width:760px;margin-inline:auto}
 .hero-description{color:var(--muted);max-width:590px;margin:18px auto 0;line-height:1.75}
 .actions{display:flex;align-items:center;justify-content:center;gap:26px;flex-wrap:wrap;margin-top:24px}
-.button{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:48px;padding:12px 20px;background:var(--blue);color:#fff;border-radius:var(--radius);font-size:15px;font-weight:600}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-height:48px;padding:12px 20px;background:var(--blue);color:#fff;border-radius:var(--radius);font-size:15px;font-weight:600;transition:background-color 160ms ease,transform 120ms ease}
+.button:focus-visible{background:#4262b5}
+.button:active,.header-contact:active,.menu-toggle:active{transform:translateY(1px) scale(.99)}
+.button:active{background:#4262b5}
+.header-contact:active,.menu-toggle:active{background:var(--navy-light);border-color:var(--blue-light)}
 .button:hover{background:#4262b5}
 .text-link{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:14px;text-decoration:underline;text-underline-offset:5px;padding-block:10px}
 .text-link:hover{color:var(--blue-light)}
@@ -43,12 +51,22 @@ figcaption{color:var(--muted);font-size:13px;margin-top:12px}
 .section-intro h2{font-size:25px}
 .section-intro>p{color:var(--muted);font-size:14px;margin-top:9px}
 .service-list{display:grid;grid-template-columns:repeat(3,1fr);column-gap:36px;list-style:none;padding:0;margin:28px 0 0}
-.service-list li{border-top:1px solid var(--line)}
-.service-link{display:grid;grid-template-columns:28px 1fr 14px;align-items:start;gap:13px;min-height:140px;padding-block:23px}
+.service-link{display:grid;grid-template-columns:28px 1fr 14px;align-items:start;gap:13px;min-height:140px;padding-block:23px;border-top:1px solid var(--line);transition:border-color 160ms ease}
 .service-link>.icon{width:27px;height:27px;color:var(--blue-light);margin-top:2px}
 .service-arrow{color:var(--muted);padding-top:3px}
+.service-link>.icon,.service-list h3{transition:color 160ms ease}
+.service-arrow,.text-link>.icon{transition:color 160ms ease,transform 160ms ease}
 .service-arrow .icon{width:14px;height:14px}
-.service-link:hover h3,.service-link:hover .service-arrow{color:var(--blue-light)}
+.service-link:is(:focus-visible,:active){border-color:var(--blue-light)}
+.service-link:is(:focus-visible,:active)>.icon{color:var(--text)}
+.service-link:is(:focus-visible,:active) h3,.service-link:is(:focus-visible,:active) .service-arrow{color:var(--blue-light)}
+.service-link:is(:focus-visible,:active) .service-arrow,.text-link:focus-visible>.icon{transform:translateX(2px)}
+@media(hover:hover) and (pointer:fine){
+ .service-link:hover{border-color:var(--blue-light)}
+ .service-link:hover>.icon{color:var(--text)}
+ .service-link:hover h3,.service-link:hover .service-arrow{color:var(--blue-light)}
+ .service-link:hover .service-arrow,.text-link:hover>.icon{transform:translateX(2px)}
+}
 .service-list h3{font-size:18px;color:var(--text)}
 .service-list p{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.6}
 .payment{border-top:1px solid var(--line);padding-top:18px;margin-top:0;font-size:13px;color:var(--muted);text-align:center}
@@ -91,4 +109,8 @@ address{font-style:normal;font-size:15px}
  .footer-inner{display:block}.footer-inner>*+*{display:block;margin-top:10px}
 }
 @media(max-width:360px){h1{font-size:30px}.actions{gap:12px}.button{padding-inline:14px}.container{width:calc(100% - 40px)}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){
+ html{scroll-behavior:auto}
+ .button,.header-contact,.menu-toggle,.main-nav a,.site-footer a,.contact-number,.text-link,.service-link,.service-link>.icon,.service-list h3,.service-arrow,.text-link>.icon{transition:none}
+ .button:active,.header-contact:active,.menu-toggle:active,.service-link:is(:hover,:focus-visible,:active) .service-arrow,.text-link:is(:hover,:focus-visible)>.icon{transform:none}
+}
