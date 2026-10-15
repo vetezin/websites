@@ -57,3 +57,8 @@ Publicação autorizada pelo usuário com slug `espleo`. Build e check aprovados
 - Emulação de movimento reduzido em 390 px via Chrome DevTools: media query ativa, animation-name do fogo none e transições de foto e botão 0s. Sem overflow nessa emulação. Não houve alteração na preferência real do dispositivo.
 - Console sem erros na consulta. Capturas `efeitos-inicio-390.jpg`, `efeitos-inicio-1440.jpg`, `efeitos-cardapio-390.jpg` e `efeitos-cardapio-1440.jpg` na pasta ignorada artifacts.
 - Revisão do diff restrita a CSS e documentação do site. Atualização validada localmente; nenhuma publicação nova executada nesta etapa.
+
+
+## Cache do CSS na publicação dos efeitos
+
+O primeiro deploy dos efeitos concluiu com sucesso, mas a sessão do navegador reaproveitou o CSS anterior, enquanto a URL pública já retornava a versão nova com cache de 600 segundos. O build passa a incluir um hash do conteúdo na query do stylesheet. O check resolve o caminho local sem a query. Assim, mudanças no CSS geram um endereço diferente e não exigem limpeza manual do cache.

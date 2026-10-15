@@ -14,7 +14,7 @@ for(const file of ['index.html','cardapio.html']){
  const elementIds=[...html.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(elementIds.length,new Set(elementIds).size,'IDs duplicados na página');
  for(const match of html.matchAll(/(?:src|href)="([^"]+)"/g)){
   const link=match[1];if(/^(?:https?:|tel:|#)/.test(link))continue;
-  const relative=link.split('#')[0];
+  const relative=link.split(/[?#]/)[0];
   assert(!base || relative.startsWith(base+'/'),'Link local fora do subdiretório');
   const pathname=relative.slice(base.length).replace(/^\//,'');
   await stat(path.join(root,'dist',pathname));
