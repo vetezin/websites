@@ -61,3 +61,6 @@ Três colunas/duas linhas de serviços no desktop, duas no tablet, lista no celu
 O cabeçalho usa uma reconstrução fiel do logo com fundo transparente, solicitada pelo usuário. Carro, nome e descritor preservados; sem placa preta, recorte CSS ou efeitos. PNG mestre e WebP de entrega mantêm transparência real.
 Navy/grafite e tipografia familiar permanecem. As duas fotos reais aparecem somente na seção de apresentação da oficina, em tamanhos menores.
 As novas explicações editoriais continuam marcadas MOCK em content.mjs e não acrescentam serviços, garantias ou certificações.
+
+## Acabamento interativo aprovado
+Feedback discreto nos serviços: divisória azul, ícone mais claro e seta deslocada em 2px ao passar o mouse ou focar por teclado; toque com feedback durante a pressão. Botões mudam de cor suavemente e cedem 1px ao pressionar. Transições curtas de 120–160ms, sem animação de entrada ou movimento automático. Navegação suave existente preservada. Com prefers-reduced-motion, transições, deslocamentos e rolagem animada são desativados; cores e foco continuam comunicando a interação. Implementação somente CSS, sem bibliotecas.

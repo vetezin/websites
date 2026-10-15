@@ -47,3 +47,9 @@ Mudanças compartilhadas restritas às linhas de cadastro nos dois mapas autoriz
 ## Integração ao GitHub Pages — autorizada em conversa
 
 Inclusão pontual da Ragassi em scripts/build-pages.mjs e scripts/assemble-pages.mjs, com base /websites/ragassi/ e URL da demonstração. Nenhuma dependência ou workflow novo. Suite 6/6, lint da Ragassi, build com base de publicação e sintaxe dos dois scripts compartilhados passaram. Montagem exercitada em diretório isolado com os cinco sites existentes representados por fixtures e o dist real da Ragassi: os seis index.html, logo e caminhos de assets conferidos. O build completo dos outros sites será executado pelo workflow existente no GitHub; nenhuma instalação local foi feita. Demonstração permanece identificada e com indexação bloqueada.
+
+## Efeitos discretos — revisão aprovada
+
+Somente CSS: transições de cor/borda, ícone mais claro e seta 2px nos serviços; botões com pressão 1px/escala 0,99; navegação suave existente preservada. Sem dependências ou alteração de conteúdo. Suite 6/6, lint e build passaram. Vinte checks Playwright passaram para hover, foco visível, pressão, reduced motion, âncoras, menu mobile, overflow, links, imagens e erros de execução. Console sem erros. Capturas qa/effects-desktop-1440.png e qa/effects-mobile-390.png revisadas: composição preservada e foco visível sem corte.
+
+A primeira verificação de reduced motion reproduziu deslocamento indevido da seta; ajustada a especificidade da regra e regressão passou para hover e foco. Em contexto mobile com hasTouch, um toque real no menu confirmou abertura e pressão visual, observada por frames; o envio de touchStart isolado não ativava :active no emulador, portanto não foi usado como evidência de defeito no site. Nenhum contato externo acionado. Revisão do diff restrita ao CSS e documentos da Ragassi.
