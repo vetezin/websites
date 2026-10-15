@@ -54,3 +54,10 @@ Build demonstrativo com noindex; publicação exige URL definitiva e conteúdo a
 
 ## Aceitação
 Contato correto; menu por teclado; sem overflow em 390/1440px; imagens locais; conteúdo sem JS; console limpo; nenhuma dependência instalada; somente caminhos autorizados no commit.
+
+## Revisão aprovada em 15/10/2026 — serviços no centro
+O usuário aprovou a proposta de abertura curta centralizada, serviços como principal conteúdo e fotos menores como apoio. Esta revisão substitui a abertura fotográfica assimétrica do brief inicial.
+Três colunas/duas linhas de serviços no desktop, duas no tablet, lista no celular; ícones locais consistentes sem círculos, cards ou dependência externa. Os itens são links para consultar cada serviço no WhatsApp com assunto preenchido.
+O cabeçalho usa uma reconstrução fiel do logo com fundo transparente, solicitada pelo usuário. Carro, nome e descritor preservados; sem placa preta, recorte CSS ou efeitos. PNG mestre e WebP de entrega mantêm transparência real.
+Navy/grafite e tipografia familiar permanecem. As duas fotos reais aparecem somente na seção de apresentação da oficina, em tamanhos menores.
+As novas explicações editoriais continuam marcadas MOCK em content.mjs e não acrescentam serviços, garantias ou certificações.

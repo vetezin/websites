@@ -30,3 +30,16 @@ Oficina e conversão claras; identidade derivada da fachada azul; fotos reais de
 Copy editorial proposto está centralizado e marcado MOCK. Endereço completo, horários, logo original e autorização das fotos permanecem em CONTENT_TODO.md. Demonstração não publicada.
 21st CLI não estava disponível; nenhuma instalação foi feita. Frontend implementado diretamente conforme stack aprovada. Não há Spec Kit ou CodeGraph neste repositório.
 Mudanças compartilhadas restritas às linhas de cadastro nos dois mapas autorizados; nenhum script, workflow ou site existente foi alterado.
+
+## Revisão 2 — serviços, ícones e logo transparente
+
+- `npm test`: 6/6 passaram, incluindo os seis links WhatsApp com assunto específico. O contrato novo foi observado em RED antes da implementação e em GREEN depois.
+- `npm run lint`: sintaxe de 7 arquivos e os mesmos sete pares de contraste AA passaram; `npm run build` passou.
+- 30 checks Playwright passaram: menu e teclado, seis serviços com assunto e telefone corretos, áreas de toque, nove links WhatsApp, telefone, SVGs decorativos, âncoras, imagens, ausência de overflow em 320/390/768/1440px, resize, reduced motion, navegação sem JavaScript e console limpo.
+- Capturas finais `qa/desktop-v2-1440.png` e `qa/mobile-v2-390.png` revisadas. Abertura central, serviços prioritários, ícones discretos e fotos de apoio coerentes com o brief. Ajustado o balanceamento do título para evitar palavra isolada no desktop.
+- Logo adaptado com ImageGen; PNG mestre preservado e WebP de entrega com 476×207px e 40.698 bytes. Canal alpha inspecionado: cantos transparentes e 63.243 pixels totalmente transparentes; integração visual sem retângulo preto conferida nas capturas. Prompt e modo em LOGO_PROMPT.md.
+- Lighthouse encontrou nomes acessíveis que omitiam a descrição visível dos serviços. O teste por nome acessível reproduziu a falha (RED); removido o aria-label substitutivo e incluído contexto visualmente oculto. Teste GREEN para os seis links, suite e build repetidos com sucesso.
+- Auditoria mobile final: Acessibilidade 100, Boas práticas 100, Agentic Browsing 100 e SEO 66. Única falha restante: indexação bloqueada intencionalmente na demonstração.
+- Trace da revisão 2, cache desconsiderado, CPU 1x e sem limitação de rede: LCP 78ms e CLS 0,00. Resultado de laboratório local; nota Lighthouse de performance não medida.
+- Revisão independente da segunda iteração sem achados relevantes: contratos WhatsApp, escape, assets em subdiretório, ícones e preservação do menu conferidos. A correção posterior de nome acessível foi validada por regressão no navegador e auditoria.
+- Prévia atualizada no navegador integrado. Nenhuma mensagem externa enviada, publicação, push ou merge realizados. Pendências de conteúdo em CONTENT_TODO.md permanecem para publicação.

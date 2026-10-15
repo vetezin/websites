@@ -24,3 +24,11 @@ Baseline: site novo sem suite anterior; worktree de main 64ef9e6, sem mudanças 
 Pre-flight: content.mjs → build.mjs → HTML/assets. Testes verificam a saída real, não strings de implementação.
 Revisão independente: um P3 no servidor local (cabeçalho 200 antes da leitura); reproduzido com teste HTTP RED e corrigido. Suite final 5/5.
 Detalhes das evidências e limitações em docs/VALIDATION.md.
+
+## Revisão 2 — serviços e logo, autorizada em conversa
+- [x] Gerar e inspecionar adaptação transparente do logo; preservar PNG e otimizar entrega WebP com alpha.
+- [x] Teste RED dos seis serviços com assunto específico no WhatsApp; implementação estática e GREEN.
+- [x] Centralizar abertura e serviços; incluir ícones vetoriais locais e reduzir protagonismo das fotos.
+- [x] Verificar menu, links, ausência de JS, transparência e screenshots 390/1440px; revisão independente e commit local.
+
+Revisão 2: seis testes e 30 checks de navegador passaram. Corrigido nome acessível dos serviços após regressão RED → GREEN; auditoria final de acessibilidade 100. Evidências e limites em docs/VALIDATION.md.

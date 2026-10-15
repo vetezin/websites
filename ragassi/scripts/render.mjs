@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import { renderIcon } from './icons.mjs';
 
 export function normalizeBasePath(value = '/') {
   if (!/^\/(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_-]*\/?$/.test(value)) {
@@ -30,7 +31,7 @@ export async function renderPage(data, basePath = '/', siteUrl = data.previewUrl
     NAME:data.name, CITY:data.city, STATE:data.state, DISTRICT:data.district,
     PHONE:data.phone, PHONE_DISPLAY:data.phoneDisplay, PAYMENT:data.payment,
     NAV_SERVICES:data.navigation.services, NAV_WORKSHOP:data.navigation.workshop, NAV_CONTACT:data.navigation.contact,
-    MENU_LABEL:data.labels.menu, SKIP:data.labels.skip, WHATSAPP_LABEL:data.labels.whatsapp, WHATSAPP:whatsapp,
+    MENU_LABEL:data.labels.menu, SKIP:data.labels.skip, WHATSAPP_LABEL:data.labels.whatsapp, APPOINTMENT_LABEL:data.labels.appointment, WHATSAPP:whatsapp,
     DIRECTIONS_LABEL:data.labels.directions, LOCATION_LABEL:data.labels.location, TOP_LABEL:data.labels.top,
     PREVIEW_LABEL:data.preview?data.labels.preview:'', HERO_TITLE:data.hero.title, HERO_BODY:data.hero.body,
     HERO_ALT:data.hero.photoAlt, HERO_CAPTION:data.hero.photoCaption, SERVICES_TITLE:data.servicesTitle,
@@ -40,8 +41,13 @@ export async function renderPage(data, basePath = '/', siteUrl = data.previewUrl
     LOCATION_NOTE:data.contact.locationNote, MAP_URL:data.profileUrl,
   };
   const raw = {
-    SERVICES:data.services.map(service=>`<li><h3>${escapeHtml(service.name)}</h3><p>${escapeHtml(service.description)}</p></li>`).join('\n'),
+    SERVICES:data.services.map(service=>{
+      const message = `Olá! Gostaria de saber sobre o serviço de ${service.name.toLocaleLowerCase('pt-BR')} para meu carro.`;
+      const href = `https://wa.me/${data.phone}?text=${encodeURIComponent(message)}`;
+      return `<li><a class="service-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${renderIcon(service.icon)}<div><h3>${escapeHtml(service.name)}</h3><p>${escapeHtml(service.description)}</p><span class="visually-hidden">Consultar pelo WhatsApp</span></div><span class="service-arrow">${renderIcon('arrow')}</span></a></li>`;
+    }).join('\n'),
     SCHEMA:JSON.stringify(schema).replace(/</g,'\\u003c'),
+    WHATSAPP_ICON:renderIcon('whatsapp'), PHONE_ICON:renderIcon('phone'), PIN_ICON:renderIcon('pin'), ARROW_ICON:renderIcon('arrow'), MENU_ICON:renderIcon('menu'),
   };
   const template = await readFile(new URL('../index.template.html',import.meta.url),'utf8');
   return template.replace(/\{\{([A-Z_]+)\}\}/g,(_,key)=> {

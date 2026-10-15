@@ -45,6 +45,19 @@ test('rendering escapes editorial content instead of interpreting it as HTML', a
   assert.equal(JSON.parse(json)['@type'], 'AutoRepair');
 });
 
+test('each service opens WhatsApp with its own service already identified', async () => {
+  const { renderPage } = await import('../scripts/render.mjs');
+  const { siteContent } = await import('../content.mjs');
+  const html = await renderPage(siteContent);
+  const links = [...html.matchAll(/<a class="service-link" href="([^"]+)"/g)];
+  assert.equal(links.length,6,'All six services must be directly consultable without JavaScript');
+  const messages = links.map(([,href])=>new URL(href.replaceAll('&amp;','&')).searchParams.get('text'));
+  for (const name of ['motor','injeção eletrônica','embreagem','troca de óleo','suspensão','freios']) {
+    assert.ok(messages.some(message=>message.includes(name)),`Missing context for ${name}`);
+  }
+  for (const [,href] of links) assert.equal(new URL(href).pathname,'/5518996966162');
+});
+
 test('unsafe base paths are rejected before building asset URLs', async () => {
   const { normalizeBasePath } = await import('../scripts/render.mjs');
   assert.equal(normalizeBasePath('/websites/ragassi'), '/websites/ragassi/');
