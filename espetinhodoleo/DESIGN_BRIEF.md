@@ -48,3 +48,8 @@ Detalhadas em `CONTENT_TODO.md`. Nenhum preço inventado. Quantidades das barcas
 
 ## Refinamento de legibilidade e informação
 A pedido do usuário, textos corridos passam a 17–20 px, links/botões a 16–17 px e informações secundárias a 13–16 px. Informações de visita/pedido/horário ganham leitura rápida, a composição dos itens aparece em listas e dúvidas práticas ficam em detalhes expansíveis. A regra anterior de chama apenas no logo é substituída por textura fotográfica estática nas laterais, com fade, menor opacidade no celular, sem sobrepor a área de leitura. Não foram inventados preços, horários ou capacidades do estabelecimento.
+
+
+## Efeitos discretos aprovados
+
+Fogo lateral com respiração de opacidade em ciclo lento de 7 segundos, fotos com aproximação de 3,5% somente em dispositivos com hover e botões com pressão breve ao clicar. Recortes contidos nas próprias molduras, sem deslocar texto ou mudar o layout. Todos os movimentos novos ficam condicionados a `prefers-reduced-motion: no-preference`; em modo reduzido, fogo e imagens permanecem estáticos. O brilho vermelho de hover nos botões é discreto e serve como feedback.

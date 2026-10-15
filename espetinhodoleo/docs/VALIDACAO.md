@@ -47,3 +47,13 @@ Comida, barcas e quiosque G comunicam o negócio e orientam visita/pedido. Logo 
 ## Preparação do GitHub Pages — 15/10/2026
 
 Publicação autorizada pelo usuário com slug `espleo`. Build e check aprovados com `SITE_URL=https://vetezin.github.io` e `SITE_BASE_PATH=/websites/espleo/`. Scripts compartilhados recebem somente a entrada do novo site e a cópia de dist para `espleo/`; o workflow valida links antes do deploy. Demais sites e alterações não commitadas da Volpi preservados. Revisão dos caminhos contra origin/main inclui somente o site, seu registro e a configuração de publicação necessária.
+
+
+## Efeitos discretos — 15/10/2026
+
+- Efeitos apenas em CSS: fogo respira por opacidade (7 s); fotos ampliam 3,5% dentro do recorte com hover de mouse; botões recebem brilho discreto e pressão ao clicar. Sem novos arquivos JS ou dependências.
+- Build e check de conteúdo/links/metadados aprovados. Navegação pelo botão Ver cardápio e filtro Barcas (2 opções) conferidos.
+- Início e Cardápio conferidos em 390 e 1440 px, sem overflow horizontal. Transform da foto confirmado em matrix(1.035,0,0,1.035,0,0); moldura com overflow hidden preserva o layout.
+- Emulação de movimento reduzido em 390 px via Chrome DevTools: media query ativa, animation-name do fogo none e transições de foto e botão 0s. Sem overflow nessa emulação. Não houve alteração na preferência real do dispositivo.
+- Console sem erros na consulta. Capturas `efeitos-inicio-390.jpg`, `efeitos-inicio-1440.jpg`, `efeitos-cardapio-390.jpg` e `efeitos-cardapio-1440.jpg` na pasta ignorada artifacts.
+- Revisão do diff restrita a CSS e documentação do site. Atualização validada localmente; nenhuma publicação nova executada nesta etapa.

@@ -1266,3 +1266,37 @@ body {
     font-size:36px;
   }
 }
+
+/* Small motion accents preserve the photo crop and never move the content. */
+.hero-photo,.place-photo,.barca-photo {
+  overflow:hidden;
+}
+@media (prefers-reduced-motion:no-preference) {
+  .page-flames {
+    animation:ember-breathe 7s ease-in-out infinite;
+  }
+  .hero-photo>img,.place-photo>img,.barca-photo>img,.menu-item-photo>img {
+    transition:transform .5s cubic-bezier(.2,.65,.3,1);
+  }
+  .button,.header-order {
+    transition:background .18s,color .18s,border-color .18s,box-shadow .18s,transform .12s;
+  }
+  .button:active,.header-order:active {
+    transform:scale(.975);
+  }
+}
+@media (hover:hover) and (pointer:fine) {
+  .button:hover,.header-order:hover {
+    box-shadow:0 0 20px rgb(255 56 38 / 18%);
+  }
+}
+@media (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  .hero-photo:hover>img,.place-photo:hover>img,.menu-item-photo:hover>img,
+  .barca-feature:hover .barca-photo>img,.barca-feature:focus-visible .barca-photo>img {
+    transform:scale(1.035);
+  }
+}
+@keyframes ember-breathe {
+  0%,100% { opacity:.76; }
+  50% { opacity:1; }
+}
