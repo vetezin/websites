@@ -42,3 +42,8 @@ Comida, barcas e quiosque G comunicam o negócio e orientam visita/pedido. Logo 
 - Screenshots finais em `artifacts/refinamento-390-final.jpg` e `artifacts/refinamento-1440-final.jpg`; capturas do cardápio também preservadas em artifacts. Pasta ignorada pelo Git.
 - Build e check de conteúdo/links/metadados aprovados. Revisão direta do diff: conteúdo escapado nos templates, decoração fora da árvore acessível, nenhum arquivo de outro site alterado. Console sem erros na consulta efetuada.
 - Pendências comerciais anteriores continuam em `CONTENT_TODO.md`; não foram criados horários ou valores fictícios. Nenhuma dependência instalada ou publicação realizada.
+
+
+## Preparação do GitHub Pages — 15/10/2026
+
+Publicação autorizada pelo usuário com slug `espleo`. Build e check aprovados com `SITE_URL=https://vetezin.github.io` e `SITE_BASE_PATH=/websites/espleo/`. Scripts compartilhados recebem somente a entrada do novo site e a cópia de dist para `espleo/`; o workflow valida links antes do deploy. Demais sites e alterações não commitadas da Volpi preservados. Revisão dos caminhos contra origin/main inclui somente o site, seu registro e a configuração de publicação necessária.

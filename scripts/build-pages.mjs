@@ -7,6 +7,7 @@ const projects = [
   { folder: 'gazzetti', cli: 'scripts/astro.mjs', args: ['build'], env: { SITE_BASE_PATH: '/websites/gazzetti/', SITE_URL: 'https://vetezin.github.io' } },
   { folder: 'chapeudepalha', cli: 'scripts/build.mjs', args: [], env: { SITE_BASE_PATH: '/websites/cdpalha/', SITE_URL: 'https://vetezin.github.io' } },
   { folder: 'ragassi', cli: 'scripts/build.mjs', args: [], env: { SITE_BASE_PATH: '/websites/ragassi/', SITE_URL: 'https://vetezin.github.io/websites/ragassi/' } },
+  { folder: 'espetinhodoleo', cli: 'scripts/build.mjs', args: [], env: { SITE_BASE_PATH: '/websites/espleo/', SITE_URL: 'https://vetezin.github.io' } },
 ];
 
 for (const project of projects) {

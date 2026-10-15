@@ -27,3 +27,10 @@ O novo site não foi conectado à publicação conjunta: scripts compartilhados 
 ## Conteúdo e imagens
 
 Veja `CONTENT_TODO.md`. Fotos coletadas do Instagram e Google informados pelo usuário. `barca.webp` é uma adaptação com IA da arte original, identificada como ilustrativa. Espetinhos e acompanhamentos também usam recriações com IA das fotos do acervo, identificadas como ilustrativas. Originais preservados. Nenhuma pessoa, avaliação ou preço fictício foi criado. O cardápio é uma prévia baseada no acervo público, não uma integração com o iFood.
+
+
+## GitHub Pages
+
+URL aprovada para publicação: https://vetezin.github.io/websites/espleo/
+
+A publicação conjunta usa `scripts/build-pages.mjs` e `scripts/assemble-pages.mjs` da raiz. O build define `SITE_URL=https://vetezin.github.io` e `SITE_BASE_PATH=/websites/espleo/`; apenas `dist/` é copiado para a pasta pública `espleo/`. Documentos de pesquisa, originais e prompts fora de dist não são publicados no Pages. O workflow da main valida os links do cardápio antes do deploy.

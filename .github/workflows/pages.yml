@@ -38,6 +38,10 @@ jobs:
         run: npm run lint --prefix chapeudepalha
         env:
           SITE_BASE_PATH: /websites/cdpalha/
+      - name: Validar Espetinho do Léo
+        run: node espetinhodoleo/scripts/check.mjs
+        env:
+          SITE_BASE_PATH: /websites/espleo/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .pages
