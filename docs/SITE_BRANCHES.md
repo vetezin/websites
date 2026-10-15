@@ -10,6 +10,7 @@ uma linha de trabalho para um site; nenhuma pasta foi removida ou movida.
 | Eletro Severo (brief e assets iniciais) | `eletrosevero` | `eletrosevero/` |
 | Gazzetti Advogados | `gazzetti` | `gazzetti/` |
 | Volpi Contabilidade | `volpicontabilidade` | `volpicontabilidade/` |
+| Espetinho do Léo | `codex/espetinhodoleo` | `espetinhodoleo/` |
 
 ## Iniciar uma mudança
 
