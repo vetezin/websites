@@ -62,3 +62,11 @@ Publicação autorizada pelo usuário com slug `espleo`. Build e check aprovados
 ## Cache do CSS na publicação dos efeitos
 
 O primeiro deploy dos efeitos concluiu com sucesso, mas a sessão do navegador reaproveitou o CSS anterior, enquanto a URL pública já retornava a versão nova com cache de 600 segundos. O build passa a incluir um hash do conteúdo na query do stylesheet. O check resolve o caminho local sem a query. Assim, mudanças no CSS geram um endereço diferente e não exigem limpeza manual do cache.
+
+
+## Fogo perceptível nas laterais — 15/10/2026
+
+- Confirmada a causa no painel de 634 px: deslocamento de -90 px e opacidade de 0,18 escondiam quase toda a chama. Ajustados recorte e opacidade para tornar o fogo visível também no celular.
+- Movimento vertical e escala por lateral conferidos no navegador; espelhamento direito preservado. Início revisado em 390 e 1440 px, sem overflow horizontal. Capturas na pasta de QA da conversa.
+- Chrome DevTools com movimento reduzido ativo em 390 px: animação do contêiner e das duas chamas retornam none, sem overflow. Preferência real do dispositivo não foi alterada.
+- Build e check de conteúdo/links/metadados aprovados. Correção destinada à versão já autorizada para publicação dos efeitos.

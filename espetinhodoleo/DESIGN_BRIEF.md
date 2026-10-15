@@ -53,3 +53,8 @@ A pedido do usuário, textos corridos passam a 17–20 px, links/botões a 16–
 ## Efeitos discretos aprovados
 
 Fogo lateral com respiração de opacidade em ciclo lento de 7 segundos, fotos com aproximação de 3,5% somente em dispositivos com hover e botões com pressão breve ao clicar. Recortes contidos nas próprias molduras, sem deslocar texto ou mudar o layout. Todos os movimentos novos ficam condicionados a `prefers-reduced-motion: no-preference`; em modo reduzido, fogo e imagens permanecem estáticos. O brilho vermelho de hover nos botões é discreto e serve como feedback.
+
+
+## Correção da visibilidade do fogo
+
+O efeito anterior ficava praticamente invisível em telas até 680 px: a textura era deslocada 90 px para fora da tela e reduzida a 18% de opacidade. A correção aproxima as chamas das bordas, aumenta a presença e combina a respiração em 4,8 s com deslocamento vertical de até 24 px e variação de escala. As laterais usam tempos diferentes (3,6 e 4,2 s), preservando o espelhamento. Continua decorativo, sem interação, e estático quando há preferência por movimento reduzido.
