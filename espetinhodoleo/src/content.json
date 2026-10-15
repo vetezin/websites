@@ -19,14 +19,90 @@
     "menuTitle": "Do seu jeito, do tamanho da sua fome.",
     "menuDescription": "Do espeto à barca com acompanhamentos: conheça as opções da casa.",
     "placeTitle": "Seu ponto de encontro no parque.",
-    "placeDescription": "Depois do passeio ou pra encontrar a turma, puxe uma cadeira no quiosque G. A gente se encontra na Avenida 11 de Maio."
+    "placeDescription": "Depois do passeio ou pra encontrar a turma, puxe uma cadeira no quiosque G. A gente se encontra na Avenida 11 de Maio.",
+    "image": "espetinhos-ia.webp",
+    "imageAlt": "Espetinhos em travessa, imagem ilustrativa recriada com IA a partir do acervo do Léo",
+    "imageCaption": "Imagem ilustrativa",
+    "imageAdapted": true,
+    "MOCK": "Foto de espetinhos recriada com IA com base no acervo"
   },
-  "categories": [{"id":"all","label":"Tudo"},{"id":"barcas","label":"Barcas"},{"id":"espetos","label":"Espetinhos"},{"id":"acompanhamentos","label":"Acompanhamentos"}],
-  "items": [
-    {"id":"barca-grande","name":"Barca grande","category":"barcas","detail":"8 espetos","description":"Espetinhos com mandioca, pão e vinagrete. Uma barca pra dividir a fome.","image":"barca.webp","alt":"Barca com espetos, mandioca, pão e vinagrete","imageAdapted":true,"MOCK":"Imagem adaptada para demonstração","price":null,"priceLabel":"Consulte o valor","pending":"Confirmar composição e quantidade atuais com o estabelecimento."},
-    {"id":"barca-pequena","name":"Barca pequena","category":"barcas","detail":"4 espetos","description":"Espetinhos, mandioca, pão e vinagrete numa versão menor.","image":null,"alt":null,"price":null,"priceLabel":"Consulte o valor","pending":"Confirmar composição e quantidade atuais com o estabelecimento."},
-    {"id":"espetinhos","name":"Espetinhos","category":"espetos","detail":"Carne, frango e queijo","description":"Escolha seus sabores. Consulte a casa para saber as opções disponíveis no dia.","image":"espetinhos.webp","alt":"Espetinhos reais do Léo servidos em uma travessa","price":null,"priceLabel":"Consulte os sabores e valores","pending":"Lista completa de sabores e valores pendente."},
-    {"id":"acompanhamentos","name":"Acompanhamentos","category":"acompanhamentos","detail":"Pra completar","description":"Mandioca, pão e vinagrete acompanham as barcas. Consulte a disponibilidade de porções avulsas.","image":"vinagrete.webp","alt":"Vinagrete e mandioca fotografados no acervo do Espetinho do Léo","price":null,"priceLabel":"Consulte as porções e valores","pending":"Venda avulsa e preços não confirmados."}
+  "categories": [
+    {
+      "id": "all",
+      "label": "Tudo"
+    },
+    {
+      "id": "barcas",
+      "label": "Barcas"
+    },
+    {
+      "id": "espetos",
+      "label": "Espetinhos"
+    },
+    {
+      "id": "acompanhamentos",
+      "label": "Acompanhamentos"
+    }
   ],
-  "contentStatus": {"MOCK":false,"note":"Conteúdo baseado nas publicações coletadas em 13/10/2026. Valores e disponibilidade devem ser consultados com a casa. Quantidades das barcas extraídas das artes; validar antes da publicação.","adaptedImage":"barca.webp é um recorte adaptado com IA a partir da arte original, para demonstração. Substituir por foto original limpa antes de publicar."}
+  "items": [
+    {
+      "id": "barca-grande",
+      "name": "Barca grande",
+      "category": "barcas",
+      "detail": "8 espetos",
+      "description": "Espetinhos com mandioca, pão e vinagrete. Uma barca pra dividir a fome.",
+      "image": "barca.webp",
+      "alt": "Barca com espetos, mandioca, pão e vinagrete",
+      "imageAdapted": true,
+      "MOCK": "Imagem adaptada para demonstração",
+      "price": null,
+      "priceLabel": "Consulte o valor",
+      "pending": "Confirmar composição e quantidade atuais com o estabelecimento."
+    },
+    {
+      "id": "barca-pequena",
+      "name": "Barca pequena",
+      "category": "barcas",
+      "detail": "4 espetos",
+      "description": "Espetinhos, mandioca, pão e vinagrete numa versão menor.",
+      "image": null,
+      "alt": null,
+      "price": null,
+      "priceLabel": "Consulte o valor",
+      "pending": "Confirmar composição e quantidade atuais com o estabelecimento."
+    },
+    {
+      "id": "espetinhos",
+      "name": "Espetinhos",
+      "category": "espetos",
+      "detail": "Carne, frango e queijo",
+      "description": "Escolha seus sabores. Consulte a casa para saber as opções disponíveis no dia.",
+      "image": "espetinhos-ia.webp",
+      "alt": "Espetinhos de carne e frango em travessa",
+      "price": null,
+      "priceLabel": "Consulte os sabores e valores",
+      "pending": "Lista completa de sabores e valores pendente.",
+      "imageAdapted": true,
+      "MOCK": "Fotografia recriada com IA a partir do acervo"
+    },
+    {
+      "id": "acompanhamentos",
+      "name": "Acompanhamentos",
+      "category": "acompanhamentos",
+      "detail": "Pra completar",
+      "description": "Mandioca, pão e vinagrete acompanham as barcas. Consulte a disponibilidade de porções avulsas.",
+      "image": "acompanhamentos-ia.webp",
+      "alt": "Vinagrete e mandioca em recipientes pretos",
+      "price": null,
+      "priceLabel": "Consulte as porções e valores",
+      "pending": "Venda avulsa e preços não confirmados.",
+      "imageAdapted": true,
+      "MOCK": "Fotografia recriada com IA a partir do acervo"
+    }
+  ],
+  "contentStatus": {
+    "MOCK": true,
+    "note": "Conteúdo baseado nas publicações coletadas em 13/10/2026. Valores e disponibilidade devem ser consultados com a casa. Quantidades das barcas extraídas das artes; validar antes da publicação.",
+    "adaptedImage": "barca.webp é um recorte adaptado com IA; espetinhos-ia.webp e acompanhamentos-ia.webp são recriações com IA das fotos originais. Imagens ilustrativas identificadas; validar fidelidade de porções e ingredientes com o cliente antes da publicação."
+  }
 }

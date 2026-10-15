@@ -22,3 +22,12 @@ Comida, barcas e quiosque G comunicam o negócio e orientam visita/pedido. Logo 
 ## Pendências
 
 `CONTENT_TODO.md` reúne horários, preços, sabores/composições, fotos/autorizações e domínio. A barca adaptada é imagem MOCK identificada. Nada publicado ou enviado ao cliente. Scripts de publicação conjunta do repositório não foram alterados.
+
+
+## Recriação de fotografias — 15/10/2026
+
+- Duas imagens recriadas pelo image_gen integrado com as fotos originais como referência: espetinhos e acompanhamentos. Inspecionadas individualmente antes de aplicar.
+- Novos assets WebP de 1200 × 1200 px, com originais preservados. Identificação visual de imagem ilustrativa no início e nos itens do cardápio, alt atualizado e rastreabilidade em `IMAGE_PROMPTS.json`.
+- Build, check de links/conteúdo/metadados e sintaxe do script de build aprovados após a troca.
+- Início revisto em desktop; viewport de 1440 px sem overflow, foto principal carregada a 1200 px. Em 390 px, imagem ocupa 335 px sem overflow. Cardápio filtrado por Acompanhamentos conferido no celular, recriação visível com aviso e sem sobreposição. Filtro retorna uma opção.
+- A foto documental do quiosque não foi recriada. A semelhança comercial de porções/ingredientes precisa ser validada pelo responsável antes da publicação.

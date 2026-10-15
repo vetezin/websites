@@ -11,3 +11,10 @@
 - Fornecer domínio real e autorizar publicação; preencher `SITE_URL` somente nessa etapa.
 
 Fontes consultadas em 13/10/2026: https://www.instagram.com/espetinhodoleo018/ e https://share.google/adxTG2iPaJOMRvQg0. A pesquisa foi preservada em `docs/research/`.
+
+## Recriação das fotos com IA
+
+- **MOCK:** `espetinhos-ia.webp` substitui a foto da travessa no início e cardápio; `acompanhamentos-ia.webp` substitui a foto de vinagrete/mandioca. Criadas com o imagegen integrado a partir das imagens originais, sem alegar ser fotografia documental. Marcadas como ilustrativas e centralizadas em `src/content.json`.
+- Originais `espetinhos.webp` e `vinagrete.webp` preservados. Foto do quiosque permanece original.
+- Confirmar fidelidade de ingredientes, porções e apresentação com o cliente antes da publicação.
+- Prompts completos, fontes e ferramenta registrados em `docs/IMAGE_PROMPTS.json`.

@@ -26,4 +26,4 @@ O novo site não foi conectado à publicação conjunta: scripts compartilhados 
 
 ## Conteúdo e imagens
 
-Veja `CONTENT_TODO.md`. Fotos coletadas do Instagram e Google informados pelo usuário. `barca.webp` é uma adaptação com IA da arte original, identificada como ilustrativa. Nenhuma pessoa, avaliação ou preço fictício foi criado. O cardápio é uma prévia baseada no acervo público, não uma integração com o iFood.
+Veja `CONTENT_TODO.md`. Fotos coletadas do Instagram e Google informados pelo usuário. `barca.webp` é uma adaptação com IA da arte original, identificada como ilustrativa. Espetinhos e acompanhamentos também usam recriações com IA das fotos do acervo, identificadas como ilustrativas. Originais preservados. Nenhuma pessoa, avaliação ou preço fictício foi criado. O cardápio é uma prévia baseada no acervo público, não uma integração com o iFood.

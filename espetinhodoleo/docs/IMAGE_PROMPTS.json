@@ -1,0 +1,21 @@
+{
+  "tool": "image_gen built-in",
+  "purpose": "Recriação das fotografias mais fracas de comida para o site, mantendo referências reais",
+  "prompts": {
+    "espeto": "Use case: lighting-weather / faithful food photograph recreation. Asset type: restaurant website hero and menu. Recreate the provided poor-quality Espetinho do Léo food photograph as a believable professionally lit real food photograph, not a stylized AI image. Keep the same subject: a generous pile of irregular Brazilian grilled meat and chicken skewers on a white rectangular serving plate, plain wooden sticks pointing toward lower right. Preserve the humble local Brazilian skewer kiosk character and actual food types, char, irregular sizes and doneness. Improve focus, exposure and appetizing warm side lighting; replace the distracting blank white wall and steel counter with a quiet very dark charcoal tabletop and softly out-of-focus charcoal background. Medium close 3/4 tabletop viewpoint, square composition, full plate and skewer tips within frame, food centered with little empty space. Realistic meat fibers, uneven browning, small natural fat highlights, no plastic gloss, no excessive saturation, no smoke or flames or decorative garnish. No new side dishes, sauces, hands, people, text, watermark, logos. It must look like this same local business had a careful real photoshoot, not an expensive steakhouse advertising scene."
+  },
+  "assets": [
+    {
+      "file": "public/assets/espetinhos-ia.webp",
+      "source": "public/assets/espetinhos.webp",
+      "role": "Início, cardápio e imagem social",
+      "MOCK": true
+    },
+    {
+      "file": "public/assets/acompanhamentos-ia.webp",
+      "source": "public/assets/vinagrete.webp",
+      "role": "Cardápio — acompanhamentos",
+      "MOCK": true
+    }
+  ]
+}
