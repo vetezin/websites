@@ -5,44 +5,35 @@ import Icon from '../components/Icon.astro';
 import ContactBanner from '../components/ContactBanner.astro';
 import Resources from '../components/Resources.astro';
 import { services, clients } from '../data/company.js';
+import '../styles/home.css';
 ---
 <Layout title="Assessoria contábil e empresarial desde 2007">
-  <section class="home-hero" aria-labelledby="hero-title">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <span class="eyebrow hero-eyebrow"><span class="brand-line"></span> Presidente Prudente · São Paulo</span>
-        <h1 id="hero-title">Volpi Contabilidade.<br /><span>Experiência para<br />a sua empresa.</span></h1>
-        <p>Desde 2007, oferecemos assessoria contábil, fiscal, trabalhista e empresarial para empresas de pequeno, médio e grande porte.</p>
-        <p class="hero-support">Da abertura ao planejamento tributário, acompanhamos sua empresa com orientação e atendimento próximo.</p>
-        <div class="hero-actions"><a class="button button-blue" href={withBase('/contato/')}>Fale com a Volpi <Icon size={19} /></a><a class="text-link" href="#about-title">Conheça nossa empresa <Icon size={18} /></a></div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-image-wrap"><img src={withBase('/images/hero.webp')} alt="Profissional analisando informações em seu computador, imagem ilustrativa do site original da Volpi" width="1100" height="733" fetchpriority="high" /><span class="hero-image-mark" aria-hidden="true"></span></div>
-        <div class="hero-caption"><span class="caption-icon"><Icon name="chart" size={27} /></span><div><strong>Contabilidade para apoiar<br />as decisões do seu negócio.</strong><span>Conhecimento, suporte e transparência.</span></div><span class="caption-line" aria-hidden="true"></span></div>
-        <div class="hero-side-label" aria-hidden="true">VOLPI · CONTABILIDADE</div>
-      </div>
-    </div>
-  </section>
-  <section class="credentials" aria-label="Nossa atuação"><div class="container credentials-grid">
-    <div><span class="credential-title">Desde 2007</span><p>Uma trajetória de parceria e compromisso.</p></div>
-    <div><span class="credential-title">Visão do negócio</span><p>Contabilidade a serviço das suas decisões.</p></div>
-    <div><span class="credential-title">Atendimento próximo</span><p>Suporte para cada momento da empresa.</p></div>
-  </div></section>
-  <section class="about-section" aria-labelledby="about-title">
-    <div class="container about-grid">
-      <div class="about-visual"><img src={withBase('/images/meeting.webp')} alt="Reunião de profissionais em torno de uma mesa, imagem ilustrativa" width="1100" height="733" loading="lazy" /><div class="about-date"><strong>2007</strong><span>O início de uma<br />parceria com o futuro.</span></div></div>
-      <div class="about-copy"><span class="eyebrow">Quem somos</span><h2 id="about-title">Uma empresa construída<br />sobre experiência.</h2><p>Fundada em 2007 por <strong>Sérgio Voltareli do Monte</strong>, a Volpi nasceu após seus 25 anos de atuação como gerente contábil em um grupo empresarial.</p><p>Sua trajetória passou por construção viária, incorporação imobiliária, agronegócio, energia, concessões rodoviárias e shopping centers.</p><p>Hoje, a Volpi oferece assessoria e terceirização contábil para empresas de diferentes portes, apoiando empresários e investidores com informações sobre seus negócios.</p><a class="text-link" href={withBase('/empresa/')}>Nossa história e nossos princípios <Icon size={19} /></a><div class="about-values"><span><Icon name="check" size={17} /> Ética</span><span><Icon name="check" size={17} /> Transparência</span><span><Icon name="check" size={17} /> Compromisso</span></div></div>
-    </div>
-  </section>
-  <section class="section services-section" aria-labelledby="solutions-title">
-    <div class="container">
-      <div class="section-heading"><div><span class="eyebrow">Soluções para o seu negócio</span><h2 id="solutions-title">Cada etapa da sua empresa.<br /><span class="muted-heading">Uma parceria que acompanha.</span></h2></div><p>Da abertura às decisões do dia a dia, reunimos conhecimento contábil, fiscal e empresarial para apoiar você.</p></div>
-      <div class="solutions-grid">{services.map(service => <a href={withBase(`/servicos/#${service.id}`)} class="solution-item"><div class="solution-icon"><Icon name={service.icon} size={30} /></div><div><h3>{service.title}</h3><p>{service.summary}</p><ul class="solution-preview">{service.items.slice(0, 3).map(item => <li>{item}</li>)}</ul><span class="solution-more">Conheça a solução <Icon size={17} /></span></div></a>)}</div>
-    </div>
-  </section>
-  <section class="section clients-section" aria-labelledby="clients-title">
-    <div class="container"><div class="clients-heading"><span class="eyebrow">Parcerias que fazem parte da nossa história</span><h2 id="clients-title">Quem confia no nosso trabalho.</h2></div><div class="client-grid">{clients.map((client, i) => <div class="client-logo"><img src={withBase(`/images/clientes/${i + 1}.png`)} alt={client} width="200" height="200" loading="lazy" /></div>)}</div></div>
-  </section>
-  <section class="section resources-section" aria-labelledby="resources-title"><div class="container"><div class="section-heading"><div><span class="eyebrow">Conhecimento para acompanhar o mercado</span><h2 id="resources-title">Informação também<br />faz parte da parceria.</h2></div><div><p>Conteúdos contábeis e empresariais para você seguir bem informado.</p><a class="text-link" href={withBase('/conteudos/')}>Ver todos os canais <Icon size={18} /></a></div></div><Resources /></div></section>
-  <ContactBanner />
+<div class="volpi-home">
+<section class="modern-hero" aria-labelledby="hero-title">
+<div class="modern-hero-image"><img src={withBase('/images/hero.webp')} alt="Profissional analisando informações, imagem ilustrativa do site original da Volpi" width="1100" height="733" fetchpriority="high" /></div>
+<div class="container modern-intro" data-reveal>
+<p class="modern-brand">Volpi Contabilidade <span>Desde 2007</span></p>
+<h1 id="hero-title">Contabilidade.<br /><span>Visão de negócio.</span></h1>
+<p class="modern-lead">Conhecimento para decidir.<br />Proximidade para seguir em frente.</p>
+<p class="modern-description">Assessoria contábil, fiscal, trabalhista e empresarial para empresas de pequeno, médio e grande porte.</p>
+<div class="modern-actions"><a class="modern-cta" href={withBase('/contato/')}>Vamos conversar <Icon size={22} /></a><a class="modern-story-link" href="#about-title">Conheça a Volpi <Icon size={20} /></a></div>
+</div>
+<div class="container modern-hero-bottom"><span>Presidente Prudente · São Paulo</span><a href={withBase('/servicos/')}>Da abertura às decisões do seu negócio <Icon size={18} /></a></div>
+</section>
+<section class="modern-about" aria-labelledby="about-title">
+<div class="container">
+<div class="modern-about-heading"><div class="modern-year"><span>Uma história que começa em</span><strong>2007<span>.</span></strong></div><h2 id="about-title">Experiência que olha<br />para <span>o seu futuro.</span></h2></div>
+<div class="modern-story-grid">
+<figure class="modern-story-image" data-reveal><img src={withBase('/images/meeting.webp')} alt="Reunião empresarial, imagem ilustrativa do site original" width="1100" height="733" loading="lazy" /><figcaption>Conhecimento contábil. Perspectiva empresarial.</figcaption></figure>
+<div class="modern-story-copy" data-reveal><p class="modern-founder">Fundada por<br /><strong>Sérgio Voltareli do Monte.</strong></p><p>A Volpi nasceu após seus <strong>25 anos de atuação como gerente contábil</strong> em um grupo empresarial.</p><p>Uma trajetória que passou por construção viária, incorporação imobiliária, agronegócio, energia, concessões rodoviárias e shopping centers.</p><p>Hoje, essa experiência apoia empresários e investidores com assessoria e terceirização contábil, orientação e atendimento próximo.</p><a class="text-link" href={withBase('/empresa/')}>Conheça nossa história <Icon size={20} /></a><div class="modern-values"><span>Ética</span><span>Transparência</span><span>Compromisso</span></div></div>
+</div></div>
+</section>
+<section class="modern-services" aria-labelledby="solutions-title">
+<div class="container"><div class="modern-services-heading"><h2 id="solutions-title">Seu negócio muda.<br /><span>A parceria acompanha.</span></h2><p>Da abertura ao planejamento tributário, encontre o apoio que sua empresa precisa em cada etapa.</p></div>
+<div class="modern-service-list">{services.map(service => <a href={withBase(`/servicos/#${service.id}`)} class="modern-service-row"><h3>{service.title}</h3><div><p>{service.summary}</p><ul>{service.items.slice(0, 2).map(item => <li>{item}</li>)}</ul></div><span class="modern-service-arrow"><Icon size={28} /><span class="sr-only">Conheça a solução</span></span></a>)}</div></div>
+</section>
+<section class="section clients-section" aria-labelledby="clients-title"><div class="container"><div class="clients-heading"><span class="eyebrow">Parcerias que fazem parte da nossa história</span><h2 id="clients-title">Quem confia no nosso trabalho.</h2></div><div class="client-grid">{clients.map((client, i) => <div class="client-logo"><img src={withBase(`/images/clientes/${i + 1}.png`)} alt={client} width="200" height="200" loading="lazy" /></div>)}</div></div></section>
+<section class="section resources-section" aria-labelledby="resources-title"><div class="container"><div class="section-heading"><div><span class="eyebrow">Conhecimento para acompanhar o mercado</span><h2 id="resources-title">Informação também<br />faz parte da parceria.</h2></div><div><p>Conteúdos contábeis e empresariais para você seguir bem informado.</p><a class="text-link" href={withBase('/conteudos/')}>Ver todos os canais <Icon size={18} /></a></div></div><Resources /></div></section>
+<ContactBanner />
+</div>
 </Layout>

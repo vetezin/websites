@@ -1,0 +1,33 @@
+<script>
+  const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const animations = new Set<Animation>();
+  let observer: IntersectionObserver | undefined;
+
+  function stopMotion() {
+    observer?.disconnect();
+    animations.forEach(animation => animation.cancel());
+    animations.clear();
+  }
+
+  // O conteúdo permanece visível sem JavaScript; o fade acontece apenas na entrada.
+  if (!preference.matches && 'IntersectionObserver' in window) {
+    observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        observer?.unobserve(entry.target);
+        const animation = entry.target.animate(
+          [{ opacity: 0.65, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
+          { duration: 600, easing: 'cubic-bezier(0.2, 0.65, 0.3, 1)' },
+        );
+        animations.add(animation);
+        animation.finished.then(() => animations.delete(animation)).catch(() => animations.delete(animation));
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('[data-reveal], .page-intro h1, .story-image')
+      .forEach(element => observer?.observe(element));
+    preference.addEventListener('change', event => {
+      if (event.matches) stopMotion();
+    });
+  }
+</script>
