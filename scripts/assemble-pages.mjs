@@ -9,7 +9,6 @@ export async function assemblePages() {
   await cp(new URL('../conveniencia018/out/', import.meta.url), new URL('conveniencia018/', output), { recursive: true });
   await cp(new URL('../volpicontabilidade/dist/', import.meta.url), new URL('volpicontabilidade/', output), { recursive: true });
   await cp(new URL('../gazzetti/dist/', import.meta.url), new URL('gazzetti/', output), { recursive: true });
-  await cp(new URL('../chapeudepalha/dist/', import.meta.url), new URL('cdpalha/', output), { recursive: true });
   await cp(new URL('../ragassi/dist/', import.meta.url), new URL('ragassi/', output), { recursive: true });
   await cp(new URL('../espetinhodoleo/dist/', import.meta.url), new URL('espleo/', output), { recursive: true });
   await writeFile(new URL('.nojekyll', output), '');

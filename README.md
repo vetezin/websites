@@ -9,7 +9,7 @@ Sites independentes, com Git e publicação centralizados neste repositório.
 | Conveniência Zero18 | `conveniencia018/` | [https://vetezin.github.io/websites/conveniencia018/](https://vetezin.github.io/websites/conveniencia018/) |
 | Volpi Contabilidade | `volpicontabilidade/` | [https://vetezin.github.io/websites/volpicontabilidade/](https://vetezin.github.io/websites/volpicontabilidade/) |
 | Gazzetti Advogados | `gazzetti/` | [https://vetezin.github.io/websites/gazzetti/](https://vetezin.github.io/websites/gazzetti/) |
-| Chapéu de Palha | `chapeudepalha/` | [https://vetezin.github.io/websites/cdpalha/](https://vetezin.github.io/websites/cdpalha/) |
+| Chapéu de Palha | `chapeudepalha/` | Retirado do GitHub Pages; código preservado para uso local. |
 | Eletro Severo | `eletrosevero/` | [https://vetezin.github.io/websites/eletrosevero/](https://vetezin.github.io/websites/eletrosevero/) |
 | Ragassi Auto Mecânica | `ragassi/` | [https://vetezin.github.io/websites/ragassi/](https://vetezin.github.io/websites/ragassi/) |
 | Espetinho do Léo | `espetinhodoleo/` | [https://vetezin.github.io/websites/espleo/](https://vetezin.github.io/websites/espleo/) |
@@ -17,7 +17,7 @@ Sites independentes, com Git e publicação centralizados neste repositório.
 As URLs correspondem aos caminhos configurados nos scripts e documentos de cada
 projeto. A disponibilidade online não pôde ser confirmada nesta atualização.
 Gazzetti, Chapéu de Palha e Eletro Severo são prévias demonstrativas.
-Os sete sites estão integrados à publicação conjunta da `main`.
+Chapéu de Palha está fora da publicação; seu código continua disponível no repositório.
 
 ## Branches por site
 
@@ -44,7 +44,6 @@ a publicação conjunta. `npm run preview:pages` serve o resultado em
 http://localhost:4330/websites/conveniencia018/ e
 http://localhost:4330/websites/volpicontabilidade/ e
 http://localhost:4330/websites/gazzetti/ e
-http://localhost:4330/websites/cdpalha/ e
 http://localhost:4330/websites/eletrosevero/ e
 http://localhost:4330/websites/ragassi/ e
 http://localhost:4330/websites/espleo/.
@@ -58,7 +57,7 @@ valida, compila os projetos que exigem build, inclui os arquivos estáticos da
 Eletro Severo e publica um único artefato no GitHub Pages.
 Em Settings → Pages, a origem é GitHub Actions.
 
-Cada push em `main` atualiza os sete sites integrados automaticamente. O status aparece
+Cada push em `main` atualiza os sites habilitados para publicação automaticamente. O status aparece
 na aba Actions. Também é possível executar o workflow manualmente.
 O Pages oferece um site por repositório; os projetos ficam em subdiretórios desse site.
 Não envie `node_modules`, `.next`, `dist`, `out`, `.pages`, arquivos `.env` ou backups.

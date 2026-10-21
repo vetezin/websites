@@ -34,10 +34,6 @@ jobs:
       - run: npm test
       - uses: actions/configure-pages@v5
       - run: npm run build:pages
-      - name: Validar Chapéu de Palha
-        run: npm run lint --prefix chapeudepalha
-        env:
-          SITE_BASE_PATH: /websites/cdpalha/
       - name: Validar Espetinho do Léo
         run: node espetinhodoleo/scripts/check.mjs
         env:
