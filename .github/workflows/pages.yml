@@ -32,6 +32,8 @@ jobs:
       - run: npm ci --prefix gazzetti
       - run: npm run lint
       - run: npm test
+      - name: Validar PH UNITED
+        run: npm run check --prefix phunited && npm test --prefix phunited
       - uses: actions/configure-pages@v5
       - run: npm run build:pages
       - name: Validar Espetinho do Léo

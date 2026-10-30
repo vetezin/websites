@@ -13,6 +13,7 @@ Sites independentes, com Git e publicação centralizados neste repositório.
 | Eletro Severo | `eletrosevero/` | [https://vetezin.github.io/websites/eletrosevero/](https://vetezin.github.io/websites/eletrosevero/) |
 | Ragassi Auto Mecânica | `ragassi/` | [https://vetezin.github.io/websites/ragassi/](https://vetezin.github.io/websites/ragassi/) |
 | Espetinho do Léo | `espetinhodoleo/` | [https://vetezin.github.io/websites/espleo/](https://vetezin.github.io/websites/espleo/) |
+| PH UNITED | `phunited/` | [https://vetezin.github.io/websites/phunited/](https://vetezin.github.io/websites/phunited/) |
 
 As URLs correspondem aos caminhos configurados nos scripts e documentos de cada
 projeto. A disponibilidade online não pôde ser confirmada nesta atualização.

@@ -11,6 +11,10 @@ export async function assemblePages() {
   await cp(new URL('../gazzetti/dist/', import.meta.url), new URL('gazzetti/', output), { recursive: true });
   await cp(new URL('../ragassi/dist/', import.meta.url), new URL('ragassi/', output), { recursive: true });
   await cp(new URL('../espetinhodoleo/dist/', import.meta.url), new URL('espleo/', output), { recursive: true });
+  await mkdir(new URL('phunited/', output), { recursive: true });
+  for (const entry of ['index.html', 'styles.css', 'robots.txt', 'src', 'assets']) {
+    await cp(new URL(`../phunited/${entry}`, import.meta.url), new URL(`phunited/${entry}`, output), { recursive: true });
+  }
   await writeFile(new URL('.nojekyll', output), '');
   console.log('Publicação preparada em .pages/');
 }
