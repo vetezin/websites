@@ -1,0 +1,12 @@
+// MOCK: every piece, price and category below demonstrates the catalog layout.
+// Licensed supporting photos are not PH UNITED inventory. See ASSET_SOURCES.md.
+export const products = [
+  { id: 'tee-white', status: 'MOCK', name: 'Camiseta essencial branca', category: 'camisetas', price: 89.9, image: 'assets/products/camiseta-branca.webp', detailImage: 'assets/products/camiseta-branca-detail.webp', alt: 'Camiseta branca, fotografia de apoio demonstrativa' },
+  { id: 'tee-black', status: 'MOCK', name: 'Camiseta gráfica preta', category: 'camisetas', price: 89.9, image: 'assets/products/camiseta-preta.webp', detailImage: 'assets/products/camiseta-preta-detail.webp', alt: 'Camiseta preta com estampa em um cabide, fotografia de apoio demonstrativa' },
+  { id: 'tee-705', status: 'MOCK', name: 'Camiseta 705', category: 'camisetas', price: 119.9, image: 'assets/products/camiseta-705.webp', detailImage: 'assets/products/camiseta-705-detail.webp', alt: 'Camiseta preta com pequena estampa 705 no peito, fotografia de apoio demonstrativa' },
+  { id: 'tee-graphic', status: 'MOCK', name: 'Camiseta gráfica off-white', category: 'camisetas', price: 99.9, image: 'assets/products/camiseta-grafica.webp', detailImage: 'assets/products/camiseta-grafica-detail.webp', alt: 'Camiseta clara com ilustração azul de gato, fotografia de apoio demonstrativa' },
+  { id: 'shorts-pattern', status: 'MOCK', name: 'Short estampado', category: 'shorts', price: 129.9, image: 'assets/products/shorts-estampado.webp', detailImage: 'assets/products/shorts-estampado-detail.webp', alt: 'Short preto com estampa lateral azul e vermelha, fotografia de apoio demonstrativa' },
+  { id: 'shorts-green', status: 'MOCK', name: 'Bermuda verde', category: 'shorts', price: 109.9, image: 'assets/products/bermuda-verde.webp', detailImage: 'assets/products/bermuda-verde-detail.webp', alt: 'Bermuda verde, fotografia de apoio demonstrativa' },
+  { id: 'pants-black', status: 'MOCK', name: 'Calça jeans preta', category: 'calcas', price: 189.9, image: 'assets/products/jeans-preto.webp', detailImage: 'assets/products/jeans-preto-detail.webp', alt: 'Calça jeans preta em superfície plana, fotografia de apoio demonstrativa' },
+  { id: 'pants-khaki', status: 'MOCK', name: 'Calça caqui', category: 'calcas', price: 179.9, image: 'assets/products/calca-caqui.webp', detailImage: 'assets/products/calca-caqui-detail.webp', alt: 'Calça caqui vestida, enquadramento sem rosto, fotografia de apoio demonstrativa' },
+];

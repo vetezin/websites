@@ -1,0 +1,10 @@
+{
+  "name": "phunited-catalog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "test": "node --test",
+    "check": "node --check src/app.js && node --check src/catalog.js && node --check src/content.js && node --check server.mjs"
+  }
+}
