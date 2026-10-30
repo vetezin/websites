@@ -36,8 +36,7 @@
 
 @layer components {
   .preview-bar { background: var(--ink); color: #fff; min-height: 31px; display: flex; align-items: center; justify-content: center; gap: 13px; font-size: 10px; letter-spacing: .035em; }
-  .preview-bar > :first-child { font-weight: 700; font-size: 9px; letter-spacing: .13em; }
-  .preview-bar-divider { color: #90918f; }
+  .preview-bar .announcement-message { font-weight: 500; font-size: 11px; letter-spacing: .035em; }
   .site-header { border-bottom: 1px solid var(--line); background: var(--paper); }
   .header-inner { height: 98px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
   .brand { display: flex; align-items: center; gap: 11px; flex-shrink: 0; }
@@ -160,8 +159,6 @@
   }
   @media (max-width: 760px) {
     .preview-bar { min-height: 30px; gap: 8px; font-size: 10px; }
-    .preview-bar > :first-child { display: none; }
-    .preview-bar-divider { display: none; }
     .header-inner { height: 72px; gap: 10px; }
     .brand-symbol { width: 39px; height: 39px; }
     .brand { gap: 9px; }
