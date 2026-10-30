@@ -47,3 +47,5 @@ Mobile: abertura compacta, sem microrrótulos decorativos e CTA redundante; prod
 
 ## Contato por WhatsApp
 Pedido posterior do usuário substitui a restrição inicial dos cards: acrescentar “Tenho interesse” abaixo do preço, com link para WhatsApp contendo nome e valor da peça. Telefone centralizado em src/content.js. Contato flutuante inferior direito usa logo original e balão “Entre em contato”. Links abrem em outra aba com noopener/noreferrer; visitante decide enviar. Carrossel automático sem setas preservado. Mobile reserva espaço no final do rodapé e afasta feedback do contato fixo.
+
+Refinamento solicitado: balão acima da logo, fundo preto e texto branco, com flutuação vertical suave de6px em4s. Objetivo: chamar atenção para o contato; gatilho: presença na tela. Pausa no hover/foco para facilitar clique; alternativa sem movimento via prefers-reduced-motion. Animação somente transform, sem alterar layout. Feedback mobile acima do conjunto para evitar sobreposição.

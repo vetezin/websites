@@ -142,9 +142,11 @@
   .footer-note { font-size: 12px; color: var(--muted); }
   .catalog-status { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 15; max-width: min(440px, calc(100vw - 32px)); width: max-content; border-radius: 3px; background: var(--ink); color: white; font-size: 12px; line-height: 1.6; box-shadow: 0 4px 20px #0002; }
   .catalog-status:not(:empty) { padding: 15px 22px; }
-  .whatsapp-contact { position: fixed; right: 24px; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 14; display: flex; align-items: center; gap: 10px; }
-  .whatsapp-contact > span { position: relative; background: white; padding: 10px 14px; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 3px 12px #0001; font-size: 12px; font-weight: 600; }
-  .whatsapp-contact > span::after { content: ''; position: absolute; right: -5px; top: calc(50% - 4px); width: 8px; height: 8px; background: white; border-top: 1px solid var(--line); border-right: 1px solid var(--line); transform: rotate(45deg); }
+  .whatsapp-contact { position: fixed; right: 24px; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 14; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; animation: contact-float 4s ease-in-out infinite; }
+  .whatsapp-contact > span { position: relative; background: var(--ink); color: white; padding: 10px 14px; border: 1px solid var(--ink); border-radius: 12px; box-shadow: 0 5px 18px #0002; font-size: 12px; font-weight: 600; }
+  .whatsapp-contact > span::after { content: ''; position: absolute; right: 22px; bottom: -5px; width: 9px; height: 9px; background: var(--ink); transform: rotate(45deg); }
+  @keyframes contact-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+  .whatsapp-contact:hover, .whatsapp-contact:focus-visible { animation-play-state: paused; }
   .whatsapp-contact img { width: 56px; height: 56px; padding: 7px; background: white; border: 1px solid var(--line); border-radius: 50%; box-shadow: 0 3px 14px #0002; transition: box-shadow 150ms ease; }
   .whatsapp-contact:hover img { box-shadow: 0 4px 18px #0004; }
 }
@@ -202,10 +204,11 @@
     .product-title { font-size: 13px; }
     .product-price { padding: 7px 11px 13px; font-size: 15px; }
     .product-interest { margin: 0 11px 13px; font-size: 11px; }
-    .whatsapp-contact { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); gap: 8px; }
+    .whatsapp-contact { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); gap: 12px; }
     .whatsapp-contact img { width: 50px; height: 50px; }
     .whatsapp-contact > span { padding: 8px 10px; font-size: 11px; }
-    .catalog-status { bottom: 84px; }
+    .whatsapp-contact > span::after { right: 19px; }
+    .catalog-status { bottom: 148px; }
     .gallery-indicators { bottom: 0; }
     .gallery-dot::after { width: 13px; }
     .catalog-end { margin-top: 26px; gap: 14px; font-size: 10px; align-items: center; }
