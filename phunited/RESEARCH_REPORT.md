@@ -8,6 +8,8 @@ Direções discutidas: urbana direta (grade compacta e produto dominante), edito
 
 Mídia: logo do cliente; fotografias neutras de apoio licenciadas, documentadas em ASSET_SOURCES.md. A fotografia não representa estoque real. Sem geração de imagem. Dados e preços são exemplos, centralizados.
 
+Atualização posterior autorizada: usuário pediu criação de imagens e vistas alternativas, incluindo tênis. Catálogo atual substituiu as fotos de apoio por8produtos fictícios gerados, com16vistas padronizadas e registradas em GENERATED_ASSETS.md. Fontes anteriores são históricas; não são mais a mídia da vitrine. Preços e peças continuam exemplos.
+
 Stack escolhida pelo implementador: HTML/CSS/JS + Node nativo, sem dependências novas. Astro é alternativa futura se o número de páginas ou conteúdo justificar. Pagamento, frete, conta, carrinho e páginas de produto excluídos desta entrega por orientação do usuário.
 
 Pendências de conteúdo e publicação: ver CONTENT_TODO.md. Fontes e verificação: SOURCE_REGISTER.md e ASSET_SOURCES.md. Não publicar com conteúdo demonstrativo.

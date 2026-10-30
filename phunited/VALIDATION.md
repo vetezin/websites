@@ -15,3 +15,13 @@
 - SEO de protótipo: title/description/OG/lang/favicon/schema/robots presentes; noindex intencional. Domínio, URLs absolutas de publicação e sitemap final dependem do domínio real.
 
 Limites: não medidos Lighthouse/Core Web Vitals, não testado em aparelho físico. Sem páginas internas, checkout, estoque ou publicação. Produtos e preços permanecem MOCK.
+
+## Rodada de melhorias e mídia autorizada
+
+- `npm.cmd test`: 6/6; `npm.cmd run check`: passou após mudanças.
+- E2E final com novo catálogo: 17/17. Busca oliva encontra Calça cargo oliva; chip persiste após fechar, limpar preserva categoria/ordem/foco; imagens alternativas sem requisição inicial.
+- Responsividade em320/390/768/820/1024/1440: sem overflow horizontal; três colunas em768/820, duas no celular. Primeira foto antes de440px nas larguras320/390 (antes612/533px). Nome>=13px e preço>=14px no mobile.
+- Categorias atuais: camisetas3, short1, calças2, tênis2. Navegação e filtros sincronizados. Carrossel automático sem setas, swipe e reduced-motion preservados.
+- 16 WebPs gerados autorizados,900×1125, total591.990bytes; pares e contact sheet inspecionados. A vista alternativa do short é muito similar, sem alegação de costas verificadas.
+- Screenshots desktop/mobile/tablet revistos após integrar mídia: fotos mais uniformes, preços alinhados e hierarquia legível. Nenhuma sobreposição do cabeçalho observada no tablet.
+- Revisão independente dos ajustes de comportamento/CSS: nenhum defeito importante apontado. Arquivos compartilhados dos mapas permaneceram intocados nesta rodada.

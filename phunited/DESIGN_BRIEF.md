@@ -8,8 +8,8 @@ Loja multimarcas de moda masculina. Explorar camisetas, shorts e calças na pág
 ## Decisões adotadas
 - Catálogo aparece na primeira tela; abertura editorial compacta, sem banner fotográfico ocupando a dobra.
 - Categorias, busca e ordenação locais para explorar os produtos demonstrativos.
-- Cards com borda fina, raio de 3 px, sombra leve; foto principal e aproximação de detalhe da mesma foto, sem inventar costas de uma peça. Conforme ajuste do usuário: sem setas ou controles clicáveis de galeria; indicadores apenas visuais.
-- Fotografias de apoio licenciadas. Sem geração de mídia. Logo fornecida pelo usuário, preservada.
+- Cards com borda fina, raio de3px, sombra leve; duas vistas de produto fictício gerado por IA. Sem setas ou controles clicáveis; indicadores apenas visuais. Segunda vista carregada sob demanda.
+- Atualização autorizada pelo usuário: imagens de produtos fictícios geradas por IA com fundo/iluminação padronizados, incluindo tênis. Logo fornecida pelo usuário preservada.
 - Mock explicitamente identificado no topo; todos os dados comerciais centralizados e marcados MOCK.
 
 ## Visual DNA e tokens
@@ -41,3 +41,6 @@ Escolha: HTML/CSS/JS nativos, servidor Node sem dependências. Alternativa: Astr
 
 ## Aceitação
 Fotos, nome e preço nos cards; categorias/busca/ordenação funcionais; keyboard, swipe e reduced-motion; screenshots revistos em 390 e 1440 px; erros de console e assets ausentes verificados. Nenhuma métrica Lighthouse ou Core Web Vitals será afirmada sem medição. SEO básico e noindex enquanto houver mocks.
+
+## Refinamento após auditoria
+Mobile: abertura compacta, sem microrrótulos decorativos e CTA redundante; produto visível antes de440px em320/390. Nomes13px, preços15px; desktop14/16px. Espaço mínimo de duas linhas nos nomes mantém preços alinhados. Tablet até1000px com3colunas; mobile até760px com2. Filtro de busca ativo aparece fora do painel; limpeza preserva categoria e ordem. Descrições institucionais definitivas e geração HTML sem dependência de JS ficam pendentes. Categoria tênis adicionada conforme mídia solicitada.

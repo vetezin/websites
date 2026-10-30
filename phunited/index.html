@@ -22,7 +22,7 @@
     <div class="preview-bar">
       <span>PRÉVIA DO CATÁLOGO</span>
       <span class="preview-bar-divider" aria-hidden="true">/</span>
-      <span>Produtos e preços demonstrativos</span>
+      <span>Imagens de IA e produtos demonstrativos</span>
     </div>
 
     <header class="site-header">
@@ -36,6 +36,7 @@
           <button type="button" data-category="camisetas" aria-pressed="false">Camisetas</button>
           <button type="button" data-category="shorts" aria-pressed="false">Shorts</button>
           <button type="button" data-category="calcas" aria-pressed="false">Calças</button>
+          <button type="button" data-category="tenis" aria-pressed="false">Tênis</button>
         </nav>
         <div class="header-actions">
           <button type="button" class="search-toggle icon-button" id="open-search" aria-label="Buscar peças" aria-controls="search-panel" aria-expanded="false">
@@ -52,6 +53,7 @@
         <button type="button" data-category="camisetas" aria-pressed="false">Camisetas <span aria-hidden="true">↗</span></button>
         <button type="button" data-category="shorts" aria-pressed="false">Shorts <span aria-hidden="true">↗</span></button>
         <button type="button" data-category="calcas" aria-pressed="false">Calças <span aria-hidden="true">↗</span></button>
+        <button type="button" data-category="tenis" aria-pressed="false">Tênis <span aria-hidden="true">↗</span></button>
       </nav>
       <div id="search-panel" class="search-panel" hidden>
         <div class="page-width search-inner">
@@ -90,6 +92,7 @@
             <button type="button" data-category="camisetas" aria-pressed="false">Camisetas</button>
             <button type="button" data-category="shorts" aria-pressed="false">Shorts</button>
             <button type="button" data-category="calcas" aria-pressed="false">Calças</button>
+            <button type="button" data-category="tenis" aria-pressed="false">Tênis</button>
           </div>
           <div class="sort-control">
             <label for="sort-select">Ordenar por</label>
@@ -102,6 +105,10 @@
           </div>
         </div>
 
+        <div id="active-search" class="active-search" hidden>
+          <span id="active-search-label"></span>
+          <button id="clear-active-search" type="button" aria-label="Limpar busca">Limpar busca <span aria-hidden="true">×</span></button>
+        </div>
         <noscript><p class="noscript-message">Ative o JavaScript para explorar os produtos demonstrativos e usar os filtros deste catálogo.</p></noscript>
         <div id="product-grid" class="product-grid"></div>
         <div id="empty-state" class="empty-state" hidden>
@@ -124,7 +131,7 @@
 
     <footer class="site-footer page-width">
       <a class="footer-brand" href="./">PH UNITED<span aria-hidden="true">↗</span></a>
-      <p>Prévia de uma loja multimarcas.<br />Peças, imagens e preços de exemplo. Nenhuma compra é realizada aqui.</p>
+      <p>Prévia de uma loja multimarcas.<br />Produtos fictícios, imagens geradas por IA e preços de exemplo. Nenhuma compra é realizada aqui.</p>
       <span class="footer-note">Seu estilo. Sem fronteiras.</span>
     </footer>
     <div id="catalog-status" class="catalog-status" role="status" aria-live="polite" aria-atomic="true"></div>

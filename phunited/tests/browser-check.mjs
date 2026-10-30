@@ -10,16 +10,19 @@ const artifacts = new URL('../artifacts/', import.meta.url);
 await mkdir(artifacts, { recursive: true });
 const browser = await chromium.launch({ executablePath: process.env.CHROME_PATH || 'C:/Program Files/Google/Chrome/Application/chrome.exe', headless: true });
 const errors = [];
+const requests = new WeakMap();
 let checks = 0;
 async function check(name, action) { await action(); console.log(`PASS ${name}`); checks++; }
 async function pageFor(options) {
   const context = await browser.newContext(options);
   const page = await context.newPage();
+  requests.set(page, []);
+  page.on('request', request => requests.get(page).push(request.url()));
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
   page.on('response', response => { if (response.status() >= 400) errors.push(`${response.status()} ${response.url()}`); });
   await page.goto(url, { waitUntil: 'networkidle' });
-  await page.waitForFunction(() => document.querySelectorAll('.product-card').length === 8);
+  if (options.javaScriptEnabled !== false) await page.waitForFunction(() => document.querySelectorAll('.product-card').length === 8);
   return page;
 }
 async function cards(page, expected) { assert.equal(await page.locator('.product-card').count(), expected); }
@@ -43,7 +46,7 @@ async function swipe(page, dx, dy) {
 }
 async function capture(page, filename) {
   await page.locator('.product-card').last().scrollIntoViewIfNeeded();
-  await page.waitForFunction(() => [...document.querySelectorAll('.product-card img')].every(img => img.complete && img.naturalWidth > 0));
+  await page.waitForFunction(() => [...document.querySelectorAll('.product-card img[src]')].every(img => img.complete && img.naturalWidth > 0));
   assert.equal(await page.locator('.product-card img[src*="placeholder"]').count(), 0);
   assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await page.mouse.move(0, 0);
@@ -54,25 +57,40 @@ async function capture(page, filename) {
 }
 try {
   const desktop = await pageFor({ viewport: { width: 1440, height: 1000 } });
+  await check('detail photographs are not requested before gallery interaction', async () => {
+    assert.equal(requests.get(desktop).filter(request => request.includes('-detail.webp')).length, 0);
+  });
   await check('8 cards; no arrows or clickable gallery indicators', async () => {
     await cards(desktop, 8);
     assert.equal(await desktop.locator('.gallery-prev, .gallery-next, .gallery-indicators button').count(), 0);
     assert((await desktop.locator('.product-media').first().boundingBox()).y < 1000);
   });
   await check('category filters and synchronized navigation', async () => {
-    for (const [category, count] of [['camisetas', 4], ['shorts', 2], ['calcas', 2]]) {
+    for (const [category, count] of [['camisetas', 3], ['shorts', 1], ['calcas', 2], ['tenis', 2]]) {
       await desktop.locator(`.category-list [data-category="${category}"]`).click();
       await cards(desktop, count);
       assert(await desktop.locator(`[data-category="${category}"]`).evaluateAll(buttons => buttons.every(button => button.getAttribute('aria-pressed') === 'true')));
     }
   });
   await check('search combines with category and Escape restores focus', async () => {
+    await desktop.locator('.category-list [data-category="calcas"]').click();
     await desktop.locator('#open-search').click();
-    await desktop.locator('#search-input').fill('caqui');
+    await desktop.locator('#search-input').fill('oliva');
     await cards(desktop, 1);
-    assert.match(await desktop.locator('.product-title').innerText(), /caqui/);
+    assert.equal(await desktop.locator('.product-title').innerText(), 'Calça cargo oliva');
     await desktop.keyboard.press('Escape');
     assert(await desktop.locator('#search-panel').isHidden());
+    assert(await desktop.locator('#open-search').evaluate(node => node === document.activeElement));
+    assert(await desktop.locator('#active-search').isVisible());
+    assert.match(await desktop.locator('#active-search-label').innerText(), /oliva/);
+  });
+  await check('clearing active query preserves category and sort and returns visible focus', async () => {
+    await desktop.locator('#sort-select').selectOption('price-desc');
+    await desktop.locator('#clear-active-search').click();
+    await cards(desktop, 2);
+    assert.equal(await desktop.locator('.category-list [data-category="calcas"]').getAttribute('aria-pressed'), 'true');
+    assert.equal(await desktop.locator('#sort-select').inputValue(), 'price-desc');
+    assert(await desktop.locator('#active-search').isHidden());
     assert(await desktop.locator('#open-search').evaluate(node => node === document.activeElement));
   });
   await check('empty state reset returns focus to visible control', async () => {
@@ -123,7 +141,7 @@ try {
     await mobile.locator('#menu-toggle').tap();
     await mobile.locator('#mobile-menu [data-category="shorts"]').focus();
     await mobile.keyboard.press('Enter');
-    await cards(mobile, 2);
+    await cards(mobile, 1);
     assert(await mobile.locator('#mobile-menu').isHidden());
     assert(await mobile.locator('#menu-toggle').evaluate(node => node === document.activeElement));
     await mobile.locator('.category-list [data-category="all"]').tap();
@@ -151,6 +169,25 @@ try {
   await check('mobile two columns, loaded photos, no overflow and screenshot', async () => {
     assert.equal(await mobile.locator('#product-grid').evaluate(node => getComputedStyle(node).gridTemplateColumns.split(' ').length), 2);
     await capture(mobile, 'mobile.png');
+  });
+  await check('responsive typography and catalog-first layout across six widths', async () => {
+    for (const width of [320, 390, 768, 820, 1024, 1440]) {
+      const page = await pageFor({ viewport: { width, height: 1000 } });
+      const metrics = await page.evaluate(() => ({
+        overflow: document.documentElement.scrollWidth > innerWidth,
+        photoTop: document.querySelector('.product-media').getBoundingClientRect().top,
+        nameSize: parseFloat(getComputedStyle(document.querySelector('.product-title')).fontSize),
+        priceSize: parseFloat(getComputedStyle(document.querySelector('.product-price')).fontSize),
+        columns: getComputedStyle(document.querySelector('#product-grid')).gridTemplateColumns.split(' ').length,
+      }));
+      assert.equal(metrics.overflow, false, `overflow at ${width}px`);
+      assert(metrics.nameSize >= 13, `name text too small at ${width}px`);
+      assert(metrics.priceSize >= 14, `price text too small at ${width}px`);
+      if (width <= 430) assert(metrics.photoTop < 440, `catalog starts at ${metrics.photoTop}px at ${width}px`);
+      if ([768, 820].includes(width)) assert.equal(metrics.columns, 3, `tablet column count at ${width}px`);
+      if (width === 820) await capture(page, 'tablet.png');
+      await page.context().close();
+    }
   });
   await check('no browser errors or failed requests', async () => assert.deepEqual(errors, []));
 } finally { await browser.close(); }

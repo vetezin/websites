@@ -11,6 +11,9 @@ const searchPanel = document.querySelector('#search-panel');
 const openSearch = document.querySelector('#open-search');
 const menuToggle = document.querySelector('#menu-toggle');
 const mobileMenu = document.querySelector('#mobile-menu');
+const activeSearch = document.querySelector('#active-search');
+const activeSearchLabel = document.querySelector('#active-search-label');
+const clearActiveSearch = document.querySelector('#clear-active-search');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const state = { category: 'all', query: '', sort: 'featured' };
 let automaticGallery = null;
@@ -48,15 +51,25 @@ function makeCard(product, index) {
   photoButton.setAttribute('aria-label', `Explorar ${product.name} — prévia demonstrativa`);
   photoButton.addEventListener('click', notify);
 
+  let detailPhoto;
+  let detailReady = false;
+  let detailStarted = false;
   for (const detail of [false, true]) {
     const photo = element('img', detail ? 'product-photo product-photo-detail' : 'product-photo');
-    photo.src = detail ? product.detailImage : product.image;
+    if (!detail) photo.src = product.image;
     photo.alt = detail ? '' : product.alt;
-    photo.width = 720;
-    photo.height = 900;
-    photo.loading = index < 4 ? 'eager' : 'lazy';
+    photo.width = 900;
+    photo.height = 1125;
+    photo.loading = detail || index < 4 ? 'eager' : 'lazy';
     photo.decoding = 'async';
-    if (detail) photo.setAttribute('aria-hidden', 'true');
+    if (detail) {
+      detailPhoto = photo;
+      photo.setAttribute('aria-hidden', 'true');
+      photo.addEventListener('load', () => {
+        detailReady = true;
+        if (detailVisible && card.isConnected) applyPhoto(true);
+      });
+    }
     photo.addEventListener('error', () => { photo.src = 'assets/placeholder.svg'; }, { once: true });
     photoButton.append(photo);
   }
@@ -71,13 +84,24 @@ function makeCard(product, index) {
     return dot;
   });
 
-  function showPhoto(detail) {
-    detailVisible = detail;
+  function applyPhoto(detail) {
     media.classList.toggle('is-detail', detail);
     dots.forEach((dot, photoIndex) => {
       const active = photoIndex === Number(detail);
       dot.classList.toggle('is-active', active);
     });
+  }
+
+  function showPhoto(detail) {
+    detailVisible = detail;
+    if (detail && !detailReady) {
+      if (!detailStarted) {
+        detailStarted = true;
+        detailPhoto.src = product.detailImage;
+      }
+      return;
+    }
+    applyPhoto(detail);
   }
 
   media.append(indicators);
@@ -151,6 +175,10 @@ function render() {
   grid.replaceChildren(...selected.map(makeCard));
   emptyState.hidden = selected.length > 0;
   count.textContent = `${selected.length} ${selected.length === 1 ? 'peça' : 'peças'}`;
+  const query = state.query.trim();
+  activeSearch.hidden = !query;
+  activeSearchLabel.textContent = query ? `Busca: “${query}”` : '';
+  clearActiveSearch.setAttribute('aria-label', query ? `Limpar busca por ${query}` : 'Limpar busca');
   document.querySelectorAll('[data-category]').forEach((button) => {
     const active = button.dataset.category === state.category;
     button.setAttribute('aria-pressed', String(active));
@@ -194,6 +222,12 @@ document.querySelector('#clear-search').addEventListener('click', () => {
   state.query = '';
   render();
   searchInput.focus();
+});
+clearActiveSearch.addEventListener('click', () => {
+  state.query = '';
+  searchInput.value = '';
+  render();
+  openSearch.focus();
 });
 openSearch.addEventListener('click', () => {
   searchPanel.hidden = !searchPanel.hidden;
