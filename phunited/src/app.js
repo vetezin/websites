@@ -165,7 +165,7 @@ function makeCard(product, index) {
   title.type = 'button';
   title.addEventListener('click', notify);
   name.append(title);
-  card.append(media, name, element('p', 'product-price', formatPrice(product.price)));
+  card.append(media, name, element('p', 'product-price', `Por ${formatPrice(product.price)}`));
   return card;
 }
 
