@@ -1,5 +1,5 @@
 import { products } from './content.js';
-import { formatPrice, selectProducts } from './catalog.js';
+import { buildWhatsAppLink, formatPrice, selectProducts } from './catalog.js';
 
 const grid = document.querySelector('#product-grid');
 const count = document.querySelector('#catalog-count');
@@ -14,6 +14,7 @@ const mobileMenu = document.querySelector('#mobile-menu');
 const activeSearch = document.querySelector('#active-search');
 const activeSearchLabel = document.querySelector('#active-search-label');
 const clearActiveSearch = document.querySelector('#clear-active-search');
+document.querySelector('#whatsapp-contact').href = buildWhatsAppLink();
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const state = { category: 'all', query: '', sort: 'featured' };
 let automaticGallery = null;
@@ -167,7 +168,12 @@ function makeCard(product, index) {
   title.type = 'button';
   title.addEventListener('click', notify);
   name.append(title);
-  card.append(media, name, element('p', 'product-price', `Por ${formatPrice(product.price)}`));
+  const interest = element('a', 'product-interest', 'Tenho interesse');
+  interest.href = buildWhatsAppLink(product);
+  interest.target = '_blank';
+  interest.rel = 'noopener noreferrer';
+  interest.setAttribute('aria-label', `Tenho interesse em ${product.name} — abrir WhatsApp`);
+  card.append(media, name, element('p', 'product-price', `Por ${formatPrice(product.price)}`), interest);
   return card;
 }
 

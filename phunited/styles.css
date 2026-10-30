@@ -116,6 +116,8 @@
   .product-title { display: block; min-height: 2.8em; padding: 0; border: none; background: transparent; text-align: left; font-size: 14px; font-weight: 400; line-height: 1.4; }
   .product-title:hover { text-decoration: underline; text-underline-offset: 3px; }
   .product-price { padding: 7px 16px 17px; font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
+  .product-interest { display: flex; align-items: center; justify-content: center; min-height: 42px; margin: 0 16px 17px; padding: 10px 12px; border: 1px solid var(--ink); background: var(--ink); color: white; font-size: 12px; font-weight: 700; transition: background-color 150ms ease; }
+  .product-interest:hover { background: #303438; }
   .catalog-end { display: flex; justify-content: space-between; gap: 16px; margin-top: 35px; border-top: 1px solid var(--line); padding-top: 18px; font-size: 9px; letter-spacing: .06em; color: var(--muted); }
   .catalog-end a { font-size: 10px; letter-spacing: 0; color: var(--ink); }
   .catalog-end a span { margin-left: 18px; }
@@ -140,6 +142,11 @@
   .footer-note { font-size: 12px; color: var(--muted); }
   .catalog-status { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 15; max-width: min(440px, calc(100vw - 32px)); width: max-content; border-radius: 3px; background: var(--ink); color: white; font-size: 12px; line-height: 1.6; box-shadow: 0 4px 20px #0002; }
   .catalog-status:not(:empty) { padding: 15px 22px; }
+  .whatsapp-contact { position: fixed; right: 24px; bottom: max(24px, env(safe-area-inset-bottom)); z-index: 14; display: flex; align-items: center; gap: 10px; }
+  .whatsapp-contact > span { position: relative; background: white; padding: 10px 14px; border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 3px 12px #0001; font-size: 12px; font-weight: 600; }
+  .whatsapp-contact > span::after { content: ''; position: absolute; right: -5px; top: calc(50% - 4px); width: 8px; height: 8px; background: white; border-top: 1px solid var(--line); border-right: 1px solid var(--line); transform: rotate(45deg); }
+  .whatsapp-contact img { width: 56px; height: 56px; padding: 7px; background: white; border: 1px solid var(--line); border-radius: 50%; box-shadow: 0 3px 14px #0002; transition: box-shadow 150ms ease; }
+  .whatsapp-contact:hover img { box-shadow: 0 4px 18px #0004; }
 }
 
 @layer responsive {
@@ -194,6 +201,11 @@
     .product-name { padding: 13px 11px 0; }
     .product-title { font-size: 13px; }
     .product-price { padding: 7px 11px 13px; font-size: 15px; }
+    .product-interest { margin: 0 11px 13px; font-size: 11px; }
+    .whatsapp-contact { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); gap: 8px; }
+    .whatsapp-contact img { width: 50px; height: 50px; }
+    .whatsapp-contact > span { padding: 8px 10px; font-size: 11px; }
+    .catalog-status { bottom: 84px; }
     .gallery-indicators { bottom: 0; }
     .gallery-dot::after { width: 13px; }
     .catalog-end { margin-top: 26px; gap: 14px; font-size: 10px; align-items: center; }
@@ -204,7 +216,7 @@
     .statement-inner img { width: 66px; }
     .statement-inner p { font-size: 25px; }
     .statement-caption { display: none; }
-    .site-footer { flex-wrap: wrap; gap: 18px; padding-block: 28px; }
+    .site-footer { flex-wrap: wrap; gap: 18px; padding: 28px 0 100px; }
     .footer-brand { font-size: 19px; }
     .site-footer > p { order: 3; width: 100%; font-size: 12px; }
     .footer-note { font-size: 11px; }

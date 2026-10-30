@@ -41,3 +41,20 @@ test('prices use Brazilian real formatting', async () => {
   const { formatPrice } = await import('../src/catalog.js');
   assert.equal(formatPrice(89.9).replace(/\s/g, ' '), 'R$ 89,90');
 });
+
+test('product interest opens the store WhatsApp with exact name and Brazilian price', async () => {
+  const { buildWhatsAppLink } = await import('../src/catalog.js');
+  assert.equal(typeof buildWhatsAppLink, 'function');
+  const link = new URL(buildWhatsAppLink({ name: 'Calça cargo oliva & preta', price: 189.9 }));
+  assert.equal(link.origin, 'https://wa.me');
+  assert.equal(link.pathname, '/5518996596174');
+  assert.equal(link.searchParams.get('text'), 'Olá, PH UNITED! Tenho interesse no item Calça cargo oliva & preta, no valor de R$ 189,90. Pode me passar mais informações?');
+});
+
+test('general contact opens WhatsApp without an unrelated product', async () => {
+  const { buildWhatsAppLink } = await import('../src/catalog.js');
+  assert.equal(typeof buildWhatsAppLink, 'function');
+  const link = new URL(buildWhatsAppLink());
+  assert.equal(link.pathname, '/5518996596174');
+  assert.equal(link.searchParams.get('text'), 'Olá, PH UNITED! Gostaria de mais informações sobre as peças.');
+});

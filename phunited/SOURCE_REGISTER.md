@@ -3,6 +3,7 @@
 | Informação | Situação | Fonte | Consulta | Observação | Pode publicar? |
 |---|---|---|---|---|---|
 | Nome PH UNITED, multimarcas, moda masculina | CONFIRMADO | Conversa com o usuário | 29/10/2026 | Camisetas, shorts e calças | Sim |
+| WhatsApp +55 18 99659-6174 | CONFIRMADO | Número fornecido pelo usuário nesta conversa | 29/10/2026 | Botão de contato e mensagens de interesse com nome/preço; não enviar automaticamente | Sim |
 | Símbolo da marca | CONFIRMADO | Anexo codex-clipboard-a79d8478-47fc-48cd-92e4-4dabb179b834.png | 29/10/2026 | Versão corrigida pelo usuário: símbolo preto, fundo branco; substitui o primeiro anexo | Sim, no contexto autorizado |
 | Imagens atuais geradas por IA | MOCK/PROPOSTA | GENERATED_ASSETS.md; autorização na conversa | 29/10/2026 | Oito produtos fictícios com duas vistas; não representam estoque | Só protótipo com identificação |
 | Fotos anteriores | MOCK, retiradas da vitrine | ASSET_SOURCES.md | 29/10/2026 | Preservadas como referências, não consumidas pelo catálogo atual | Só protótipo com identificação |

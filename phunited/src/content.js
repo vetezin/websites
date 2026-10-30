@@ -1,5 +1,7 @@
 // MOCK: fictional pieces and prices demonstrate the catalog, not store inventory.
 // Images are AI-generated illustrations of these fictional products.
+export const contact = { whatsapp: '5518996596174' };
+
 export const products = [
   { id: 'tee-black', status: 'MOCK', imageSource: 'AI_GENERATED', name: 'Camiseta boxy preta', category: 'camisetas', price: 89.9, image: 'assets/products/generated/tee-black.webp', detailImage: 'assets/products/generated/tee-black-detail.webp', alt: 'Camiseta boxy preta' },
   { id: 'tee-white', status: 'MOCK', imageSource: 'AI_GENERATED', name: 'Camiseta oversized off-white', category: 'camisetas', price: 99.9, image: 'assets/products/generated/tee-white.webp', detailImage: 'assets/products/generated/tee-white-detail.webp', alt: 'Camiseta oversized off-white' },

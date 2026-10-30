@@ -29,3 +29,6 @@ Limites: não medidos Lighthouse/Core Web Vitals, não testado em aparelho físi
 ## Revisão de copy solicitada
 
 Interface, alt text, rótulos acessíveis, metadados e schema revisados para linguagem da marca, sem referências de demonstração. Mensagem de clique agora orienta hover/swipe para outra vista, sem prometer compra ou página interna. Marcadores de origem/MOCK preservados apenas nos dados e documentos internos. Teste E2E de ausência de referências públicas adicionado; suíte de regras6/6 e sintaxe aprovadas. Sem publicação.
+
+## Contato e interesse por peça
+Dois novos testes de URL/mensagem falharam antes da implementação e passaram depois. Total8/8 testes de regras; sintaxe passou. E2E verifica contato com logo, número fornecido, oito CTAs e mensagens exatas com nome/BRL, além dos fluxos existentes. Nenhuma mensagem enviada. Screenshots desktop/mobile atualizados para revisão do contato e CTAs.

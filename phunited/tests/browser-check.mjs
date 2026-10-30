@@ -75,6 +75,26 @@ try {
     assert.equal(await desktop.locator('.gallery-prev, .gallery-next, .gallery-indicators button').count(), 0);
     assert((await desktop.locator('.product-media').first().boundingBox()).y < 1000);
   });
+  await check('WhatsApp contact and product links contain the correct destination and message', async () => {
+    const contact = desktop.locator('#whatsapp-contact');
+    assert(await contact.isVisible());
+    assert.equal(await contact.innerText(), 'Entre em contato');
+    assert.match(await contact.locator('img').getAttribute('src'), /ph-united-logo\.png$/);
+    assert.equal(new URL(await contact.getAttribute('href')).pathname, '/5518996596174');
+    const cards = await desktop.locator('.product-card').all();
+    assert.equal(cards.length, 8);
+    for (const card of cards) {
+      const link = card.locator('.product-interest');
+      assert.equal(await link.innerText(), 'Tenho interesse');
+      const url = new URL(await link.getAttribute('href'));
+      const name = await card.locator('.product-title').innerText();
+      const price = (await card.locator('.product-price').innerText()).replace(/^Por /, '').replace(/\u00a0/g, ' ');
+      assert.equal(url.origin, 'https://wa.me');
+      assert.equal(url.pathname, '/5518996596174');
+      assert.equal(url.searchParams.get('text'), `Olá, PH UNITED! Tenho interesse no item ${name}, no valor de ${price}. Pode me passar mais informações?`);
+      assert.equal(await link.getAttribute('target'), '_blank');
+    }
+  });
   await check('category filters and synchronized navigation', async () => {
     for (const [category, count] of [['camisetas', 3], ['shorts', 1], ['calcas', 2], ['tenis', 2]]) {
       await desktop.locator(`.category-list [data-category="${category}"]`).click();
