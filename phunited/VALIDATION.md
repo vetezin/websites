@@ -32,3 +32,11 @@ Interface, alt text, rótulos acessíveis, metadados e schema revisados para lin
 
 ## Contato e interesse por peça
 Dois novos testes de URL/mensagem falharam antes da implementação e passaram depois. Total8/8 testes de regras; sintaxe passou. E2E verifica contato com logo, número fornecido, oito CTAs e mensagens exatas com nome/BRL, além dos fluxos existentes. Nenhuma mensagem enviada. Screenshots desktop/mobile atualizados para revisão do contato e CTAs.
+
+## Acabamento mobile e descrições
+
+Oito descrições visuais acrescentadas, centralizadas em content.js. Nomes, descrições e preços sem recortes de texto; cards com altura uniforme por linha. Em320px, CTA ajustado para caber em uma linha mantendo altura44px. Busca com botão Fechar, foco restaurado, exclusividade com menu e contato oculto enquanto os painéis estão abertos. Fotografias mobile em4:5.
+
+Testes de regras8/8 e sintaxe passaram. E2E ampliado verifica descrições,44px nos controles de toque e nove larguras:320/360/390/430/600/768/820/1024/1440, sem overflow. Screenshot320/menu/busca revistos; identificada e corrigida quebra do CTA na menor largura. Revisão independente do diff não apontou regressões importantes. Mobile emulado; aparelho físico e Lighthouse não avaliados.
+
+Última execução após ajuste do CTA:22/22E2E aprovados, incluindo texto do botão em uma linha. Duas tentativas anteriores expiraram no teste desktop de hover já existente (limite3s); não houve aumento de timeout nem alteração do carrossel para ocultar falha. Diagnóstico de DOM adicionado somente em caso de falha; a última suíte passou sem diagnóstico acionado. Causa da intermitência não confirmada; acompanhar em futuras mudanças do carrossel.

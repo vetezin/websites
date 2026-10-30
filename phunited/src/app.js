@@ -14,7 +14,8 @@ const mobileMenu = document.querySelector('#mobile-menu');
 const activeSearch = document.querySelector('#active-search');
 const activeSearchLabel = document.querySelector('#active-search-label');
 const clearActiveSearch = document.querySelector('#clear-active-search');
-document.querySelector('#whatsapp-contact').href = buildWhatsAppLink();
+const whatsappContact = document.querySelector('#whatsapp-contact');
+whatsappContact.href = buildWhatsAppLink();
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const state = { category: 'all', query: '', sort: 'featured' };
 let automaticGallery = null;
@@ -173,7 +174,7 @@ function makeCard(product, index) {
   interest.target = '_blank';
   interest.rel = 'noopener noreferrer';
   interest.setAttribute('aria-label', `Tenho interesse em ${product.name} — abrir WhatsApp`);
-  card.append(media, name, element('p', 'product-price', `Por ${formatPrice(product.price)}`), interest);
+  card.append(media, name, element('p', 'product-description', product.description), element('p', 'product-price', `Por ${formatPrice(product.price)}`), interest);
   return card;
 }
 
@@ -197,6 +198,18 @@ function render() {
 function closeMenu() {
   mobileMenu.hidden = true;
   menuToggle.setAttribute('aria-expanded', 'false');
+  menuToggle.setAttribute('aria-label', 'Abrir menu');
+  syncContactVisibility();
+}
+
+function syncContactVisibility() {
+  whatsappContact.hidden = !mobileMenu.hidden || !searchPanel.hidden;
+}
+
+function closeSearch() {
+  searchPanel.hidden = true;
+  openSearch.setAttribute('aria-expanded', 'false');
+  syncContactVisibility();
 }
 
 document.querySelectorAll('[data-category]').forEach((button) => {
@@ -238,19 +251,27 @@ clearActiveSearch.addEventListener('click', () => {
   openSearch.focus();
 });
 openSearch.addEventListener('click', () => {
+  closeMenu();
   searchPanel.hidden = !searchPanel.hidden;
   openSearch.setAttribute('aria-expanded', String(!searchPanel.hidden));
+  syncContactVisibility();
   if (!searchPanel.hidden) searchInput.focus();
 });
+document.querySelector('#close-search').addEventListener('click', () => {
+  closeSearch();
+  openSearch.focus();
+});
 menuToggle.addEventListener('click', () => {
+  closeSearch();
   mobileMenu.hidden = !mobileMenu.hidden;
   menuToggle.setAttribute('aria-expanded', String(!mobileMenu.hidden));
+  menuToggle.setAttribute('aria-label', mobileMenu.hidden ? 'Abrir menu' : 'Fechar menu');
+  syncContactVisibility();
 });
 document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape') return;
   if (!searchPanel.hidden) {
-    searchPanel.hidden = true;
-    openSearch.setAttribute('aria-expanded', 'false');
+    closeSearch();
     openSearch.focus();
   }
   if (!mobileMenu.hidden) {

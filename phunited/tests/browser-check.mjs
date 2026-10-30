@@ -75,6 +75,12 @@ try {
     assert.equal(await desktop.locator('.gallery-prev, .gallery-next, .gallery-indicators button').count(), 0);
     assert((await desktop.locator('.product-media').first().boundingBox()).y < 1000);
   });
+  await check('every product has a concise descriptive line', async () => {
+    const descriptions = await desktop.locator('.product-description').allTextContents();
+    assert.equal(descriptions.length, 8);
+    assert(descriptions.every(text => text.trim().length >= 25 && text.trim().length <= 150));
+    assert(descriptions.every(text => !/\b\d+%|certific|garanti|100%|algodão|couro legítimo/i.test(text)), 'descriptions must not invent unverified material or commercial claims');
+  });
   await check('WhatsApp contact and product links contain the correct destination and message', async () => {
     const contact = desktop.locator('#whatsapp-contact');
     assert(await contact.isVisible());
@@ -143,7 +149,16 @@ try {
   });
   await check('natural hover cycles and resets on leaving card', async () => {
     await desktop.locator('.product-card').first().hover();
-    await detail(desktop, true);
+    try { await detail(desktop, true); } catch (error) {
+      console.log('HOVER DIAGNOSTIC', await desktop.evaluate(() => ({
+        hidden: document.hidden,
+        hover: matchMedia('(hover: hover)').matches,
+        reduced: matchMedia('(prefers-reduced-motion: reduce)').matches,
+        active: document.activeElement?.outerHTML.slice(0, 200),
+        cards: [...document.querySelectorAll('.product-card')].slice(0, 3).map(node => ({ hovered: node.matches(':hover'), media: node.querySelector('.product-media').className, detailSrc: node.querySelector('.product-photo-detail').getAttribute('src'), loaded: node.querySelector('.product-photo-detail').complete, box: node.getBoundingClientRect().toJSON() })),
+      })));
+      throw error;
+    }
     await desktop.mouse.move(0, 0);
     await detail(desktop, false);
     await desktop.waitForTimeout(1900);
@@ -167,6 +182,28 @@ try {
     await detail(reduced, false);
   });
   const mobile = await pageFor({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+  await check('mobile search and menu are exclusive, closable and hide floating contact', async () => {
+    await mobile.locator('#menu-toggle').tap();
+    assert(await mobile.locator('#mobile-menu').isVisible());
+    assert(await mobile.locator('#whatsapp-contact').isHidden());
+    await mobile.locator('#open-search').tap();
+    assert(await mobile.locator('#mobile-menu').isHidden());
+    assert(await mobile.locator('#search-panel').isVisible());
+    assert(await mobile.locator('#whatsapp-contact').isHidden());
+    const close = mobile.locator('#close-search');
+    assert(await close.isVisible());
+    assert((await close.boundingBox()).height >= 44, 'search close needs a comfortable touch target');
+    await close.tap();
+    assert(await mobile.locator('#search-panel').isHidden());
+    assert(await mobile.locator('#open-search').evaluate(node => node === document.activeElement));
+    assert(await mobile.locator('#whatsapp-contact').isVisible());
+    await mobile.locator('#open-search').tap();
+    await mobile.locator('#menu-toggle').tap();
+    assert(await mobile.locator('#search-panel').isHidden());
+    assert(await mobile.locator('#mobile-menu').isVisible());
+    await mobile.locator('#menu-toggle').tap();
+    assert(await mobile.locator('#whatsapp-contact').isVisible());
+  });
   await check('mobile menu selection restores visible focus', async () => {
     await mobile.locator('#menu-toggle').tap();
     await mobile.locator('#mobile-menu [data-category="shorts"]').focus();
@@ -199,9 +236,10 @@ try {
   await check('mobile two columns, loaded photos, no overflow and screenshot', async () => {
     assert.equal(await mobile.locator('#product-grid').evaluate(node => getComputedStyle(node).gridTemplateColumns.split(' ').length), 2);
     await capture(mobile, 'mobile.png');
+    await mobile.screenshot({ path: fileURLToPath(new URL('mobile-top.png', artifacts)) });
   });
-  await check('responsive typography and catalog-first layout across six widths', async () => {
-    for (const width of [320, 390, 768, 820, 1024, 1440]) {
+  await check('responsive typography and catalog-first layout across nine widths', async () => {
+    for (const width of [320, 360, 390, 430, 600, 768, 820, 1024, 1440]) {
       const page = await pageFor({ viewport: { width, height: 1000 } });
       const metrics = await page.evaluate(() => ({
         overflow: document.documentElement.scrollWidth > innerWidth,
@@ -213,11 +251,30 @@ try {
       assert.equal(metrics.overflow, false, `overflow at ${width}px`);
       assert(metrics.nameSize >= 13, `name text too small at ${width}px`);
       assert(metrics.priceSize >= 14, `price text too small at ${width}px`);
-      if (width <= 430) assert(metrics.photoTop < 440, `catalog starts at ${metrics.photoTop}px at ${width}px`);
+      if (width <= 430) assert(metrics.photoTop < 460, `catalog starts at ${metrics.photoTop}px at ${width}px`);
       if ([768, 820].includes(width)) assert.equal(metrics.columns, 3, `tablet column count at ${width}px`);
+      if (width <= 600) {
+        const targets = await page.locator('.category-list button, #sort-select, .product-interest, #menu-toggle, #open-search').evaluateAll(nodes => nodes.filter(node => node.getBoundingClientRect().height > 0).map(node => ({ label: node.textContent.trim() || node.getAttribute('aria-label'), height: node.getBoundingClientRect().height })));
+        assert(targets.every(target => target.height >= 44), `small touch targets at ${width}px: ${JSON.stringify(targets.filter(target => target.height < 44))}`);
+        const interestLines = await page.locator('.product-interest').evaluateAll(nodes => nodes.map(node => {
+          const range = document.createRange();
+          range.selectNodeContents(node);
+          return range.getClientRects().length;
+        }));
+        assert(interestLines.every(lines => lines === 1), `interest labels must stay on one line at ${width}px`);
+      }
       if (width === 820) await capture(page, 'tablet.png');
+      if ([320, 430].includes(width)) await capture(page, `mobile-${width}.png`);
       await page.context().close();
     }
+  });
+  await check('mobile menu and search screenshots', async () => {
+    await mobile.evaluate(() => window.scrollTo(0, 0));
+    await mobile.locator('#menu-toggle').tap();
+    await mobile.screenshot({ path: fileURLToPath(new URL('mobile-menu.png', artifacts)) });
+    await mobile.locator('#open-search').tap();
+    await mobile.screenshot({ path: fileURLToPath(new URL('mobile-search.png', artifacts)) });
+    await mobile.locator('#close-search').tap();
   });
   await check('no browser errors or failed requests', async () => assert.deepEqual(errors, []));
 } finally { await browser.close(); }

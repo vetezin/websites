@@ -55,13 +55,16 @@
       </nav>
       <div id="search-panel" class="search-panel" hidden>
         <div class="page-width search-inner">
-          <label for="search-input">Encontre sua próxima peça</label>
+          <div class="search-panel-heading">
+            <label for="search-input">Encontre sua próxima peça</label>
+            <button id="close-search" type="button" aria-label="Fechar busca">Fechar <span aria-hidden="true">×</span></button>
+          </div>
           <div class="search-field">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.7" /><path d="m16 16 4.5 4.5" /></svg>
             <input id="search-input" type="search" placeholder="Busque por camiseta, jeans, preta…" autocomplete="off" maxlength="120" />
             <button type="button" id="clear-search">Limpar</button>
           </div>
-          <p>Pressione Esc para fechar a busca.</p>
+          <p>Busque pelo nome da peça ou pela cor.</p>
         </div>
       </div>
     </header>
