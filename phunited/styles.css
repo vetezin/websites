@@ -212,6 +212,7 @@
     .product-price { padding: 7px 10px 12px; font-size: 15px; }
     .product-interest { min-height: 44px; margin: 0 10px 12px; font-size: 12px; }
     .whatsapp-contact { right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); gap: 12px; }
+    .whatsapp-contact.is-obscured { visibility: hidden; pointer-events: none; }
     .whatsapp-contact img { width: 48px; height: 48px; }
     .whatsapp-contact > span { padding: 8px 10px; font-size: 11px; }
     .whatsapp-contact > span::after { right: 19px; }

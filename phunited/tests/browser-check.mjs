@@ -196,13 +196,13 @@ try {
     await close.tap();
     assert(await mobile.locator('#search-panel').isHidden());
     assert(await mobile.locator('#open-search').evaluate(node => node === document.activeElement));
-    assert(await mobile.locator('#whatsapp-contact').isVisible());
+    assert.equal(await mobile.locator('#whatsapp-contact').getAttribute('hidden'), null);
     await mobile.locator('#open-search').tap();
     await mobile.locator('#menu-toggle').tap();
     assert(await mobile.locator('#search-panel').isHidden());
     assert(await mobile.locator('#mobile-menu').isVisible());
     await mobile.locator('#menu-toggle').tap();
-    assert(await mobile.locator('#whatsapp-contact').isVisible());
+    assert.equal(await mobile.locator('#whatsapp-contact').getAttribute('hidden'), null);
   });
   await check('mobile menu selection restores visible focus', async () => {
     await mobile.locator('#menu-toggle').tap();

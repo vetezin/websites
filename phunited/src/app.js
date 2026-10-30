@@ -20,6 +20,23 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const state = { category: 'all', query: '', sort: 'featured' };
 let automaticGallery = null;
 let statusTimer;
+let contactFrame;
+
+function scheduleContactPlacement() {
+  if (contactFrame) return;
+  contactFrame = requestAnimationFrame(() => {
+    contactFrame = null;
+    const mobile = window.matchMedia('(max-width: 760px)').matches;
+    const floating = whatsappContact.getBoundingClientRect();
+    const focused = whatsappContact.contains(document.activeElement);
+    const overlapsText = mobile && !focused && [...grid.querySelectorAll('.product-name')].some((name) => {
+      const card = name.closest('.product-card').getBoundingClientRect();
+      return floating.left < card.right && floating.right > card.left
+        && floating.bottom > name.getBoundingClientRect().top - 8 && floating.top < card.bottom + 8;
+    });
+    whatsappContact.classList.toggle('is-obscured', overlapsText);
+  });
+}
 
 function stopGallery() {
   if (!automaticGallery) return;
@@ -188,6 +205,7 @@ function render() {
   activeSearch.hidden = !query;
   activeSearchLabel.textContent = query ? `Busca: “${query}”` : '';
   clearActiveSearch.setAttribute('aria-label', query ? `Limpar busca por ${query}` : 'Limpar busca');
+  scheduleContactPlacement();
   document.querySelectorAll('[data-category]').forEach((button) => {
     const active = button.dataset.category === state.category;
     button.setAttribute('aria-pressed', String(active));
@@ -204,6 +222,7 @@ function closeMenu() {
 
 function syncContactVisibility() {
   whatsappContact.hidden = !mobileMenu.hidden || !searchPanel.hidden;
+  scheduleContactPlacement();
 }
 
 function closeSearch() {
@@ -283,5 +302,8 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) stopGallery();
 });
 reducedMotion.addEventListener('change', stopGallery);
+window.addEventListener('scroll', scheduleContactPlacement, { passive: true });
+window.addEventListener('resize', scheduleContactPlacement);
+whatsappContact.addEventListener('focusout', scheduleContactPlacement);
 
 render();
