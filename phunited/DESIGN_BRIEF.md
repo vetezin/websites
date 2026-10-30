@@ -15,7 +15,7 @@ Loja multimarcas de moda masculina. Explorar camisetas, shorts e calças na pág
 ## Visual DNA e tokens
 Composição: grid de vitrine com abertura editorial assimétrica. Densidade equilibrada. Geometria reta, com símbolo circular da marca como contraste. Fotografia de produto dominante. Movimento funcional. Ritmo compacto no catálogo, rodapé mais espaçoso. Cor monocromática guiada pela logo.
 
-Paleta: tinta #111315, papel #ffffff, superfície #f3f3f1, linha #dedfdd, texto secundário #60625f. Tipografia: Arial/Helvetica sem download, peso 800 e espaçamento negativo no display, corpo 400, utilitários 600. Grade de 4 colunas a 1440 px, 2 a 390 px. Espaçamento em escala de 4/8 px. Largura máxima 1440 px.
+Paleta: tinta #111315, papel #ffffff, superfície #f3f3f1, linha #dedfdd, texto secundário #60625f. Tipografia: Arial/Helvetica sem download, peso 800 e espaçamento negativo no display, corpo 400, utilitários 600. Grade de 3 colunas a 1440 px, 2 a 390 px, conforme ajuste solicitado pelo usuário. Espaçamento em escala de 4/8 px. Largura máxima 1440 px.
 
 Três decisões específicas: símbolo original como assinatura (identidade fornecida); nomenclatura e filtros por tipo de roupa (jornada da multimarcas); fotos dominantes com detalhe sob interação (pedido explícito de explorar a peça fora da página interna). Restrição autoral: nada além de foto, nome e preço no conteúdo do card; nenhum selo comercial ou marca fictícia.
 

@@ -98,7 +98,7 @@
   .active-search > span { min-width: 0; overflow-wrap: anywhere; }
   .active-search button { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; background: none; border: 0; padding: 8px 0; min-height: 36px; font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
   .active-search button span { font-size: 20px; text-decoration: none; }
-  .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 26px 20px; align-items: start; }
+  .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px 20px; align-items: start; }
   .product-card { min-width: 0; border: 1px solid var(--line); border-radius: 3px; background: white; overflow: hidden; box-shadow: 0 2px 4px rgb(17 19 21 / 2%); transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
   .product-card:focus-within { border-color: #a0a39e; box-shadow: 0 7px 18px rgb(17 19 21 / 6%); }
   .product-media { position: relative; aspect-ratio: 4 / 4.6; overflow: hidden; background: var(--surface); touch-action: pan-y; }
