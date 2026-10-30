@@ -25,3 +25,7 @@ Limites: não medidos Lighthouse/Core Web Vitals, não testado em aparelho físi
 - 16 WebPs gerados autorizados,900×1125, total591.990bytes; pares e contact sheet inspecionados. A vista alternativa do short é muito similar, sem alegação de costas verificadas.
 - Screenshots desktop/mobile/tablet revistos após integrar mídia: fotos mais uniformes, preços alinhados e hierarquia legível. Nenhuma sobreposição do cabeçalho observada no tablet.
 - Revisão independente dos ajustes de comportamento/CSS: nenhum defeito importante apontado. Arquivos compartilhados dos mapas permaneceram intocados nesta rodada.
+
+## Revisão de copy solicitada
+
+Interface, alt text, rótulos acessíveis, metadados e schema revisados para linguagem da marca, sem referências de demonstração. Mensagem de clique agora orienta hover/swipe para outra vista, sem prometer compra ou página interna. Marcadores de origem/MOCK preservados apenas nos dados e documentos internos. Teste E2E de ausência de referências públicas adicionado; suíte de regras6/6 e sintaxe aprovadas. Sem publicação.

@@ -10,7 +10,7 @@ Loja multimarcas de moda masculina. Explorar camisetas, shorts e calças na pág
 - Categorias, busca e ordenação locais para explorar os produtos demonstrativos.
 - Cards com borda fina, raio de3px, sombra leve; duas vistas de produto fictício gerado por IA. Sem setas ou controles clicáveis; indicadores apenas visuais. Segunda vista carregada sob demanda.
 - Atualização autorizada pelo usuário: imagens de produtos fictícios geradas por IA com fundo/iluminação padronizados, incluindo tênis. Logo fornecida pelo usuário preservada.
-- Mock explicitamente identificado no topo; todos os dados comerciais centralizados e marcados MOCK.
+- Atualização de copy solicitada: interface e metadados usam linguagem da PH UNITED; referências de demonstração retiradas também das descrições acessíveis. Dados comerciais continuam centralizados e marcados MOCK internamente; publicação permanece fora do escopo.
 
 ## Visual DNA e tokens
 Composição: grid de vitrine com abertura editorial assimétrica. Densidade equilibrada. Geometria reta, com símbolo circular da marca como contraste. Fotografia de produto dominante. Movimento funcional. Ritmo compacto no catálogo, rodapé mais espaçoso. Cor monocromática guiada pela logo.

@@ -57,6 +57,16 @@ async function capture(page, filename) {
 }
 try {
   const desktop = await pageFor({ viewport: { width: 1440, height: 1000 } });
+  await check('brand copy replaces prototype references in visible text and accessible descriptions', async () => {
+    const copy = await desktop.evaluate(() => [
+      document.body.innerText,
+      ...[...document.querySelectorAll('img')].map(node => node.alt),
+      ...[...document.querySelectorAll('[aria-label]')].map(node => node.getAttribute('aria-label')),
+      ...[...document.querySelectorAll('meta[name="description"], meta[property="og:description"]')].map(node => node.content),
+      document.querySelector('script[type="application/ld+json"]').textContent,
+    ].join('\n'));
+    assert.doesNotMatch(copy, /demonstra|prévia|fictí|gerad[oa]|estoque real|próxima etapa|\bIA\b/i);
+  });
   await check('detail photographs are not requested before gallery interaction', async () => {
     assert.equal(requests.get(desktop).filter(request => request.includes('-detail.webp')).length, 0);
   });
@@ -148,7 +158,7 @@ try {
   });
   await check('mobile product click provides feedback without navigation', async () => {
     await mobile.locator('.product-title').first().tap();
-    await mobile.waitForFunction(() => document.querySelector('#catalog-status').textContent.includes('próxima etapa'));
+    await mobile.waitForFunction(() => document.querySelector('#catalog-status').textContent === 'Deslize a foto para ver outra vista da peça.');
     assert.equal(mobile.url(), url);
     await mobile.waitForTimeout(4100);
   });
@@ -163,7 +173,7 @@ try {
     // A new deliberate tap follows the gesture after touch scrolling settles.
     await mobile.waitForTimeout(500);
     await mobile.locator('.product-title').first().tap();
-    await mobile.waitForFunction(() => document.querySelector('#catalog-status').textContent.includes('próxima etapa'), null, { timeout: 3000 });
+    await mobile.waitForFunction(() => document.querySelector('#catalog-status').textContent === 'Deslize a foto para ver outra vista da peça.', null, { timeout: 3000 });
     await mobile.waitForTimeout(4100);
   });
   await check('mobile two columns, loaded photos, no overflow and screenshot', async () => {

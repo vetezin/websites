@@ -28,7 +28,9 @@ function stopGallery() {
 
 function notify() {
   clearTimeout(statusTimer);
-  status.textContent = 'A página desta peça será criada na próxima etapa.';
+  status.textContent = window.matchMedia('(hover: hover)').matches
+    ? 'Passe o mouse sobre a foto para ver outra vista da peça.'
+    : 'Deslize a foto para ver outra vista da peça.';
   status.classList.add('is-visible');
   statusTimer = setTimeout(() => {
     status.classList.remove('is-visible');
@@ -48,7 +50,7 @@ function makeCard(product, index) {
   const media = element('div', 'product-media');
   const photoButton = element('button', 'product-photo-button');
   photoButton.type = 'button';
-  photoButton.setAttribute('aria-label', `Explorar ${product.name} — prévia demonstrativa`);
+  photoButton.setAttribute('aria-label', `Explorar ${product.name}`);
   photoButton.addEventListener('click', notify);
 
   let detailPhoto;

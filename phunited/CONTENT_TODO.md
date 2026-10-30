@@ -2,7 +2,7 @@
 
 Este é um protótipo local, não uma loja publicada.
 
-MOCK: todas as peças, nomes, preços e ordem da seleção. O catálogo atual usa produtos fictícios com imagens geradas por IA, incluindo frente/costas ou vistas alternativas de tênis; não representam estoque da PH UNITED. Dados centralizados em src/content.js e identificados na interface. Processo e prompts em GENERATED_ASSETS.md.
+MOCK: todas as peças, nomes, preços e ordem da seleção. O catálogo atual usa produtos fictícios com imagens geradas por IA, incluindo frente/costas ou vistas alternativas de tênis; não representam estoque da PH UNITED. Dados centralizados em src/content.js, com marcadores internos preservados. Por solicitação do usuário, a interface utiliza somente linguagem da marca, sem avisos de demonstração. Processo e prompts em GENERATED_ASSETS.md. A remoção dos avisos visuais não altera a pendência de substituir os dados antes de publicar para venda.
 
 Para publicar: fornecer catálogo real e autorização das fotos; preços atuais; marcas; variações; estoque; descrição/medidas/composição; canal de compra; contatos oficiais; domínio; informações legais e políticas pertinentes à operação. Substituir os mocks e revisar metadados, sitemap, robots e schema com o domínio real. O protótipo usa noindex.
 
